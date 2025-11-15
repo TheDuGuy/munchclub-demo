@@ -44,6 +44,13 @@ export default function Home() {
       href: "/mockups-mvp-restaurant.html",
       icon: "🚀",
       color: "bg-cyan-50 border-cyan-200 hover:border-cyan-400"
+    },
+    {
+      title: "Email Templates",
+      description: "6 ready-to-use email templates for restaurant outreach and partnership onboarding",
+      href: "/restaurant-email-templates.html",
+      icon: "📧",
+      color: "bg-emerald-50 border-emerald-200 hover:border-emerald-400"
     }
   ];
 

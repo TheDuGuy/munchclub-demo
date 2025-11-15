@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munch Club - Restaurant Outreach Email Templates</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #F9FAFB;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #0F172A;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748B;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+
+        .intro-box h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .intro-box p {
+            font-size: 16px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .template-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .template-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .template-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .template-badge {
+            background: #16A34A;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .template-meta {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: #64748B;
+        }
+
+        .template-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .email-preview {
+            background: #F8FAFC;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .email-field {
+            margin-bottom: 16px;
+        }
+
+        .email-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .email-content {
+            font-size: 15px;
+            color: #1E293B;
+            line-height: 1.8;
+        }
+
+        .email-content strong {
+            color: #0F172A;
+        }
+
+        .copy-button {
+            background: #16A34A;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .copy-button:hover {
+            background: #15803D;
+        }
+
+        .usage-notes {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .usage-notes h4 {
+            color: #92400E;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .usage-notes ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .usage-notes li {
+            color: #78350F;
+            font-size: 14px;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .usage-notes li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #F59E0B;
+        }
+
+        .variables-box {
+            background: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .variables-box h4 {
+            color: #1E40AF;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .variable-item {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #1E293B;
+        }
+
+        .toc {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .toc h3 {
+            font-size: 18px;
+            color: #0F172A;
+            margin-bottom: 16px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .toc li:last-child {
+            border-bottom: none;
+        }
+
+        .toc a {
+            color: #16A34A;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: #15803D;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Outreach Email Templates</h1>
+        <p class="subtitle">Ready-to-use email templates for onboarding restaurant partners to Munch Club</p>
+
+        <div class="intro-box">
+            <h2>📧 How to Use These Templates</h2>
+            <p>
+                Each template is crafted for a specific outreach scenario. Replace the <strong>[VARIABLES]</strong> with your
+                actual information, copy the entire email, and send! Each template includes usage notes and best practices to
+                maximize your response rate.
+            </p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>📋 Quick Navigation</h3>
+            <ul>
+                <li><a href="#cold-outreach">Template 1: Cold Email (First Contact)</a></li>
+                <li><a href="#follow-up">Template 2: Follow-Up After In-Person Visit</a></li>
+                <li><a href="#demo-invite">Template 3: Demo Invitation</a></li>
+                <li><a href="#pilot-invitation">Template 4: Pilot Program Invitation</a></li>
+                <li><a href="#soft-reminder">Template 5: Soft Reminder (No Response)</a></li>
+                <li><a href="#partnership-confirmation">Template 6: Partnership Confirmation</a></li>
+            </ul>
+        </div>
+
+        <!-- Template 1: Cold Email -->
+        <div class="template-card" id="cold-outreach">
+            <div class="template-header">
+                <div class="template-title">Template 1: Cold Email (First Contact)</div>
+                <div class="template-badge">COLD OUTREACH</div>
+            </div>
+
+            <div class="template-meta">
+                <span>⏱️ Best Time: Tuesday-Thursday, 10am-2pm</span>
+                <span>📊 Expected Response Rate: 15-25%</span>
+            </div>
+
+            <div class="email-preview">
+                <div class="email-field">
+                    <div class="email-label">Subject Line</div>
+                    <div class="email-content"><strong>Tools + customers for [RESTAURANT_NAME]</strong></div>
+                </div>
+
+                <div class="email-field">
+                    <div class="email-label">Email Body</div>
+                    <div class="email-content">
+Hi [OWNER_NAME],<br><br>
+
+I'm Edou, building Munch Club — tools + customers for local food businesses in Maidstone and Tunbridge Wells.<br><br>
+
+<strong>The problem you're facing:</strong><br>
+• Empty tables during slow hours (8-9am, 2-4pm, 8-9pm)<br>
+• Expensive customer acquisition (£25-50 per customer via ads)<br>
+• Competing with chains that have bigger marketing budgets<br><br>
+
+<strong>What we're building:</strong><br>
+We give you the tools (dashboard, inventory tracking, promotions) AND the customers (5,000+ local app users in your area). You create time-based deals like "50% off breakfast 8-9am", we promote to nearby users, they pay via app, pick up in-store.<br><br>
+
+<strong>Your economics:</strong><br>
+• Commission tiers: 20% → 18% → 15% → 12% as you grow<br>
+• Replace leaflet costs — save £16,800/year<br>
+• Example: £120 revenue = £98 net payout (15% tier)<br>
+• Free to start, Stripe handles payouts<br><br>
+
+<strong>We're launching February 2025</strong> and looking for 10 pilot restaurants. Can I show you a 15-minute demo this week?<br><br>
+
+Here's what it looks like: <a href="[DEMO_URL]" style="color: #16A34A;">[DEMO_URL]</a><br><br>
+
+Available Tuesday 3-5pm or Thursday 10am-12pm?<br><br>
+
+Best,<br>
+Edou Mota<br>
+Founder, Munch Club<br>
+<a href="mailto:hello@munchclub.co.uk" style="color: #16A34A;">hello@munchclub.co.uk</a><br>
++44 (0)7xxx xxx xxx
+                    </div>
+                </div>
+            </div>
+
+            <button class="copy-button" onclick="copyTemplate('cold-outreach')">📋 Copy Template</button>
+
+            <div class="usage-notes">
+                <h4>💡 Usage Notes</h4>
+                <ul>
+                    <li>Send Tuesday-Thursday between 10am-2pm (avoids lunch/dinner rush)</li>
+                    <li>Keep subject line under 50 characters</li>
+                    <li>Replace [RESTAURANT_NAME] with their actual business name</li>
+                    <li>Research owner's name on LinkedIn or Google before sending</li>
+                    <li>Follow up after 3 days if no response</li>
+                </ul>
+            </div>
+
+            <div class="variables-box">
+                <h4>🔧 Variables to Replace</h4>
+                <div class="variable-item">[OWNER_NAME] — Restaurant owner or manager's first name</div>
+                <div class="variable-item">[RESTAURANT_NAME] — Business name</div>
+                <div class="variable-item">[DEMO_URL] — Your deployed demo site URL</div>
+            </div>
+        </div>
+
+        <!-- Template 2: Follow-Up After Visit -->
+        <div class="template-card" id="follow-up">
+            <div class="template-header">
+                <div class="template-title">Template 2: Follow-Up After In-Person Visit</div>
+                <div class="template-badge">FOLLOW-UP</div>
+            </div>
+
+            <div class="template-meta">
+                <span>⏱️ Send Within: 2-4 hours after visit</span>
+                <span>📊 Expected Response Rate: 60-80%</span>
+            </div>
+
+            <div class="email-preview">
+                <div class="email-field">
+                    <div class="email-label">Subject Line</div>
+                    <div class="email-content"><strong>Great meeting you today at [RESTAURANT_NAME]</strong></div>
+                </div>
+
+                <div class="email-field">
+                    <div class="email-label">Email Body</div>
+                    <div class="email-content">
+Hi [OWNER_NAME],<br><br>
+
+Thanks for taking the time to chat today! I know the [LUNCH/AFTERNOON] rush keeps you busy, so I really appreciate the conversation.<br><br>
+
+<strong>Quick recap of what we discussed:</strong><br>
+• Munch Club gives you tools + 5,000 customers in Maidstone & Tunbridge Wells<br>
+• Commission tiers: 20% → 18% → 15% → 12% as you grow<br>
+• Launch: February 2025<br>
+• Pilot program: 10 local restaurants<br><br>
+
+<strong>Resources I mentioned:</strong><br>
+• Full platform demo: <a href="[DEMO_URL]" style="color: #16A34A;">[DEMO_URL]</a><br>
+• Restaurant dashboard preview: <a href="[DEMO_URL]/mockups-complete-restaurant.html" style="color: #16A34A;">[DEMO_URL]/mockups-complete-restaurant.html</a><br>
+• Pricing calculator: [Attach PDF or link]<br><br>
+
+<strong>Next steps:</strong><br>
+You mentioned [SPECIFIC_CONCERN — e.g., "wanting to see how inventory tracking works"]. Happy to walk you through this on a quick 10-minute call, or I can send you more details via email — whichever works best for you.<br><br>
+
+Also, if you're interested in joining the pilot program, we have [X] spots left. Would love to have [RESTAURANT_NAME] as one of our launch partners.<br><br>
+
+Let me know what you think!<br><br>
+
+Best,<br>
+Edou<br>
+<a href="mailto:hello@munchclub.co.uk" style="color: #16A34A;">hello@munchclub.co.uk</a><br>
++44 (0)7xxx xxx xxx
+                    </div>
+                </div>
+            </div>
+
+            <button class="copy-button" onclick="copyTemplate('follow-up')">📋 Copy Template</button>
+
+            <div class="usage-notes">
+                <h4>💡 Usage Notes</h4>
+                <ul>
+                    <li>Send within 2-4 hours while conversation is fresh in their mind</li>
+                    <li>Reference specific details from your conversation (shows you listened)</li>
+                    <li>Address any concerns or questions they raised during visit</li>
+                    <li>Create urgency with "pilot spots remaining" if true</li>
+                    <li>Attach your one-pager PDF for easy reference</li>
+                </ul>
+            </div>
+
+            <div class="variables-box">
+                <h4>🔧 Variables to Replace</h4>
+                <div class="variable-item">[OWNER_NAME] — Their first name</div>
+                <div class="variable-item">[RESTAURANT_NAME] — Business name</div>
+                <div class="variable-item">[LUNCH/AFTERNOON] — Time of day you visited</div>
+                <div class="variable-item">[SPECIFIC_CONCERN] — Any objection or question they raised</div>
+                <div class="variable-item">[X] — Number of pilot spots remaining</div>
+                <div class="variable-item">[DEMO_URL] — Your demo site URL</div>
+            </div>
+        </div>
+
+        <!-- Template 3: Demo Invitation -->
+        <div class="template-card" id="demo-invite">
+            <div class="template-header">
+                <div class="template-title">Template 3: Demo Invitation</div>
+                <div class="template-badge">DEMO</div>
+            </div>
+
+            <div class="template-meta">
+                <span>⏱️ Best For: Warm leads who expressed interest</span>
+                <span>📊 Expected Response Rate: 40-60%</span>
+            </div>
+
+            <div class="email-preview">
+                <div class="email-field">
+                    <div class="email-label">Subject Line</div>
+                    <div class="email-content"><strong>15-min demo: See how [RESTAURANT_NAME] could earn an extra £2,000/month</strong></div>
+                </div>
+
+                <div class="email-field">
+                    <div class="email-label">Email Body</div>
+                    <div class="email-content">
+Hi [OWNER_NAME],<br><br>
+
+You mentioned you'd be interested in seeing how Munch Club works. I'd love to walk you through a quick 15-minute demo this week.<br><br>
+
+<strong>What I'll show you:</strong><br>
+✓ How to create promotions in under 60 seconds<br>
+✓ Real-time dashboard with sales, inventory, and customer insights<br>
+✓ Exact net payout calculations (transparency = trust)<br>
+✓ How 5,000+ local customers will discover your business<br>
+✓ Marketing automation tools to drive repeat purchases<br><br>
+
+<strong>What you'll learn:</strong><br>
+• How much you could realistically earn in Month 1, 2, 3<br>
+• Which slow hours have the most demand from app users<br>
+• How commission tiers work (and how to maximize your net payout)<br><br>
+
+<strong>Available this week?</strong><br>
+Pick a time that works for you:<br>
+• Tuesday 3:00pm - 5:00pm<br>
+• Wednesday 10:00am - 12:00pm<br>
+• Thursday 2:00pm - 4:00pm<br><br>
+
+We can meet at [RESTAURANT_NAME] (I'll buy a coffee ☕) or do a video call — whatever's easier for you.<br><br>
+
+If you prefer to explore on your own first, here's the full demo: <a href="[DEMO_URL]" style="color: #16A34A;">[DEMO_URL]</a><br><br>
+
+Let me know what works!<br><br>
+
+Best,<br>
+Edou<br>
+<a href="mailto:hello@munchclub.co.uk" style="color: #16A34A;">hello@munchclub.co.uk</a><br>
++44 (0)7xxx xxx xxx
+                    </div>
+                </div>
+            </div>
+
+            <button class="copy-button" onclick="copyTemplate('demo-invite')">📋 Copy Template</button>
+
+            <div class="usage-notes">
+                <h4>💡 Usage Notes</h4>
+                <ul>
+                    <li>Use specific earnings potential in subject line ($2k/month is realistic for bakery)</li>
+                    <li>Offer both in-person and video call options</li>
+                    <li>Give 3 specific time slots (reduces back-and-forth)</li>
+                    <li>Mention buying coffee if meeting in-person (builds rapport)</li>
+                    <li>Include self-serve demo link for those who prefer to explore alone</li>
+                </ul>
+            </div>
+
+            <div class="variables-box">
+                <h4>🔧 Variables to Replace</h4>
+                <div class="variable-item">[OWNER_NAME] — Their first name</div>
+                <div class="variable-item">[RESTAURANT_NAME] — Business name</div>
+                <div class="variable-item">[DEMO_URL] — Your demo site URL</div>
+            </div>
+        </div>
+
+        <!-- Template 4: Pilot Program Invitation -->
+        <div class="template-card" id="pilot-invitation">
+            <div class="template-header">
+                <div class="template-title">Template 4: Pilot Program Invitation</div>
+                <div class="template-badge">EXCLUSIVE</div>
+            </div>
+
+            <div class="template-meta">
+                <span>⏱️ Best For: High-quality prospects you really want</span>
+                <span>📊 Expected Response Rate: 50-70%</span>
+            </div>
+
+            <div class="email-preview">
+                <div class="email-field">
+                    <div class="email-label">Subject Line</div>
+                    <div class="email-content"><strong>Invitation: Be one of 10 pilot restaurants for Munch Club</strong></div>
+                </div>
+
+                <div class="email-field">
+                    <div class="email-label">Email Body</div>
+                    <div class="email-content">
+Hi [OWNER_NAME],<br><br>
+
+I'm reaching out because [RESTAURANT_NAME] is exactly the kind of local business we built Munch Club for.<br><br>
+
+<strong>We're launching in February 2025</strong> and looking for 10 pilot restaurants in Maidstone & Tunbridge Wells to help us launch. Here's what that means for you:<br><br>
+
+<strong>Pilot Benefits:</strong><br>
+✓ Free Growth plan (£29/month value) for 6 months<br>
+✓ 15% commission rate locked in (vs 20% standard) for your first year<br>
+✓ Featured placement on app launch (5,000+ users will see you first)<br>
+✓ Direct input on features — we'll build what you need<br>
+✓ Dedicated onboarding support (I'll personally help you set up)<br><br>
+
+<strong>What we need from pilot partners:</strong><br>
+• Post 2-3 promotions per week during first month<br>
+• Share feedback on what's working / what's not<br>
+• Promote Munch Club to your customers (we provide materials)<br>
+• Commit to using the platform for 3 months minimum<br><br>
+
+<strong>Expected earnings (based on similar models):</strong><br>
+• Month 1: £400-800 (soft launch, smaller user base)<br>
+• Month 2: £1,200-2,000 (as we hit 2,500 users)<br>
+• Month 3: £2,500-4,000 (at full scale with 5,000 users)<br><br>
+
+<strong>Why [RESTAURANT_NAME]?</strong><br>
+[PERSONALIZED_REASON — e.g., "Your bakery has perfect morning inventory that would otherwise go to waste, and your location is ideal for our target users walking to the train station."]<br><br>
+
+We have [X] spots remaining. Interested?<br><br>
+
+Happy to discuss on a quick call or meet at your venue this week.<br><br>
+
+Best,<br>
+Edou<br>
+Founder, Munch Club<br>
+<a href="mailto:hello@munchclub.co.uk" style="color: #16A34A;">hello@munchclub.co.uk</a><br>
++44 (0)7xxx xxx xxx<br><br>
+
+P.S. — Here's a preview of what you'd get: <a href="[DEMO_URL]" style="color: #16A34A;">[DEMO_URL]</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="copy-button" onclick="copyTemplate('pilot-invitation')">📋 Copy Template</button>
+
+            <div class="usage-notes">
+                <h4>💡 Usage Notes</h4>
+                <ul>
+                    <li>Only send to high-quality prospects you've researched</li>
+                    <li>Personalize the "Why [RESTAURANT_NAME]?" section with specific observations</li>
+                    <li>Make benefits concrete and tangible (free plan, locked rate, featured placement)</li>
+                    <li>Set clear expectations (2-3 promotions/week, 3-month commitment)</li>
+                    <li>Create urgency with limited spots (only if true!)</li>
+                </ul>
+            </div>
+
+            <div class="variables-box">
+                <h4>🔧 Variables to Replace</h4>
+                <div class="variable-item">[OWNER_NAME] — Their first name</div>
+                <div class="variable-item">[RESTAURANT_NAME] — Business name</div>
+                <div class="variable-item">[PERSONALIZED_REASON] — Specific reason why you want them</div>
+                <div class="variable-item">[X] — Number of pilot spots remaining</div>
+                <div class="variable-item">[DEMO_URL] — Your demo site URL</div>
+            </div>
+        </div>
+
+        <!-- Template 5: Soft Reminder -->
+        <div class="template-card" id="soft-reminder">
+            <div class="template-header">
+                <div class="template-title">Template 5: Soft Reminder (No Response)</div>
+                <div class="template-badge">FOLLOW-UP</div>
+            </div>
+
+            <div class="template-meta">
+                <span>⏱️ Send After: 3-5 days of no response</span>
+                <span>📊 Expected Response Rate: 10-20%</span>
+            </div>
+
+            <div class="email-preview">
+                <div class="email-field">
+                    <div class="email-label">Subject Line</div>
+                    <div class="email-content"><strong>Re: Tools + customers for [RESTAURANT_NAME]</strong></div>
+                </div>
+
+                <div class="email-field">
+                    <div class="email-label">Email Body</div>
+                    <div class="email-content">
+Hi [OWNER_NAME],<br><br>
+
+I know you're busy running [RESTAURANT_NAME] — just wanted to follow up on my email from [DAY_OF_WEEK] about Munch Club.<br><br>
+
+<strong>TL;DR:</strong> We give you tools + 5,000 customers. Commission: 20% → 12% as you grow. Free to start. Launching February.<br><br>
+
+<strong>Quick question:</strong> Is this something you'd be interested in exploring? Or not the right fit right now?<br><br>
+
+Either way, no worries — just want to make sure I'm not clogging your inbox if it's not relevant. 😊<br><br>
+
+If you want to see what it looks like, here's a 2-min walkthrough: <a href="[DEMO_URL]" style="color: #16A34A;">[DEMO_URL]</a><br><br>
+
+Best,<br>
+Edou<br>
+<a href="mailto:hello@munchclub.co.uk" style="color: #16A34A;">hello@munchclub.co.uk</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="copy-button" onclick="copyTemplate('soft-reminder')">📋 Copy Template</button>
+
+            <div class="usage-notes">
+                <h4>💡 Usage Notes</h4>
+                <ul>
+                    <li>Keep it short and casual — don't sound desperate</li>
+                    <li>Give them an easy "out" (builds trust, reduces pressure)</li>
+                    <li>Acknowledge they're busy (shows empathy)</li>
+                    <li>Include TL;DR for those who forgot original email</li>
+                    <li>Only send ONE follow-up reminder — don't spam</li>
+                </ul>
+            </div>
+
+            <div class="variables-box">
+                <h4>🔧 Variables to Replace</h4>
+                <div class="variable-item">[OWNER_NAME] — Their first name</div>
+                <div class="variable-item">[RESTAURANT_NAME] — Business name</div>
+                <div class="variable-item">[DAY_OF_WEEK] — When you sent original email (e.g., "Tuesday")</div>
+                <div class="variable-item">[DEMO_URL] — Your demo site URL</div>
+            </div>
+        </div>
+
+        <!-- Template 6: Partnership Confirmation -->
+        <div class="template-card" id="partnership-confirmation">
+            <div class="template-header">
+                <div class="template-title">Template 6: Partnership Confirmation</div>
+                <div class="template-badge">ONBOARDING</div>
+            </div>
+
+            <div class="template-meta">
+                <span>⏱️ Send After: They've agreed to join</span>
+                <span>📊 Purpose: Set expectations & next steps</span>
+            </div>
+
+            <div class="email-preview">
+                <div class="email-field">
+                    <div class="email-label">Subject Line</div>
+                    <div class="email-content"><strong>Welcome to Munch Club! Next steps for [RESTAURANT_NAME]</strong></div>
+                </div>
+
+                <div class="email-field">
+                    <div class="email-label">Email Body</div>
+                    <div class="email-content">
+Hi [OWNER_NAME],<br><br>
+
+Fantastic! So excited to have [RESTAURANT_NAME] as one of our pilot partners. This is going to be great. 🎉<br><br>
+
+<strong>Here's what happens next:</strong><br><br>
+
+<strong>Before Launch (Now - Early Feb):</strong><br>
+✓ I'll send you promo materials (posters, table tents, social media graphics)<br>
+✓ We'll schedule a 20-minute onboarding call to walk through the dashboard<br>
+✓ You'll get early access to the platform (mid-January) to play around<br><br>
+
+<strong>Launch Week (First week of Feb):</strong><br>
+✓ We'll create your first 2-3 promotions together<br>
+✓ You'll be featured as a launch partner on the app<br>
+✓ We'll promote heavily to build initial customer base<br><br>
+
+<strong>First Month Goals:</strong><br>
+✓ Post 2-3 promotions per week<br>
+✓ Share Munch Club with your in-store customers<br>
+✓ Give us feedback on what's working / not working<br><br>
+
+<strong>Your Benefits (Pilot Partner):</strong><br>
+✓ Free Growth plan (£29/month value) for 6 months<br>
+✓ 15% commission locked in for first year (vs 20% standard)<br>
+✓ Featured placement at launch<br>
+✓ Direct line to me for any questions/issues<br><br>
+
+<strong>Immediate Next Steps:</strong><br>
+1. Can you send me your business details?<br>
+   • Business name (legal + trading name if different)<br>
+   • Address<br>
+   • Phone number<br>
+   • Email for platform login<br>
+   • Logo (high-res PNG or JPG)<br>
+   • 2-3 photos of your food/venue<br><br>
+
+2. When's a good time for our onboarding call?<br>
+   • Week of [DATE_RANGE]<br>
+   • 20 minutes<br>
+   • I'll walk you through everything<br><br>
+
+<strong>Questions?</strong><br>
+Text or call me anytime: +44 (0)7xxx xxx xxx<br><br>
+
+Let's do this!<br><br>
+
+Best,<br>
+Edou<br>
+Founder, Munch Club<br>
+<a href="mailto:hello@munchclub.co.uk" style="color: #16A34A;">hello@munchclub.co.uk</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="copy-button" onclick="copyTemplate('partnership-confirmation')">📋 Copy Template</button>
+
+            <div class="usage-notes">
+                <h4>💡 Usage Notes</h4>
+                <ul>
+                    <li>Send immediately after verbal/email confirmation</li>
+                    <li>Set clear expectations for timeline and responsibilities</li>
+                    <li>Remind them of pilot benefits to reinforce their decision</li>
+                    <li>Make immediate next steps crystal clear (reduces friction)</li>
+                    <li>Give them your direct phone number (builds trust)</li>
+                </ul>
+            </div>
+
+            <div class="variables-box">
+                <h4>🔧 Variables to Replace</h4>
+                <div class="variable-item">[OWNER_NAME] — Their first name</div>
+                <div class="variable-item">[RESTAURANT_NAME] — Business name</div>
+                <div class="variable-item">[DATE_RANGE] — Week you want to schedule onboarding (e.g., "Jan 15-19")</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 2px solid #E5E7EB; color: #64748B;">
+            <p style="font-size: 14px;">Munch Club Restaurant Outreach Templates</p>
+            <p style="font-size: 12px; margin-top: 8px;">Created: 2025-01-15 • Updated: As needed</p>
+        </div>
+    </div>
+
+    <script>
+        function copyTemplate(templateId) {
+            const template = document.getElementById(templateId);
+            const emailContent = template.querySelector('.email-preview').innerText;
+
+            navigator.clipboard.writeText(emailContent).then(() => {
+                const button = template.querySelector('.copy-button');
+                const originalText = button.textContent;
+                button.textContent = '✓ Copied to Clipboard!';
+                button.style.background = '#15803D';
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#16A34A';
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy. Please select and copy manually.');
+            });
+        }
+    </script>
+</body>
+</html>
