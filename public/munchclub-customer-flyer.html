@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munch Club - Customer Acquisition Flyer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .flyer {
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #E5E7EB;
+            padding: 40px 20px;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: #64748B;
+            margin-bottom: 40px;
+        }
+
+        .flyer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* A6 Flyer (105×148mm) */
+        .flyer {
+            width: 105mm;
+            height: 148mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Version 1: Bold & Simple */
+        .flyer-v1 {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20mm;
+        }
+
+        .flyer-v1 .logo {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .flyer-v1 .logo-dot {
+            color: #16A34A;
+        }
+
+        .flyer-v1 .tagline {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 15mm;
+        }
+
+        .flyer-v1 .headline {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 12mm;
+        }
+
+        .flyer-v1 .headline-accent {
+            color: #16A34A;
+        }
+
+        .flyer-v1 .benefits {
+            margin-bottom: 12mm;
+        }
+
+        .flyer-v1 .benefit {
+            font-size: 13px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .flyer-v1 .benefit-icon {
+            color: #16A34A;
+            font-weight: 800;
+        }
+
+        .flyer-v1 .cta {
+            background: #16A34A;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .flyer-v1 .qr-placeholder {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 8px;
+            margin: 10px auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #64748B;
+        }
+
+        .flyer-v1 .scan-text {
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        /* Version 2: Image-Heavy */
+        .flyer-v2 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flyer-v2 .hero {
+            background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+            height: 50mm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .flyer-v2 .hero-emoji {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+
+        .flyer-v2 .hero-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .flyer-v2 .hero-subtitle {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .flyer-v2 .content {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .flyer-v2 .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .flyer-v2 .feature {
+            text-align: center;
+            padding: 10px;
+            background: #F0FDF4;
+            border-radius: 8px;
+        }
+
+        .flyer-v2 .feature-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .flyer-v2 .feature-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: #15803D;
+        }
+
+        .flyer-v2 .bottom {
+            background: #0F172A;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .flyer-v2 .qr-placeholder {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 10px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #64748B;
+        }
+
+        .flyer-v2 .scan-text {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .flyer-v2 .url {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        /* Version 3: Minimal & Clean */
+        .flyer-v3 {
+            background: #FFF6EB;
+            padding: 20mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .flyer-v3 .top {
+            text-align: center;
+        }
+
+        .flyer-v3 .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 4px;
+        }
+
+        .flyer-v3 .logo-dot {
+            color: #16A34A;
+        }
+
+        .flyer-v3 .tagline {
+            font-size: 12px;
+            color: #64748B;
+            margin-bottom: 15mm;
+        }
+
+        .flyer-v3 .headline {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0F172A;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 12mm;
+        }
+
+        .flyer-v3 .benefits {
+            margin-bottom: 12mm;
+        }
+
+        .flyer-v3 .benefit {
+            background: white;
+            border-left: 4px solid #16A34A;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #0F172A;
+            font-weight: 600;
+        }
+
+        .flyer-v3 .qr-section {
+            background: white;
+            border: 3px solid #16A34A;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .flyer-v3 .qr-placeholder {
+            width: 65px;
+            height: 65px;
+            background: #F9FAFB;
+            border-radius: 8px;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #64748B;
+        }
+
+        .flyer-v3 .scan-text {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 4px;
+        }
+
+        .flyer-v3 .scan-subtext {
+            font-size: 10px;
+            color: #64748B;
+        }
+
+        /* Info Section */
+        .info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .info-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 16px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            background: #F9FAFB;
+            padding: 16px;
+            border-radius: 10px;
+            border-left: 4px solid #16A34A;
+        }
+
+        .info-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .info-text {
+            font-size: 13px;
+            color: #64748B;
+            line-height: 1.6;
+        }
+
+        .version-label {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #64748B;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title no-print">Munch Club Customer Flyers</h1>
+        <p class="page-subtitle no-print">3 versions optimized for university students & high street distribution • A6 size (105×148mm)</p>
+
+        <div class="flyer-grid">
+            <!-- Version 1: Bold & Simple -->
+            <div>
+                <div class="flyer flyer-v1">
+                    <div>
+                        <div class="logo">m<span class="logo-dot">u</span>nch club</div>
+                        <div class="tagline">Local food. Great deals.</div>
+
+                        <div class="headline">
+                            Save up to<br>
+                            <span class="headline-accent">50% off</span><br>
+                            local food
+                        </div>
+
+                        <div class="benefits">
+                            <div class="benefit">
+                                <span class="benefit-icon">✓</span>
+                                <span>Fresh from local restaurants & cafés</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">✓</span>
+                                <span>Order via app, pick up in-store</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">✓</span>
+                                <span>Save money & reduce waste</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">✓</span>
+                                <span>Discover hidden gems nearby</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="cta">Join the Waitlist</div>
+                        <div class="qr-placeholder">QR CODE</div>
+                        <div class="scan-text">Scan to sign up • Launching Feb 2025</div>
+                    </div>
+                </div>
+                <div class="version-label no-print">Version 1: Bold & Simple</div>
+            </div>
+
+            <!-- Version 2: Image-Heavy -->
+            <div>
+                <div class="flyer flyer-v2">
+                    <div class="hero">
+                        <div class="hero-emoji">🍽️</div>
+                        <div class="hero-title">Munch Club</div>
+                        <div class="hero-subtitle">Local food deals at your fingertips</div>
+                    </div>
+
+                    <div class="content">
+                        <div>
+                            <div class="features">
+                                <div class="feature">
+                                    <div class="feature-icon">💰</div>
+                                    <div class="feature-text">Up to 50% off</div>
+                                </div>
+                                <div class="feature">
+                                    <div class="feature-icon">📍</div>
+                                    <div class="feature-text">30+ local spots</div>
+                                </div>
+                                <div class="feature">
+                                    <div class="feature-icon">⚡</div>
+                                    <div class="feature-text">Order in seconds</div>
+                                </div>
+                                <div class="feature">
+                                    <div class="feature-icon">🌱</div>
+                                    <div class="feature-text">Reduce waste</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom">
+                        <div class="qr-placeholder">QR CODE</div>
+                        <div class="scan-text">Scan to Join Waitlist</div>
+                        <div class="url">munchclub.co.uk</div>
+                    </div>
+                </div>
+                <div class="version-label no-print">Version 2: Visual & Engaging</div>
+            </div>
+
+            <!-- Version 3: Minimal & Clean -->
+            <div>
+                <div class="flyer flyer-v3">
+                    <div class="top">
+                        <div class="logo">m<span class="logo-dot">u</span>nch club</div>
+                        <div class="tagline">Maidstone & Tunbridge Wells</div>
+                    </div>
+
+                    <div class="headline">
+                        Discover local food at up to 50% off
+                    </div>
+
+                    <div class="benefits">
+                        <div class="benefit">🍕 Support local restaurants & cafés</div>
+                        <div class="benefit">💰 Save money on fresh, quality food</div>
+                        <div class="benefit">🌍 Help reduce food waste</div>
+                        <div class="benefit">📱 Simple app, instant deals</div>
+                    </div>
+
+                    <div class="qr-section">
+                        <div class="qr-placeholder">QR CODE</div>
+                        <div class="scan-text">Scan to Join Waitlist</div>
+                        <div class="scan-subtext">Launching February 2025</div>
+                    </div>
+                </div>
+                <div class="version-label no-print">Version 3: Minimal & Clean</div>
+            </div>
+        </div>
+
+        <!-- Print Info -->
+        <div class="info-card no-print">
+            <div class="info-title">🖨️ Print Specifications & Distribution Guide</div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Print Specs</div>
+                    <div class="info-text">
+                        • Size: A6 (105×148mm)<br>
+                        • Paper: 250-300gsm coated<br>
+                        • Finish: Matte or silk<br>
+                        • Colors: Full CMYK<br>
+                        • Quantity: 2,000 flyers<br>
+                        • Cost: ~£100-150
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">QR Code Setup</div>
+                    <div class="info-text">
+                        1. Deploy your waitlist landing page<br>
+                        2. Use QR generator tool to create code<br>
+                        3. Replace "QR CODE" placeholders<br>
+                        4. Test scan before printing<br>
+                        5. Ensure 512×512px minimum resolution
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Distribution Locations</div>
+                    <div class="info-text">
+                        <strong>Universities:</strong><br>
+                        • Student unions<br>
+                        • Libraries<br>
+                        • Cafeterias<br>
+                        • Notice boards<br><br>
+                        <strong>High Street:</strong><br>
+                        • Coffee shops<br>
+                        • Gyms<br>
+                        • Co-working spaces<br>
+                        • Community boards
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Expected Conversion</div>
+                    <div class="info-text">
+                        • 2,000 flyers distributed<br>
+                        • 1-2% QR scan rate = 20-40 scans<br>
+                        • 50% signup completion = 10-20 signups<br>
+                        • Target: 800 signups total<br>
+                        • Cost per signup: £0.50<br>
+                        • Best locations: Unis & train stations
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px; padding: 20px; background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 10px;">
+                <div style="font-size: 15px; font-weight: 700; color: #92400E; margin-bottom: 8px;">💡 Pro Tips</div>
+                <div style="font-size: 13px; color: #78350F; line-height: 1.7;">
+                    • <strong>Version 1</strong> works best for uni students (bold, direct value prop)<br>
+                    • <strong>Version 2</strong> is great for high-traffic areas (catches attention quickly)<br>
+                    • <strong>Version 3</strong> appeals to eco-conscious audience (minimalist aesthetic)<br>
+                    • Print all 3 versions and test which performs best (A/B test QR codes)<br>
+                    • Add tear-off tabs with URL for people without phones ready
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Printers -->
+        <div class="info-card no-print">
+            <div class="info-title">🏭 Recommended UK Printers</div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Instantprint.co.uk</div>
+                    <div class="info-text">
+                        • 2,000 A6 flyers: ~£90<br>
+                        • 300gsm silk finish<br>
+                        • 48-hour turnaround<br>
+                        • Good quality, reliable
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Vistaprint.co.uk</div>
+                    <div class="info-text">
+                        • 2,000 A6 flyers: ~£120<br>
+                        • 280gsm premium<br>
+                        • Frequent discount codes<br>
+                        • Easy online editor
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Printed.com</div>
+                    <div class="info-text">
+                        • 2,000 A6 flyers: ~£150<br>
+                        • 350gsm luxury stock<br>
+                        • Best quality<br>
+                        • Sustainable options
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Solopress.com</div>
+                    <div class="info-text">
+                        • 2,000 A6 flyers: ~£80<br>
+                        • 250gsm standard<br>
+                        • Budget-friendly<br>
+                        • Good for testing
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
