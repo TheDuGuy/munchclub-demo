@@ -70,7 +70,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image
-              src="/club (7).png"
+              src="/club_final_green.png"
               alt="Munch Club"
               width={150}
               height={40}
@@ -88,10 +88,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-20 h-20 mb-6 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-lg">
+          <div className="inline-flex items-center justify-center w-20 h-20 mb-6 bg-white rounded-2xl shadow-lg">
             <Image
-              src="/club (1).png"
-              alt="Munch Club Badge"
+              src="/club_final_green.png"
+              alt="Munch Club"
               width={60}
               height={60}
               className="w-14 h-14"
@@ -225,7 +225,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <Image
-                src="/club (7).png"
+                src="/club_final_green.png"
                 alt="Munch Club"
                 width={120}
                 height={32}
