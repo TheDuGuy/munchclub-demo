@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavePlate - Extended Consumer Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+            background: #f5f5f7;
+            padding: 40px 20px;
+            color: #1d1d1f;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 20px;
+            color: #6B7280;
+        }
+
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .screen {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .screen-title {
+            background: #1F2937;
+            color: white;
+            padding: 16px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .phone-frame {
+            background: #000;
+            padding: 12px;
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            height: 812px;
+            position: relative;
+        }
+
+        /* Reusable components */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .back-btn {
+            font-size: 24px;
+            color: #1F2937;
+            cursor: pointer;
+        }
+
+        .page-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 20px 24px;
+            background: white;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #6B7280;
+        }
+
+        .nav-item.active {
+            color: #10B981;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #10B981;
+            color: white;
+        }
+
+        /* Orders Screen */
+        .orders-screen {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tabs {
+            display: flex;
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 16px;
+            text-align: center;
+            font-weight: 600;
+            color: #6B7280;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            color: #10B981;
+            border-bottom-color: #10B981;
+        }
+
+        .content-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 20px;
+            background: #F9FAFB;
+        }
+
+        .order-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .status-ready {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .status-confirmed {
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .status-completed {
+            background: #F3F4F6;
+            color: #374151;
+        }
+
+        .order-restaurant {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .order-details {
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 16px;
+        }
+
+        .pickup-info {
+            background: #F9FAFB;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .pickup-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .pickup-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .pickup-icon {
+            font-size: 20px;
+            width: 32px;
+        }
+
+        .pickup-code-box {
+            background: white;
+            border: 2px dashed #10B981;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .code {
+            font-size: 28px;
+            font-weight: 700;
+            color: #10B981;
+            letter-spacing: 6px;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Profile Screen */
+        .profile-screen {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            padding: 32px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: white;
+            color: #10B981;
+            font-size: 32px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .profile-email {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .impact-stats {
+            background: white;
+            margin: -30px 20px 20px;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #6B7280;
+            line-height: 1.3;
+        }
+
+        .menu-list {
+            padding: 8px 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .menu-item:hover {
+            background: #F9FAFB;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            background: #F3F4F6;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-text {
+            flex: 1;
+        }
+
+        .menu-title {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .menu-subtitle {
+            font-size: 13px;
+            color: #6B7280;
+        }
+
+        .menu-arrow {
+            color: #9CA3AF;
+        }
+
+        /* Restaurant Profile */
+        .restaurant-screen {
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .restaurant-cover {
+            height: 200px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+        }
+
+        .restaurant-logo {
+            position: absolute;
+            bottom: -40px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .restaurant-info {
+            padding: 50px 20px 20px;
+        }
+
+        .restaurant-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .restaurant-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 16px;
+        }
+
+        .restaurant-description {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .feature-tag {
+            padding: 6px 12px;
+            background: #F3F4F6;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .divider {
+            border-top: 1px solid #E5E7EB;
+            margin: 24px 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .bag-card-mini {
+            background: #F9FAFB;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .bag-mini-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .bag-mini-info {
+            flex: 1;
+        }
+
+        .bag-mini-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .bag-mini-time {
+            font-size: 12px;
+            color: #6B7280;
+            margin-bottom: 8px;
+        }
+
+        .bag-mini-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        .price-new {
+            font-size: 18px;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        /* Reviews Screen */
+        .review-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .review-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #10B981;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .reviewer-info {
+            flex: 1;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: #6B7280;
+        }
+
+        .rating-stars {
+            color: #F59E0B;
+            font-size: 14px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 12px;
+        }
+
+        .review-images {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .review-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .review-helpful {
+            font-size: 13px;
+            color: #6B7280;
+        }
+
+        /* Empty State */
+        .empty-state {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 32px;
+            text-align: center;
+        }
+
+        .empty-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .empty-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .empty-text {
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 24px;
+        }
+
+        /* Favorites Screen */
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .favorite-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .favorite-image {
+            height: 120px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+        }
+
+        .favorite-heart {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .favorite-info {
+            padding: 12px;
+        }
+
+        .favorite-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .favorite-meta {
+            font-size: 12px;
+            color: #6B7280;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SavePlate Extended Screens</h1>
+            <p>Orders • Profile • Restaurant • Reviews • Favorites</p>
+        </div>
+
+        <div class="screens-grid">
+            <!-- Active Orders -->
+            <div class="screen">
+                <div class="screen-title">07 • ACTIVE ORDERS</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="orders-screen">
+                            <div class="nav-bar">
+                                <div class="page-title">My Orders</div>
+                                <div></div>
+                            </div>
+                            <div class="tabs">
+                                <div class="tab active">Active</div>
+                                <div class="tab">Past</div>
+                            </div>
+                            <div class="content-scroll">
+                                <div class="order-card">
+                                    <span class="status-badge status-ready">🟢 Ready for Pickup</span>
+                                    <div class="order-restaurant">Café Delight</div>
+                                    <div class="order-details">Breakfast Surprise Bag • £8.00</div>
+                                    <div class="pickup-info">
+                                        <div class="pickup-row">
+                                            <div class="pickup-icon">🕐</div>
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 14px;">Today 08:00-09:00</div>
+                                                <div style="font-size: 12px; color: #6B7280;">Pickup window ends in 32 mins</div>
+                                            </div>
+                                        </div>
+                                        <div class="pickup-row">
+                                            <div class="pickup-icon">📍</div>
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 14px;">0.8km away</div>
+                                                <div style="font-size: 12px; color: #6B7280;">123 High Street, Maidstone</div>
+                                            </div>
+                                        </div>
+                                        <div class="pickup-code-box">
+                                            <div style="font-size: 11px; color: #6B7280; margin-bottom: 4px;">PICKUP CODE</div>
+                                            <div class="code">4729</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-actions">
+                                        <button class="btn btn-primary">Get Directions</button>
+                                    </div>
+                                </div>
+
+                                <div class="order-card">
+                                    <span class="status-badge status-confirmed">🟡 Confirmed</span>
+                                    <div class="order-restaurant">Pizza Express</div>
+                                    <div class="order-details">Mixed Pizza Box • £10.00</div>
+                                    <div class="pickup-info">
+                                        <div class="pickup-row">
+                                            <div class="pickup-icon">🕐</div>
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 14px;">Today 20:00-21:00</div>
+                                                <div style="font-size: 12px; color: #6B7280;">Restaurant will prepare your order</div>
+                                            </div>
+                                        </div>
+                                        <div class="pickup-row">
+                                            <div class="pickup-icon">📍</div>
+                                            <div>
+                                                <div style="font-weight: 600; font-size: 14px;">1.2km away</div>
+                                                <div style="font-size: 12px; color: #6B7280;">45 Market Square, Maidstone</div>
+                                            </div>
+                                        </div>
+                                        <div class="pickup-code-box">
+                                            <div style="font-size: 11px; color: #6B7280; margin-bottom: 4px;">PICKUP CODE</div>
+                                            <div class="code">8371</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-actions">
+                                        <button class="btn" style="background: #F3F4F6; color: #1F2937;">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-nav">
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">🗺️</div>
+                                    <div>Explore</div>
+                                </div>
+                                <div class="nav-item active">
+                                    <div style="font-size: 24px;">📋</div>
+                                    <div>Orders</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">♡</div>
+                                    <div>Saved</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">👤</div>
+                                    <div>Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Orders -->
+            <div class="screen">
+                <div class="screen-title">08 • PAST ORDERS</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="orders-screen">
+                            <div class="nav-bar">
+                                <div class="page-title">My Orders</div>
+                                <div></div>
+                            </div>
+                            <div class="tabs">
+                                <div class="tab">Active</div>
+                                <div class="tab active">Past</div>
+                            </div>
+                            <div class="content-scroll">
+                                <div class="order-card">
+                                    <span class="status-badge status-completed">✓ Completed</span>
+                                    <div class="order-restaurant">Greggs</div>
+                                    <div class="order-details">Bakery Grab Bag • £6.00</div>
+                                    <div style="font-size: 13px; color: #6B7280; margin-bottom: 12px;">
+                                        Picked up: Yesterday at 16:23
+                                    </div>
+                                    <button class="btn" style="background: #F0FDF4; color: #10B981;">⭐ Rate Your Experience</button>
+                                </div>
+
+                                <div class="order-card">
+                                    <span class="status-badge status-completed">✓ Completed</span>
+                                    <div class="order-restaurant">Café Delight</div>
+                                    <div class="order-details">Lunch Grab Bag • £10.00</div>
+                                    <div style="font-size: 13px; color: #6B7280; margin-bottom: 12px;">
+                                        Picked up: 2 days ago • Rated ⭐⭐⭐⭐⭐
+                                    </div>
+                                    <button class="btn" style="background: #F3F4F6; color: #1F2937;">View Details</button>
+                                </div>
+
+                                <div class="order-card">
+                                    <span class="status-badge status-completed">✓ Completed</span>
+                                    <div class="order-restaurant">Pizza Express</div>
+                                    <div class="order-details">Mixed Pizza Box • £10.00</div>
+                                    <div style="font-size: 13px; color: #6B7280; margin-bottom: 12px;">
+                                        Picked up: 5 days ago • Rated ⭐⭐⭐⭐
+                                    </div>
+                                    <button class="btn" style="background: #F3F4F6; color: #1F2937;">Order Again</button>
+                                </div>
+                            </div>
+                            <div class="bottom-nav">
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">🗺️</div>
+                                    <div>Explore</div>
+                                </div>
+                                <div class="nav-item active">
+                                    <div style="font-size: 24px;">📋</div>
+                                    <div>Orders</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">♡</div>
+                                    <div>Saved</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">👤</div>
+                                    <div>Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Screen -->
+            <div class="screen">
+                <div class="screen-title">09 • PROFILE</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="profile-screen">
+                            <div class="profile-header">
+                                <div class="profile-avatar">JS</div>
+                                <div class="profile-name">John Smith</div>
+                                <div class="profile-email">john.smith@email.com</div>
+                            </div>
+                            <div class="impact-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value">142</div>
+                                    <div class="stat-label">Meals<br>Saved</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">71kg</div>
+                                    <div class="stat-label">Waste<br>Prevented</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">£568</div>
+                                    <div class="stat-label">Money<br>Saved</div>
+                                </div>
+                            </div>
+                            <div class="content-scroll">
+                                <div class="menu-list">
+                                    <div class="menu-item">
+                                        <div class="menu-icon">♡</div>
+                                        <div class="menu-text">
+                                            <div class="menu-title">Favorite Restaurants</div>
+                                            <div class="menu-subtitle">7 saved</div>
+                                        </div>
+                                        <div class="menu-arrow">›</div>
+                                    </div>
+
+                                    <div class="menu-item">
+                                        <div class="menu-icon">💳</div>
+                                        <div class="menu-text">
+                                            <div class="menu-title">Payment Methods</div>
+                                            <div class="menu-subtitle">2 cards</div>
+                                        </div>
+                                        <div class="menu-arrow">›</div>
+                                    </div>
+
+                                    <div class="menu-item">
+                                        <div class="menu-icon">🥬</div>
+                                        <div class="menu-text">
+                                            <div class="menu-title">Dietary Preferences</div>
+                                            <div class="menu-subtitle">Vegetarian, Gluten-Free</div>
+                                        </div>
+                                        <div class="menu-arrow">›</div>
+                                    </div>
+
+                                    <div class="menu-item">
+                                        <div class="menu-icon">🔔</div>
+                                        <div class="menu-text">
+                                            <div class="menu-title">Notifications</div>
+                                            <div class="menu-subtitle">Push, Email enabled</div>
+                                        </div>
+                                        <div class="menu-arrow">›</div>
+                                    </div>
+
+                                    <div class="menu-item">
+                                        <div class="menu-icon">❓</div>
+                                        <div class="menu-text">
+                                            <div class="menu-title">Help & Support</div>
+                                            <div class="menu-subtitle">FAQs, Contact us</div>
+                                        </div>
+                                        <div class="menu-arrow">›</div>
+                                    </div>
+
+                                    <div class="menu-item">
+                                        <div class="menu-icon">⚙️</div>
+                                        <div class="menu-text">
+                                            <div class="menu-title">Account Settings</div>
+                                            <div class="menu-subtitle">Privacy, Security</div>
+                                        </div>
+                                        <div class="menu-arrow">›</div>
+                                    </div>
+
+                                    <div class="menu-item">
+                                        <div class="menu-icon">🚪</div>
+                                        <div class="menu-text">
+                                            <div class="menu-title">Log Out</div>
+                                        </div>
+                                        <div class="menu-arrow">›</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-nav">
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">🗺️</div>
+                                    <div>Explore</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">📋</div>
+                                    <div>Orders</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">♡</div>
+                                    <div>Saved</div>
+                                </div>
+                                <div class="nav-item active">
+                                    <div style="font-size: 24px;">👤</div>
+                                    <div>Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Restaurant Profile -->
+            <div class="screen">
+                <div class="screen-title">10 • RESTAURANT PROFILE</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="restaurant-screen">
+                            <div class="nav-bar" style="position: absolute; top: 0; left: 0; right: 0; background: transparent; border: none; z-index: 10;">
+                                <div class="back-btn" style="background: white; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;">←</div>
+                                <div style="display: flex; gap: 8px;">
+                                    <div style="background: white; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 18px;">♡</div>
+                                    <div style="background: white; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 18px;">↗</div>
+                                </div>
+                            </div>
+                            <div class="restaurant-cover">
+                                🥐
+                                <div class="restaurant-logo">☕</div>
+                            </div>
+                            <div class="restaurant-info">
+                                <div class="restaurant-name">Café Delight</div>
+                                <div class="restaurant-meta">
+                                    <span>⭐ 4.8 (127 reviews)</span>
+                                    <span>•</span>
+                                    <span>📍 0.8km</span>
+                                </div>
+                                <div class="restaurant-description">
+                                    Independent café serving fresh breakfast, lunch, and expertly crafted coffee. Family-owned since 2018.
+                                </div>
+                                <div class="features">
+                                    <div class="feature-tag">🥬 Vegetarian</div>
+                                    <div class="feature-tag">🌱 Vegan options</div>
+                                    <div class="feature-tag">♿ Accessible</div>
+                                    <div class="feature-tag">🏆 FSA Rating: 5</div>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="section-title">Available Now (3)</div>
+
+                                <div class="bag-card-mini">
+                                    <div class="bag-mini-image">🥐</div>
+                                    <div class="bag-mini-info">
+                                        <div class="bag-mini-title">Breakfast Surprise</div>
+                                        <div class="bag-mini-time">🕐 08:00-09:00 • 5 left</div>
+                                        <div class="bag-mini-price">
+                                            <span class="price-old">£16</span>
+                                            <span class="price-new">£8</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bag-card-mini">
+                                    <div class="bag-mini-image" style="background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 100%);">🥗</div>
+                                    <div class="bag-mini-info">
+                                        <div class="bag-mini-title">Lunch Special</div>
+                                        <div class="bag-mini-time">🕐 12:00-13:00 • 3 left</div>
+                                        <div class="bag-mini-price">
+                                            <span class="price-old">£20</span>
+                                            <span class="price-new">£10</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="section-title">Opening Hours</div>
+                                <div style="font-size: 14px; line-height: 2; color: #374151;">
+                                    <div><strong>Mon-Fri:</strong> 07:00 - 17:00</div>
+                                    <div><strong>Sat-Sun:</strong> 08:00 - 16:00</div>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div style="display: flex; gap: 12px; margin-bottom: 80px;">
+                                    <button class="btn btn-primary">Get Directions</button>
+                                    <button class="btn" style="background: #F3F4F6; color: #1F2937;">📞 Call</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorites -->
+            <div class="screen">
+                <div class="screen-title">11 • FAVORITE RESTAURANTS</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="orders-screen">
+                            <div class="nav-bar">
+                                <div class="back-btn">←</div>
+                                <div class="page-title">Favorites</div>
+                                <div style="width: 24px;"></div>
+                            </div>
+                            <div class="content-scroll">
+                                <div class="favorites-grid">
+                                    <div class="favorite-card">
+                                        <div class="favorite-image">
+                                            🥐
+                                            <div class="favorite-heart">❤️</div>
+                                        </div>
+                                        <div class="favorite-info">
+                                            <div class="favorite-name">Café Delight</div>
+                                            <div class="favorite-meta">
+                                                <span>⭐ 4.8</span>
+                                                <span>•</span>
+                                                <span>0.8km</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="favorite-card">
+                                        <div class="favorite-image" style="background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 100%);">
+                                            🍕
+                                            <div class="favorite-heart">❤️</div>
+                                        </div>
+                                        <div class="favorite-info">
+                                            <div class="favorite-name">Pizza Express</div>
+                                            <div class="favorite-meta">
+                                                <span>⭐ 4.5</span>
+                                                <span>•</span>
+                                                <span>1.2km</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="favorite-card">
+                                        <div class="favorite-image" style="background: linear-gradient(135deg, #FED7AA 0%, #FB923C 100%);">
+                                            🥖
+                                            <div class="favorite-heart">❤️</div>
+                                        </div>
+                                        <div class="favorite-info">
+                                            <div class="favorite-name">Greggs</div>
+                                            <div class="favorite-meta">
+                                                <span>⭐ 4.3</span>
+                                                <span>•</span>
+                                                <span>2.1km</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="favorite-card">
+                                        <div class="favorite-image" style="background: linear-gradient(135deg, #FEE2E2 0%, #FCA5A5 100%);">
+                                            🍔
+                                            <div class="favorite-heart">❤️</div>
+                                        </div>
+                                        <div class="favorite-info">
+                                            <div class="favorite-name">Five Guys</div>
+                                            <div class="favorite-meta">
+                                                <span>⭐ 4.7</span>
+                                                <span>•</span>
+                                                <span>1.5km</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-nav">
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">🗺️</div>
+                                    <div>Explore</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">📋</div>
+                                    <div>Orders</div>
+                                </div>
+                                <div class="nav-item active">
+                                    <div style="font-size: 24px;">♡</div>
+                                    <div>Saved</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div style="font-size: 24px;">👤</div>
+                                    <div>Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews -->
+            <div class="screen">
+                <div class="screen-title">12 • RESTAURANT REVIEWS</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="orders-screen">
+                            <div class="nav-bar">
+                                <div class="back-btn">←</div>
+                                <div class="page-title">Reviews</div>
+                                <div style="width: 24px;"></div>
+                            </div>
+                            <div style="padding: 20px; background: white; border-bottom: 1px solid #E5E7EB;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                                    <div>
+                                        <div style="font-size: 32px; font-weight: 700;">4.8</div>
+                                        <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                                        <div style="font-size: 13px; color: #6B7280; margin-top: 4px;">127 reviews</div>
+                                    </div>
+                                    <div style="text-align: right; font-size: 13px;">
+                                        <div>5⭐ ▓▓▓▓▓▓▓▓▓░ 89%</div>
+                                        <div>4⭐ ▓▓░░░░░░░░ 8%</div>
+                                        <div>3⭐ ▓░░░░░░░░░ 2%</div>
+                                        <div>2⭐ ░░░░░░░░░░ 1%</div>
+                                        <div>1⭐ ░░░░░░░░░░ 0%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-scroll">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-avatar">SM</div>
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-name">Sarah Miller</div>
+                                            <div class="review-date">2 days ago</div>
+                                        </div>
+                                        <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                                    </div>
+                                    <div class="review-text">
+                                        Amazing value! Got 3 croissants, 2 sandwiches, and a coffee. Everything was fresh and delicious. Love supporting local businesses while saving money.
+                                    </div>
+                                    <div class="review-images">
+                                        <div class="review-image">🥐</div>
+                                        <div class="review-image" style="background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 100%);">🥪</div>
+                                    </div>
+                                    <div class="review-helpful">👍 18 people found this helpful</div>
+                                </div>
+
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-avatar" style="background: #3B82F6;">MJ</div>
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-name">Mike Johnson</div>
+                                            <div class="review-date">5 days ago</div>
+                                        </div>
+                                        <div class="rating-stars">⭐⭐⭐⭐</div>
+                                    </div>
+                                    <div class="review-text">
+                                        Great concept. Staff were friendly and the pickup was quick. Contents varied from what I expected but still good quality.
+                                    </div>
+                                    <div class="review-helpful">👍 12 people found this helpful</div>
+                                </div>
+
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-avatar" style="background: #F59E0B;">EP</div>
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-name">Emma Parker</div>
+                                            <div class="review-date">1 week ago</div>
+                                        </div>
+                                        <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                                    </div>
+                                    <div class="review-text">
+                                        Been using SavePlate for a month now. Café Delight never disappoints! Always generous portions and perfect for lunch at work.
+                                    </div>
+                                    <div class="review-helpful">👍 24 people found this helpful</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

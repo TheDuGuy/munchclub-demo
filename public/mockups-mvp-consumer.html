@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavePlate MVP - Consumer App Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f3f4f6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            color: #1F2937;
+            margin-bottom: 10px;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: #10B981;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .mockup-section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1F2937;
+        }
+
+        .mvp-badge {
+            background: #10B981;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .future-badge {
+            background: #F59E0B;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            justify-items: center;
+        }
+
+        /* Phone mockup */
+        .phone {
+            width: 320px;
+            height: 640px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-notch {
+            height: 30px;
+            background: #1F2937;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .notch-bar {
+            width: 100px;
+            height: 4px;
+            background: #4B5563;
+            border-radius: 2px;
+        }
+
+        .phone-screen {
+            height: calc(100% - 30px);
+            overflow-y: auto;
+            background: #F9FAFB;
+        }
+
+        .screen-title {
+            background: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #6B7280;
+            border-bottom: 1px solid #E5E7EB;
+            font-weight: 600;
+        }
+
+        /* App Header */
+        .app-header {
+            background: #10B981;
+            color: white;
+            padding: 20px;
+        }
+
+        .app-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .app-subtitle {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .search-bar {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #6B7280;
+        }
+
+        /* Deal Cards */
+        .deals-section {
+            padding: 15px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            color: #6B7280;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .deal-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .deal-image {
+            height: 120px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .deal-content {
+            padding: 15px;
+        }
+
+        .deal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+
+        .restaurant-name {
+            font-weight: 700;
+            color: #1F2937;
+            font-size: 14px;
+        }
+
+        .deal-badge {
+            background: #FEE2E2;
+            color: #DC2626;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .deal-title {
+            font-size: 12px;
+            color: #6B7280;
+            margin-bottom: 8px;
+        }
+
+        .deal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .deal-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        .original-price {
+            font-size: 12px;
+            color: #9CA3AF;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .distance {
+            font-size: 11px;
+            color: #6B7280;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            font-size: 14px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #10B981;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #F3F4F6;
+            color: #4B5563;
+        }
+
+        /* Order Details */
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #E5E7EB;
+            font-size: 13px;
+        }
+
+        .detail-label {
+            color: #6B7280;
+        }
+
+        .detail-value {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        .pickup-code {
+            background: #F0FDF4;
+            border: 2px dashed #10B981;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin: 15px;
+        }
+
+        .pickup-code-label {
+            font-size: 11px;
+            color: #065F46;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .pickup-code-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #10B981;
+            letter-spacing: 4px;
+        }
+
+        /* Coming Soon */
+        .coming-soon-overlay {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .coming-soon-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #92400E;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon-text {
+            font-size: 14px;
+            color: #78350F;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            background: #FEF9C3;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .feature-list-title {
+            font-weight: 700;
+            color: #78350F;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .feature-list ul {
+            list-style: none;
+            font-size: 11px;
+            color: #92400E;
+        }
+
+        .feature-list li {
+            padding: 4px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="badge">MVP Consumer App</div>
+            <h1>📱 SavePlate Consumer Experience</h1>
+            <p style="color: #6B7280; font-size: 16px; max-width: 800px; margin: 10px auto;">
+                Simple, fast, mobile-first. These screens show the MVP we'll build first to get consumers ordering quickly.
+            </p>
+        </div>
+
+        <!-- MVP Screens -->
+        <div class="mockup-section">
+            <div class="section-header">
+                <div class="section-title">Phase 1: MVP App (Build First)</div>
+                <div class="mvp-badge">✓ CORE FEATURES</div>
+            </div>
+
+            <div class="mockup-grid">
+                <!-- Screen 1: Browse Deals (List) -->
+                <div class="phone">
+                    <div class="phone-notch">
+                        <div class="notch-bar"></div>
+                    </div>
+                    <div class="screen-title">1. BROWSE DEALS (MVP)</div>
+                    <div class="phone-screen">
+                        <div class="app-header">
+                            <div class="app-title">🍽️ SavePlate</div>
+                            <div class="app-subtitle">Maidstone • 23 deals near you</div>
+                            <div class="search-bar">
+                                🔍 Search restaurants or cuisines...
+                            </div>
+                        </div>
+
+                        <div class="deals-section">
+                            <div class="section-label">Nearby Deals</div>
+
+                            <div class="deal-card">
+                                <div class="deal-image">🥐</div>
+                                <div class="deal-content">
+                                    <div class="deal-header">
+                                        <div class="restaurant-name">The Green Café</div>
+                                        <div class="deal-badge">50% OFF</div>
+                                    </div>
+                                    <div class="deal-title">Breakfast Box • Pick up 8-9am</div>
+                                    <div class="deal-footer">
+                                        <div>
+                                            <span class="deal-price">£8.00</span>
+                                            <span class="original-price">£16.00</span>
+                                        </div>
+                                        <div class="distance">📍 0.3 mi</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="deal-card">
+                                <div class="deal-image">🍕</div>
+                                <div class="deal-content">
+                                    <div class="deal-header">
+                                        <div class="restaurant-name">Bella Pizzeria</div>
+                                        <div class="deal-badge">60% OFF</div>
+                                    </div>
+                                    <div class="deal-title">Mystery Box • Pick up 8-9pm</div>
+                                    <div class="deal-footer">
+                                        <div>
+                                            <span class="deal-price">£6.00</span>
+                                            <span class="original-price">£15.00</span>
+                                        </div>
+                                        <div class="distance">📍 0.5 mi</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="deal-card">
+                                <div class="deal-image">🍜</div>
+                                <div class="deal-content">
+                                    <div class="deal-header">
+                                        <div class="restaurant-name">Thai Corner</div>
+                                        <div class="deal-badge">50% OFF</div>
+                                    </div>
+                                    <div class="deal-title">Lunch Special • Pick up 2-3pm</div>
+                                    <div class="deal-footer">
+                                        <div>
+                                            <span class="deal-price">£7.50</span>
+                                            <span class="original-price">£15.00</span>
+                                        </div>
+                                        <div class="distance">📍 0.7 mi</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 2: Deal Detail -->
+                <div class="phone">
+                    <div class="phone-notch">
+                        <div class="notch-bar"></div>
+                    </div>
+                    <div class="screen-title">2. DEAL DETAIL (MVP)</div>
+                    <div class="phone-screen">
+                        <div class="deal-image" style="height: 200px; border-radius: 0;">🥐</div>
+
+                        <div style="padding: 20px;">
+                            <div style="margin-bottom: 20px;">
+                                <div class="restaurant-name" style="font-size: 18px; margin-bottom: 5px;">The Green Café</div>
+                                <div style="color: #6B7280; font-size: 13px; margin-bottom: 10px;">📍 42 High Street, Maidstone • 0.3 mi</div>
+                                <div class="deal-badge" style="display: inline-block;">50% OFF</div>
+                            </div>
+
+                            <div style="margin-bottom: 20px;">
+                                <div style="font-size: 16px; font-weight: 700; color: #1F2937; margin-bottom: 5px;">Breakfast Box</div>
+                                <div style="font-size: 13px; color: #6B7280; line-height: 1.6;">
+                                    Selection of fresh pastries, coffee, and seasonal fruit. Perfect way to start your day!
+                                </div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-label">Price</div>
+                                <div class="detail-value" style="color: #10B981; font-size: 18px;">£8.00 <span class="original-price">£16.00</span></div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-label">Pickup Time</div>
+                                <div class="detail-value">Today 8:00-9:00am</div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-label">Available</div>
+                                <div class="detail-value">7 left</div>
+                            </div>
+
+                            <div style="margin-top: 25px;">
+                                <button class="btn btn-primary">Reserve & Pay £8.00</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 3: Order Confirmation -->
+                <div class="phone">
+                    <div class="phone-notch">
+                        <div class="notch-bar"></div>
+                    </div>
+                    <div class="screen-title">3. ORDER CONFIRMATION (MVP)</div>
+                    <div class="phone-screen">
+                        <div style="text-align: center; padding: 30px 20px 20px;">
+                            <div style="font-size: 64px; margin-bottom: 15px;">✅</div>
+                            <div style="font-size: 20px; font-weight: 700; color: #10B981; margin-bottom: 5px;">Order Confirmed!</div>
+                            <div style="font-size: 13px; color: #6B7280;">Order #1247</div>
+                        </div>
+
+                        <div class="pickup-code">
+                            <div class="pickup-code-label">YOUR PICKUP CODE</div>
+                            <div class="pickup-code-value">4829</div>
+                            <div style="font-size: 11px; color: #047857; margin-top: 10px;">Show this code when you collect your order</div>
+                        </div>
+
+                        <div style="padding: 20px;">
+                            <div style="background: white; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                                <div style="font-weight: 700; color: #1F2937; margin-bottom: 10px; font-size: 14px;">Pickup Details</div>
+                                <div class="detail-row" style="border: none; padding: 8px 0;">
+                                    <div class="detail-label">Restaurant</div>
+                                    <div class="detail-value">The Green Café</div>
+                                </div>
+                                <div class="detail-row" style="border: none; padding: 8px 0;">
+                                    <div class="detail-label">Address</div>
+                                    <div class="detail-value">42 High Street</div>
+                                </div>
+                                <div class="detail-row" style="border: none; padding: 8px 0;">
+                                    <div class="detail-label">Time</div>
+                                    <div class="detail-value">Today 8:00-9:00am</div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-secondary" style="margin-bottom: 10px;">📍 Get Directions</button>
+                            <button class="btn btn-primary">View My Orders</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 4: My Orders -->
+                <div class="phone">
+                    <div class="phone-notch">
+                        <div class="notch-bar"></div>
+                    </div>
+                    <div class="screen-title">4. MY ORDERS (MVP)</div>
+                    <div class="phone-screen">
+                        <div class="app-header" style="padding-bottom: 15px;">
+                            <div class="app-title">My Orders</div>
+                        </div>
+
+                        <div class="deals-section">
+                            <div class="section-label">Active Orders</div>
+
+                            <div style="background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                                    <div>
+                                        <div style="font-weight: 700; color: #1F2937; font-size: 15px; margin-bottom: 3px;">The Green Café</div>
+                                        <div style="font-size: 12px; color: #6B7280;">Order #1247</div>
+                                    </div>
+                                    <div style="background: #D1FAE5; color: #065F46; padding: 4px 10px; border-radius: 8px; font-size: 11px; font-weight: 700;">READY</div>
+                                </div>
+
+                                <div class="pickup-code" style="margin: 0 0 15px 0;">
+                                    <div class="pickup-code-label">PICKUP CODE</div>
+                                    <div class="pickup-code-value" style="font-size: 32px;">4829</div>
+                                </div>
+
+                                <div style="font-size: 12px; color: #6B7280; margin-bottom: 10px;">
+                                    <div>📦 Breakfast Box • £8.00</div>
+                                    <div>📍 42 High Street, Maidstone</div>
+                                    <div>🕐 Pick up: Today 8:00-9:00am</div>
+                                </div>
+
+                                <button class="btn btn-secondary" style="font-size: 12px; padding: 10px;">📍 Get Directions</button>
+                            </div>
+
+                            <div class="section-label" style="margin-top: 25px;">Past Orders</div>
+
+                            <div style="background: white; border-radius: 12px; padding: 15px; margin-bottom: 10px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <div style="font-weight: 700; color: #1F2937; font-size: 14px;">Bella Pizzeria</div>
+                                    <div style="font-size: 12px; color: #6B7280;">£6.00</div>
+                                </div>
+                                <div style="font-size: 11px; color: #9CA3AF;">Mystery Box • Completed Jan 11</div>
+                            </div>
+
+                            <div style="background: white; border-radius: 12px; padding: 15px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <div style="font-weight: 700; color: #1F2937; font-size: 14px;">Thai Corner</div>
+                                    <div style="font-size: 12px; color: #6B7280;">£7.50</div>
+                                </div>
+                                <div style="font-size: 11px; color: #9CA3AF;">Lunch Special • Completed Jan 10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Features -->
+        <div class="mockup-section">
+            <div class="section-header">
+                <div class="section-title">Phase 2-3: Enhanced Features (Coming Later)</div>
+                <div class="future-badge">🔮 FUTURE</div>
+            </div>
+
+            <div class="mockup-grid">
+                <!-- Screen 5: Favorites -->
+                <div class="phone">
+                    <div class="phone-notch">
+                        <div class="notch-bar"></div>
+                    </div>
+                    <div class="screen-title">5. FAVORITES (FUTURE)</div>
+                    <div class="phone-screen">
+                        <div class="app-header">
+                            <div class="app-title">❤️ Favorites</div>
+                            <div class="app-subtitle">Your saved restaurants</div>
+                        </div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-icon">⭐</div>
+                            <div class="coming-soon-title">Favorites & Saved</div>
+                            <div class="coming-soon-text">Coming in Months 4-6</div>
+                            <div class="feature-list">
+                                <div class="feature-list-title">What This Will Do:</div>
+                                <ul>
+                                    <li>Save favorite restaurants</li>
+                                    <li>Get notified of new deals</li>
+                                    <li>Quick re-order from favorites</li>
+                                    <li>See deal history per restaurant</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 6: Impact Stats -->
+                <div class="phone">
+                    <div class="phone-notch">
+                        <div class="notch-bar"></div>
+                    </div>
+                    <div class="screen-title">6. IMPACT STATS (FUTURE)</div>
+                    <div class="phone-screen">
+                        <div class="app-header">
+                            <div class="app-title">🌍 Your Impact</div>
+                            <div class="app-subtitle">Meals saved, money saved</div>
+                        </div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-icon">📊</div>
+                            <div class="coming-soon-title">Impact Dashboard</div>
+                            <div class="coming-soon-text">Coming in Months 7-9</div>
+                            <div class="feature-list">
+                                <div class="feature-list-title">What This Will Do:</div>
+                                <ul>
+                                    <li>Total meals saved from waste</li>
+                                    <li>Total money saved</li>
+                                    <li>CO2 emissions prevented</li>
+                                    <li>Your ranking vs other users</li>
+                                    <li>Badges & achievements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 7: SavePlate Plus -->
+                <div class="phone">
+                    <div class="phone-notch">
+                        <div class="notch-bar"></div>
+                    </div>
+                    <div class="screen-title">7. SAVEPLATE PLUS (FUTURE)</div>
+                    <div class="phone-screen">
+                        <div class="app-header" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+                            <div class="app-title">⭐ SavePlate Plus</div>
+                            <div class="app-subtitle">Premium membership £5/month</div>
+                        </div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-icon">💎</div>
+                            <div class="coming-soon-title">Premium Subscription</div>
+                            <div class="coming-soon-text">Coming in Months 9-12</div>
+                            <div class="feature-list">
+                                <div class="feature-list-title">Premium Benefits:</div>
+                                <ul>
+                                    <li>Early access to deals (30min before others)</li>
+                                    <li>5% cashback on all orders</li>
+                                    <li>No booking fees</li>
+                                    <li>Priority customer support</li>
+                                    <li>Exclusive deals from top restaurants</li>
+                                    <li>Free £5 credit monthly</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 8: Map View -->
+                <div class="phone">
+                    <div class="phone-notch">
+                        <div class="notch-bar"></div>
+                    </div>
+                    <div class="screen-title">8. MAP VIEW (FUTURE)</div>
+                    <div class="phone-screen">
+                        <div style="background: #E5E7EB; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 80px;">
+                            🗺️
+                        </div>
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-icon">📍</div>
+                            <div class="coming-soon-title">Interactive Map</div>
+                            <div class="coming-soon-text">Coming in Months 4-6</div>
+                            <div class="feature-list">
+                                <div class="feature-list-title">What This Will Do:</div>
+                                <ul>
+                                    <li>See all deals on map</li>
+                                    <li>Filter by distance/cuisine</li>
+                                    <li>Navigate directly to restaurant</li>
+                                    <li>See nearby deals while walking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Box -->
+        <div style="background: white; border-radius: 12px; padding: 40px; max-width: 1000px; margin: 60px auto; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <h2 style="color: #10B981; margin-bottom: 25px; text-align: center; font-size: 28px;">MVP Strategy: Start Simple, Scale Smart</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                <div style="background: #F0FDF4; border-left: 4px solid #10B981; padding: 20px; border-radius: 4px;">
+                    <h3 style="color: #065F46; margin-bottom: 15px; font-size: 18px;">✅ MVP (Build First)</h3>
+                    <ul style="font-size: 14px; color: #047857; line-height: 2; margin-left: 20px;">
+                        <li>Browse deals (list view)</li>
+                        <li>View deal details</li>
+                        <li>Reserve & pay (Stripe)</li>
+                        <li>Order confirmation + pickup code</li>
+                        <li>My orders (active + past)</li>
+                        <li>Basic search</li>
+                    </ul>
+                </div>
+
+                <div style="background: #FFFBEB; border-left: 4px solid #F59E0B; padding: 20px; border-radius: 4px;">
+                    <h3 style="color: #78350F; margin-bottom: 15px; font-size: 18px;">🔮 Future Features</h3>
+                    <ul style="font-size: 14px; color: #92400E; line-height: 2; margin-left: 20px;">
+                        <li>Map view + geofencing</li>
+                        <li>Favorites & saved restaurants</li>
+                        <li>Impact stats dashboard</li>
+                        <li>SavePlate Plus (£5/month)</li>
+                        <li>Reviews & ratings</li>
+                        <li>Push notifications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: #EFF6FF; border-left: 4px solid #3B82F6; padding: 20px; border-radius: 4px;">
+                <h3 style="color: #1E40AF; margin-bottom: 10px; font-size: 16px;">💡 Why This Works</h3>
+                <p style="font-size: 14px; color: #1E3A8A; line-height: 1.8;">
+                    <strong>Core insight:</strong> Consumers don't care about "inventory management" or "CRM" - they just want cheap food, fast. The MVP delivers exactly that. Once we prove the marketplace works (people buy food), we can add nice-to-have features like maps, favorites, and subscriptions.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

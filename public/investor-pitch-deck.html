@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munch Club - Investor Pitch Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #1F2937;
+            color: #1F2937;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            scroll-snap-align: start;
+            position: relative;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            color: #9CA3AF;
+            font-size: 16px;
+        }
+
+        /* Slide Themes */
+        .slide-dark {
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            color: white;
+        }
+
+        .slide-light {
+            background: white;
+            color: #1F2937;
+        }
+
+        .slide-green {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+        }
+
+        /* Typography */
+        .title {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 32px;
+            opacity: 0.9;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            opacity: 0.8;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* Layouts */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-light {
+            background: #F9FAFB;
+            border: 2px solid #E5E7EB;
+        }
+
+        .card-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Stats */
+        .stat-box {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 800;
+            color: #10B981;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        /* Lists */
+        .bullet-list {
+            list-style: none;
+            font-size: 24px;
+            line-height: 2;
+        }
+
+        .bullet-list li {
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .bullet-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: 800;
+            font-size: 32px;
+        }
+
+        /* Timeline */
+        .timeline {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .timeline-marker {
+            width: 80px;
+            height: 80px;
+            background: #10B981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-text {
+            font-size: 18px;
+            opacity: 0.85;
+        }
+
+        /* Tables */
+        .comparison-table {
+            width: 100%;
+            max-width: 1200px;
+            border-collapse: collapse;
+            font-size: 20px;
+        }
+
+        .comparison-table th {
+            background: #10B981;
+            color: white;
+            padding: 20px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Logos */
+        .logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        /* Highlights */
+        .highlight {
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        /* Print styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide slide-green">
+        <div class="logo">🍽️</div>
+        <div class="title">Munch Club</div>
+        <div class="subtitle">Tools + Customers for Local Food Businesses</div>
+        <div style="margin-top: 80px; font-size: 20px; opacity: 0.9;">
+            Giving independents the tools + customers to compete with chains<br>
+            while reducing £5B of UK food waste
+        </div>
+        <div class="slide-number">1/13</div>
+    </div>
+
+    <!-- Slide 2: Problem -->
+    <div class="slide slide-dark">
+        <div class="section-title">The Problem</div>
+        <div class="section-subtitle">Independent restaurants are losing to chains on three fronts</div>
+        <div class="three-column">
+            <div class="card">
+                <div class="card-title">💸 Expensive Marketing</div>
+                <div class="card-text">
+                    Facebook/Google ads cost £25-50 per customer<br><br>
+                    Small budgets (£500/month) get crushed by chains' £10k/month spend
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">🗑️ Food Waste</div>
+                <div class="card-text">
+                    UK restaurants waste £5B/year<br><br>
+                    Average independent loses £500-2,000/month throwing away unsold food
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">📊 No Tech Tools</div>
+                <div class="card-text">
+                    Chains have CRM, inventory systems, marketing automation<br><br>
+                    Independents use Excel and gut feeling
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">2/10</div>
+    </div>
+
+    <!-- Slide 3: Solution -->
+    <div class="slide slide-light">
+        <div class="section-title" style="color: #1F2937;">The Solution</div>
+        <div class="section-subtitle" style="color: #4B5563;">Shopify meets DoorDash for local food businesses</div>
+        <div class="two-column">
+            <div>
+                <div class="card card-light">
+                    <div class="card-title" style="color: #10B981; font-size: 36px;">🛠️ Tools</div>
+                    <ul class="bullet-list" style="font-size: 20px; color: #1F2937;">
+                        <li>Smart inventory management</li>
+                        <li>Promotion engine (4 types)</li>
+                        <li>Marketing automation (push, email, SMS)</li>
+                        <li>CRM & customer database</li>
+                        <li>Analytics & ROI tracking</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="card card-light">
+                    <div class="card-title" style="color: #10B981; font-size: 36px;">👥 Customers</div>
+                    <ul class="bullet-list" style="font-size: 20px; color: #1F2937;">
+                        <li>Built-in marketplace (5,000+ users)</li>
+                        <li>Mobile app (iOS + Android)</li>
+                        <li>£1.60 CAC (vs £25-50 ads)</li>
+                        <li>34% convert to full-price regulars</li>
+                        <li>Restaurant owns customer data</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 60px; text-align: center; font-size: 28px; color: #1F2937; font-weight: 700;">
+            We're MORE valuable than Shopify → We bring the customers too
+        </div>
+        <div class="slide-number" style="color: #9CA3AF;">3/10</div>
+    </div>
+
+    <!-- Slide 4: How It Works -->
+    <div class="slide slide-dark">
+        <div class="section-title">How It Works</div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">1</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Restaurant creates promotion</div>
+                    <div class="timeline-text">"50% off breakfast 8-9am" or "Mystery box £6 (worth £12+)"</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">2</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Auto-promoted to 5,000+ local customers</div>
+                    <div class="timeline-text">Push notifications, email, in-app browsing (geofenced by location)</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">3</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Customer reserves & pays online</div>
+                    <div class="timeline-text">Stripe checkout, instant confirmation, pickup code generated</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">4</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Customer picks up at restaurant</div>
+                    <div class="timeline-text">Show pickup code, verify identity, collect food</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">5</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Restaurant gets paid</div>
+                    <div class="timeline-text">Weekly payout (Free plan) or daily (Pro), keep 80-88% of sale</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">4/10</div>
+    </div>
+
+    <!-- Slide 5: Business Model -->
+    <div class="slide slide-light">
+        <div class="section-title" style="color: #1F2937;">Business Model</div>
+        <div class="section-subtitle" style="color: #4B5563;">Multiple revenue streams (SaaS + Marketplace)</div>
+        <div class="two-column">
+            <div>
+                <div class="stat-box">
+                    <div class="stat-number">£691k</div>
+                    <div class="stat-label" style="color: #1F2937;">Transaction Fees (Year 1)</div>
+                    <div style="margin-top: 15px; font-size: 16px; color: #6B7280;">
+                        15-20% commission per order<br>
+                        80 restaurants × 450 orders/month
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">£20k</div>
+                    <div class="stat-label" style="color: #1F2937;">Subscriptions (Year 1)</div>
+                    <div style="margin-top: 15px; font-size: 16px; color: #6B7280;">
+                        £50-300/month plans<br>
+                        25% conversion to paid plans
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="stat-box">
+                    <div class="stat-number">£9k</div>
+                    <div class="stat-label" style="color: #1F2937;">Marketing Add-Ons (Year 1)</div>
+                    <div style="margin-top: 15px; font-size: 16px; color: #6B7280;">
+                        Push/email campaigns<br>
+                        £30-75/month per restaurant
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">£24k</div>
+                    <div class="stat-label" style="color: #1F2937;">Consumer Subscription</div>
+                    <div style="margin-top: 15px; font-size: 16px; color: #6B7280;">
+                        Munch Club Plus (£5/month)<br>
+                        Early access + perks
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 40px; text-align: center; font-size: 48px; font-weight: 800; color: #10B981;">
+            Total Year 1 Revenue: £744k
+        </div>
+        <div style="text-align: center; font-size: 20px; color: #6B7280; margin-top: 10px;">
+            89% gross margin | Profitable by Month 12
+        </div>
+        <div class="slide-number" style="color: #9CA3AF;">5/10</div>
+    </div>
+
+    <!-- Slide 6: Market -->
+    <div class="slide slide-dark">
+        <div class="section-title">Market Opportunity</div>
+        <div class="section-subtitle">£360M TAM in UK restaurant promotion market</div>
+        <div class="three-column">
+            <div class="card">
+                <div class="card-title" style="color: #10B981;">TAM</div>
+                <div class="stat-number" style="font-size: 48px;">£360M</div>
+                <div class="card-text">
+                    150,000 UK restaurants<br>
+                    × £200/month marketing spend<br>
+                    = £30M/month
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title" style="color: #10B981;">SAM (Kent)</div>
+                <div class="stat-number" style="font-size: 48px;">£3.6M</div>
+                <div class="card-text">
+                    1,500 restaurants in Kent<br>
+                    × £200/month<br>
+                    = £300k/month
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title" style="color: #10B981;">SOM (Year 1)</div>
+                <div class="stat-number" style="font-size: 48px;">£192k</div>
+                <div class="card-text">
+                    80 restaurants (5% of Kent)<br>
+                    × £200/month<br>
+                    = £16k/month
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 60px; text-align: center; font-size: 24px; opacity: 0.9;">
+            <div style="margin-bottom: 20px;">🎯 <span class="highlight">Beachhead:</span> Maidstone (369 restaurants)</div>
+            <div style="margin-bottom: 20px;">📈 <span class="highlight">Expansion:</span> Tonbridge, Tunbridge Wells, Ashford, Canterbury (Months 7-12)</div>
+            <div>🚀 <span class="highlight">Year 2:</span> London suburbs, Brighton, Southampton (10,000+ restaurants)</div>
+        </div>
+        <div class="slide-number">6/10</div>
+    </div>
+
+    <!-- Slide 7: Traction & Roadmap -->
+    <div class="slide slide-light">
+        <div class="section-title" style="color: #1F2937;">Traction & 12-Month Roadmap</div>
+        <div class="two-column">
+            <div>
+                <div class="card card-light">
+                    <div class="card-title" style="color: #10B981;">✅ Completed</div>
+                    <ul class="bullet-list" style="font-size: 18px; color: #1F2937;">
+                        <li>Full platform strategy (V3)</li>
+                        <li>High-fidelity mockups (18 screens)</li>
+                        <li>Tech stack validated (Next.js, React Native, Supabase)</li>
+                        <li>Business model validated (£744k Year 1 potential)</li>
+                        <li>Validation materials ready (pitch deck, one-pager)</li>
+                    </ul>
+                </div>
+                <div class="card card-light" style="margin-top: 20px;">
+                    <div class="card-title" style="color: #F59E0B;">🔨 Months 1-3: MVP Build & Pilot</div>
+                    <ul class="bullet-list" style="font-size: 18px; color: #1F2937;">
+                        <li>Build marketplace MVP (no-code or custom)</li>
+                        <li>Onboard 10 pilot restaurants</li>
+                        <li>Launch consumer app (500 downloads)</li>
+                        <li>Target: 300 orders, £5k GMV, £1k revenue</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="card card-light">
+                    <div class="card-title" style="color: #3B82F6;">📈 Months 4-6: Platform Features</div>
+                    <ul class="bullet-list" style="font-size: 18px; color: #1F2937;">
+                        <li>Add inventory tracking, analytics, push notifications</li>
+                        <li>Launch Growth plan (£50/month)</li>
+                        <li>Scale to 30 restaurants, 2,000 users</li>
+                        <li>Target: £15k MRR</li>
+                    </ul>
+                </div>
+                <div class="card card-light" style="margin-top: 20px;">
+                    <div class="card-title" style="color: #10B981;">🚀 Months 7-12: Scale</div>
+                    <ul class="bullet-list" style="font-size: 18px; color: #1F2937;">
+                        <li>Launch Pro plan, marketing automation, CRM</li>
+                        <li>Hire developer + support (part-time)</li>
+                        <li>Expand to 5 Kent towns</li>
+                        <li>Scale to 80 restaurants, 5,000+ users</li>
+                        <li>Target: £50k MRR, profitable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number" style="color: #9CA3AF;">7/10</div>
+    </div>
+
+    <!-- Slide 8: Competition -->
+    <div class="slide slide-dark">
+        <div class="section-title">Competitive Advantage</div>
+        <div class="section-subtitle">We combine the best of 3 business models</div>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Too Good To Go</th>
+                    <th>DoorDash</th>
+                    <th>Shopify</th>
+                    <th style="background: #059669;">Munch Club</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Marketplace</strong></td>
+                    <td>✅ Waste only</td>
+                    <td>✅ Delivery</td>
+                    <td>❌</td>
+                    <td><strong>✅ Promotions + waste</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Business Tools</strong></td>
+                    <td>❌</td>
+                    <td>❌</td>
+                    <td>✅</td>
+                    <td><strong>✅ Full platform</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Commission</strong></td>
+                    <td>£1.79/order</td>
+                    <td>30%</td>
+                    <td>0%</td>
+                    <td><strong>15-20%</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Customer Data</strong></td>
+                    <td>❌ Platform owns</td>
+                    <td>❌ Platform owns</td>
+                    <td>✅ You own</td>
+                    <td><strong>✅ You own</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Marketing Tools</strong></td>
+                    <td>❌</td>
+                    <td>❌</td>
+                    <td>✅ Email only</td>
+                    <td><strong>✅ Push, email, SMS</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="margin-top: 50px; text-align: center; font-size: 28px;">
+            <span class="highlight">We're the only platform giving restaurants BOTH tools AND customers</span>
+        </div>
+        <div class="slide-number">8/10</div>
+    </div>
+
+    <!-- Slide 9: Team & Ask -->
+    <div class="slide slide-light">
+        <div class="section-title" style="color: #1F2937;">The Team & The Ask</div>
+        <div class="two-column">
+            <div>
+                <div class="card card-light">
+                    <div class="card-title" style="color: #10B981; font-size: 32px;">👤 Founder</div>
+                    <div class="card-text" style="color: #1F2937; font-size: 18px;">
+                        <strong>[Your Name]</strong><br><br>
+                        <strong>Background:</strong><br>
+                        • Marketing & customer acquisition expert<br>
+                        • [Your relevant experience]<br>
+                        • Deep understanding of local business challenges<br>
+                        • Passion for sustainability + local economy<br><br>
+                        <strong>Why This?</strong><br>
+                        Saw independents struggling vs chains, wanted to level the playing field while reducing waste
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card card-light">
+                    <div class="card-title" style="color: #10B981; font-size: 32px;">💰 The Ask</div>
+                    <div class="card-text" style="color: #1F2937; font-size: 20px;">
+                        <strong style="font-size: 48px; color: #10B981; display: block; margin: 20px 0;">£200-400k Seed Round</strong>
+                        <strong>Use of Funds:</strong><br>
+                        • Development: £80k (2 developers)<br>
+                        • Sales & Marketing: £100k (team + ads)<br>
+                        • Operations: £40k (support, admin)<br>
+                        • Founder salary: £60k<br>
+                        • Contingency: £20k<br><br>
+                        <strong>Valuation:</strong> £1.5-2M pre-money<br>
+                        <strong>Raise timing:</strong> Month 6-9 (after proving model)<br><br>
+                        <strong>Milestones before raise:</strong><br>
+                        ✓ 40+ restaurants | ✓ £20k MRR | ✓ 3,000+ users
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number" style="color: #9CA3AF;">9/10</div>
+    </div>
+
+    <!-- Slide 10: Vision -->
+    <div class="slide slide-green">
+        <div class="section-title">The Vision</div>
+        <div style="max-width: 900px; text-align: center;">
+            <div style="font-size: 36px; margin-bottom: 40px; line-height: 1.5;">
+                <strong>In 5 years, every independent restaurant in the UK uses Munch Club</strong>
+            </div>
+            <div style="font-size: 24px; opacity: 0.95; line-height: 1.8; margin-bottom: 60px;">
+                Not just as a marketplace, but as their core operating system →<br>
+                managing inventory, marketing to customers, competing with chains<br><br>
+                We'll have reduced UK food waste by 20%<br>
+                while helping 10,000+ local businesses thrive
+            </div>
+            <div style="font-size: 28px; font-weight: 700; margin-bottom: 20px;">
+                🎯 Year 1: 80 restaurants | £50k MRR | Maidstone + Kent
+            </div>
+            <div style="font-size: 28px; font-weight: 700; margin-bottom: 20px;">
+                📈 Year 3: 2,000 restaurants | £500k MRR | 20 UK cities
+            </div>
+            <div style="font-size: 28px; font-weight: 700; margin-bottom: 60px;">
+                🚀 Year 5: 10,000 restaurants | £3M MRR | National coverage
+            </div>
+            <div style="font-size: 32px; font-weight: 800; padding: 30px; background: rgba(255,255,255,0.2); border-radius: 12px;">
+                Let's build the Shopify for local food businesses 🍽️
+            </div>
+        </div>
+        <div class="slide-number">10/10</div>
+    </div>
+
+    <script>
+        // Add smooth scrolling for presentations
+        document.addEventListener('keydown', (e) => {
+            const slides = document.querySelectorAll('.slide');
+            const currentIndex = Math.round(window.scrollY / window.innerHeight);
+
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                if (currentIndex < slides.length - 1) {
+                    slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                if (currentIndex > 0) {
+                    slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

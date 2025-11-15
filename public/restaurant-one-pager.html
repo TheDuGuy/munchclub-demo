@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavePlate - Restaurant One-Pager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            background: #f9fafb;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            color: #10B981;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            font-size: 28px;
+        }
+
+        /* Problem Boxes */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .problem-box {
+            background: #FEF2F2;
+            border-left: 4px solid #EF4444;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .problem-title {
+            font-weight: 700;
+            color: #DC2626;
+            margin-bottom: 5px;
+        }
+
+        .problem-text {
+            font-size: 14px;
+            color: #991B1B;
+        }
+
+        /* Solution Boxes */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .solution-box {
+            background: #F0FDF4;
+            border: 2px solid #10B981;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .solution-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .solution-title {
+            font-weight: 700;
+            color: #065F46;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .solution-text {
+            font-size: 13px;
+            color: #047857;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #10B981;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #065F46;
+            font-weight: 600;
+        }
+
+        /* How It Works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: #10B981;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            margin: 0 auto 10px;
+        }
+
+        .step-text {
+            font-size: 12px;
+            color: #374151;
+            font-weight: 600;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .pricing-card {
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: #10B981;
+            background: #F0FDF4;
+            transform: scale(1.05);
+        }
+
+        .plan-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: #10B981;
+            margin-bottom: 5px;
+        }
+
+        .plan-commission {
+            font-size: 11px;
+            color: #6B7280;
+            margin-bottom: 12px;
+        }
+
+        .plan-features {
+            list-style: none;
+            font-size: 11px;
+            color: #4B5563;
+            text-align: left;
+        }
+
+        .plan-features li {
+            padding: 4px 0;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .plan-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .cta-text {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: white;
+            color: #10B981;
+            padding: 12px 40px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #F9FAFB;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #6B7280;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">🍽️ SavePlate</div>
+            <div class="tagline">The Marketing Platform for Local Food Businesses</div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Problem -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">⚠️</span>
+                    <span>The Problems You're Facing</span>
+                </div>
+                <div class="problem-grid">
+                    <div class="problem-box">
+                        <div class="problem-title">Empty Tables</div>
+                        <div class="problem-text">8-9am breakfast dead? Staff paid, rent paid, zero revenue.</div>
+                    </div>
+                    <div class="problem-box">
+                        <div class="problem-title">Expensive Ads</div>
+                        <div class="problem-text">Facebook costs £500/month for 10-20 customers (£25-50 each!)</div>
+                    </div>
+                    <div class="problem-box">
+                        <div class="problem-title">Food Waste</div>
+                        <div class="problem-text">Throwing away £500-2,000/month in unsold food.</div>
+                    </div>
+                    <div class="problem-box">
+                        <div class="problem-title">Chain Competition</div>
+                        <div class="problem-text">McDonald's runs promotions. You can't compete.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">✨</span>
+                    <span>How SavePlate Solves This</span>
+                </div>
+                <div class="solution-grid">
+                    <div class="solution-box">
+                        <div class="solution-icon">📱</div>
+                        <div class="solution-title">Marketing Platform</div>
+                        <div class="solution-text">Promote to 5,000+ local customers instantly</div>
+                    </div>
+                    <div class="solution-box">
+                        <div class="solution-icon">📊</div>
+                        <div class="solution-title">Smart Tools</div>
+                        <div class="solution-text">Track inventory, analytics, customer data</div>
+                    </div>
+                    <div class="solution-box">
+                        <div class="solution-icon">💰</div>
+                        <div class="solution-title">Zero Risk</div>
+                        <div class="solution-text">No upfront cost. Pay 15-20% only when you sell</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">£1.60</div>
+                    <div class="stat-label">Cost Per Customer</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">15x</div>
+                    <div class="stat-label">Cheaper Than Ads</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">34%</div>
+                    <div class="stat-label">Become Regulars</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">£2.3k</div>
+                    <div class="stat-label">Avg Extra/Month</div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">🔄</span>
+                    <span>How It Works (Simple 5-Step Process)</span>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Create promotion<br>("50% off breakfast 8-9am")</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">We promote to 5,000+ app users</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Customers reserve & pay online</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-text">They pick up, you serve</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-text">Get paid weekly (you keep 80-88%)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">💎</span>
+                    <span>Simple, Fair Pricing</span>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="plan-name">Starter</div>
+                        <div class="plan-price">FREE</div>
+                        <div class="plan-commission">20% commission</div>
+                        <ul class="plan-features">
+                            <li>List promotions</li>
+                            <li>Basic dashboard</li>
+                            <li>Payment weekly</li>
+                            <li>Email support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="plan-name">⭐ Growth</div>
+                        <div class="plan-price">£50/mo</div>
+                        <div class="plan-commission">18% commission (save £180!)</div>
+                        <ul class="plan-features">
+                            <li>Inventory tracking</li>
+                            <li>Advanced analytics</li>
+                            <li>Featured placement</li>
+                            <li>Payment twice weekly</li>
+                            <li>Priority support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="plan-name">Pro</div>
+                        <div class="plan-price">£150/mo</div>
+                        <div class="plan-commission">15% commission (save £450!)</div>
+                        <ul class="plan-features">
+                            <li>Marketing automation</li>
+                            <li>CRM features</li>
+                            <li>Multi-location</li>
+                            <li>API access</li>
+                            <li>Daily payment</li>
+                            <li>Chat support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta">
+                <div class="cta-title">Ready to Fill Your Slow Periods?</div>
+                <div class="cta-text">Join 50+ restaurants already using SavePlate • Free to start • No credit card required</div>
+                <div class="cta-button">📞 Call: 07XXX XXX XXX | ✉️ Email: hello@saveplate.uk</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            SavePlate Ltd • Maidstone, Kent • saveplate.uk<br>
+            Helping local businesses compete with chains while reducing food waste
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavePlate - Consumer App Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+            background: #f5f5f7;
+            padding: 40px 20px;
+            color: #1d1d1f;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 20px;
+            color: #6B7280;
+        }
+
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .screen {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen-title {
+            background: #1F2937;
+            color: white;
+            padding: 16px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .phone-frame {
+            background: #000;
+            padding: 12px;
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            height: 812px;
+            position: relative;
+        }
+
+        /* Welcome Screen */
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 32px;
+            text-align: center;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            height: 100%;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-screen h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .welcome-screen p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 48px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 12px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #10B981;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .link {
+            color: white;
+            opacity: 0.8;
+            font-size: 14px;
+            margin-top: 24px;
+        }
+
+        /* Home Screen */
+        .home-screen {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .nav-bar .logo-small {
+            font-size: 20px;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .icon-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #F3F4F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .filter-bar {
+            padding: 12px 20px;
+            background: white;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .filter-chip {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: #F3F4F6;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .filter-chip.active {
+            background: #10B981;
+            color: white;
+        }
+
+        .map-view {
+            flex: 1;
+            background: #E5E7EB;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(0deg, #E5E7EB 0px, #E5E7EB 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(90deg, #E5E7EB 0px, #E5E7EB 1px, transparent 1px, transparent 30px);
+        }
+
+        .map-marker {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #10B981;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .map-marker::after {
+            content: '🍽️';
+            transform: rotate(45deg);
+            font-size: 18px;
+        }
+
+        .map-marker:nth-child(1) { top: 30%; left: 40%; }
+        .map-marker:nth-child(2) { top: 50%; left: 60%; }
+        .map-marker:nth-child(3) { top: 60%; left: 30%; }
+
+        .you-marker {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background: #3B82F6;
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 20px 24px;
+            background: white;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #6B7280;
+        }
+
+        .nav-item.active {
+            color: #10B981;
+        }
+
+        .nav-item-icon {
+            font-size: 24px;
+        }
+
+        /* List View */
+        .list-view {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            background: #F9FAFB;
+        }
+
+        .bag-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 16px;
+        }
+
+        .bag-image {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .bag-info {
+            flex: 1;
+            padding: 12px 12px 12px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bag-restaurant {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 4px;
+        }
+
+        .bag-title {
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 8px;
+        }
+
+        .bag-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            color: #6B7280;
+            margin-bottom: 8px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .bag-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        .sale-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        .bag-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            background: #F3F4F6;
+        }
+
+        .tag.vegan {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        /* Bag Detail Screen */
+        .detail-screen {
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .back-btn {
+            font-size: 24px;
+            color: #1F2937;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .carousel {
+            height: 280px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .dot.active {
+            background: white;
+            width: 20px;
+            border-radius: 3px;
+        }
+
+        .detail-content {
+            padding: 24px 20px;
+        }
+
+        .restaurant-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .restaurant-info h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .restaurant-meta {
+            font-size: 14px;
+            color: #6B7280;
+        }
+
+        .bag-title-large {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .price-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #F0FDF4;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .divider {
+            border-top: 1px solid #E5E7EB;
+            margin: 24px 0;
+        }
+
+        .info-section {
+            margin-bottom: 24px;
+        }
+
+        .info-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .reserve-btn {
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 20px 24px;
+            background: white;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        /* Checkout Screen */
+        .checkout-screen {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkout-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px 20px;
+        }
+
+        .summary-box {
+            background: #F9FAFB;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .summary-row.total {
+            font-size: 18px;
+            font-weight: 700;
+            padding-top: 12px;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .payment-method.selected {
+            border-color: #10B981;
+            background: #F0FDF4;
+        }
+
+        .radio {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #D1D5DB;
+        }
+
+        .payment-method.selected .radio {
+            border-color: #10B981;
+            position: relative;
+        }
+
+        .payment-method.selected .radio::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #10B981;
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .note-box {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 24px;
+        }
+
+        /* Confirmation Screen */
+        .confirmation-screen {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 32px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10B981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .confirmation-screen h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .order-number {
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 32px;
+        }
+
+        .pickup-details {
+            width: 100%;
+            background: #F9FAFB;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .pickup-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .pickup-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .pickup-icon {
+            font-size: 24px;
+            width: 40px;
+            flex-shrink: 0;
+        }
+
+        .pickup-text h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .pickup-text p {
+            font-size: 14px;
+            color: #6B7280;
+        }
+
+        .pickup-code {
+            background: white;
+            border: 2px dashed #10B981;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .pickup-code-label {
+            font-size: 12px;
+            color: #6B7280;
+            margin-bottom: 8px;
+        }
+
+        .code {
+            font-size: 32px;
+            font-weight: 700;
+            color: #10B981;
+            letter-spacing: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .screens-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SavePlate Consumer App</h1>
+            <p>High-Fidelity Mockups - iOS Design</p>
+        </div>
+
+        <div class="screens-grid">
+            <!-- Welcome Screen -->
+            <div class="screen">
+                <div class="screen-title">01 • WELCOME SCREEN</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="welcome-screen">
+                            <div class="logo">🍽️</div>
+                            <h1>SavePlate</h1>
+                            <p>Save Food. Save Money.<br>Rescue surplus from local restaurants.</p>
+                            <div style="width: 100%; margin-top: auto;">
+                                <button class="btn btn-primary">Continue with Email</button>
+                                <button class="btn btn-secondary">Continue with Google</button>
+                                <button class="btn btn-outline">Continue with Apple</button>
+                                <div class="link">Already have an account? Log in</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Screen - Map View -->
+            <div class="screen">
+                <div class="screen-title">02 • HOME - MAP VIEW</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="home-screen">
+                            <div class="nav-bar">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span>☰</span>
+                                    <span class="logo-small">SavePlate</span>
+                                </div>
+                                <div class="nav-icons">
+                                    <div class="icon-btn">🔍</div>
+                                    <div class="icon-btn" style="position: relative;">
+                                        🔔
+                                        <span style="position: absolute; top: 2px; right: 2px; width: 8px; height: 8px; background: #EF4444; border-radius: 50%;"></span>
+                                    </div>
+                                    <div class="icon-btn">👤</div>
+                                </div>
+                            </div>
+                            <div class="filter-bar" style="overflow-x: auto;">
+                                <div class="filter-chip active">All</div>
+                                <div class="filter-chip">Breakfast</div>
+                                <div class="filter-chip">Lunch</div>
+                                <div class="filter-chip">Dinner</div>
+                                <div class="filter-chip">🌱 Vegan</div>
+                            </div>
+                            <div class="map-view">
+                                <div class="map-placeholder">
+                                    <div class="map-marker"></div>
+                                    <div class="map-marker"></div>
+                                    <div class="map-marker"></div>
+                                    <div class="you-marker"></div>
+                                </div>
+                            </div>
+                            <div class="bottom-nav">
+                                <div class="nav-item active">
+                                    <div class="nav-item-icon">🗺️</div>
+                                    <div>Explore</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div class="nav-item-icon">📋</div>
+                                    <div>Orders</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div class="nav-item-icon">♡</div>
+                                    <div>Saved</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div class="nav-item-icon">👤</div>
+                                    <div>Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Screen - List View -->
+            <div class="screen">
+                <div class="screen-title">03 • HOME - LIST VIEW</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="home-screen">
+                            <div class="nav-bar">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span>☰</span>
+                                    <span class="logo-small">SavePlate</span>
+                                </div>
+                                <div class="nav-icons">
+                                    <div class="icon-btn">🔍</div>
+                                    <div class="icon-btn">🔔</div>
+                                    <div class="icon-btn">👤</div>
+                                </div>
+                            </div>
+                            <div class="filter-bar" style="overflow-x: auto;">
+                                <div class="filter-chip active">All</div>
+                                <div class="filter-chip">Breakfast</div>
+                                <div class="filter-chip">Lunch</div>
+                                <div class="filter-chip">Dinner</div>
+                            </div>
+                            <div class="list-view">
+                                <div class="bag-card">
+                                    <div class="bag-image">🥐</div>
+                                    <div class="bag-info">
+                                        <div>
+                                            <div class="bag-restaurant">Café Delight</div>
+                                            <div class="bag-title">Breakfast Surprise</div>
+                                            <div class="bag-meta">
+                                                <div class="rating">⭐ 4.8</div>
+                                                <div>•</div>
+                                                <div>0.8km</div>
+                                                <div>•</div>
+                                                <div>5 left</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="bag-price">
+                                                <span class="original-price">£16</span>
+                                                <span class="sale-price">£8</span>
+                                            </div>
+                                            <div class="bag-tags">
+                                                <span class="tag vegan">🥬 Vegetarian</span>
+                                                <span class="tag">🕐 08:00-09:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bag-card">
+                                    <div class="bag-image" style="background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 100%);">🍕</div>
+                                    <div class="bag-info">
+                                        <div>
+                                            <div class="bag-restaurant">Pizza Express</div>
+                                            <div class="bag-title">Mixed Pizza Box</div>
+                                            <div class="bag-meta">
+                                                <div class="rating">⭐ 4.5</div>
+                                                <div>•</div>
+                                                <div>1.2km</div>
+                                                <div>•</div>
+                                                <div>2 left</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="bag-price">
+                                                <span class="original-price">£20</span>
+                                                <span class="sale-price">£10</span>
+                                            </div>
+                                            <div class="bag-tags">
+                                                <span class="tag vegan">🌱 Vegan option</span>
+                                                <span class="tag">🕐 20:00-21:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bag-card">
+                                    <div class="bag-image" style="background: linear-gradient(135deg, #FED7AA 0%, #FB923C 100%);">🥖</div>
+                                    <div class="bag-info">
+                                        <div>
+                                            <div class="bag-restaurant">Greggs</div>
+                                            <div class="bag-title">Bakery Grab Bag</div>
+                                            <div class="bag-meta">
+                                                <div class="rating">⭐ 4.3</div>
+                                                <div>•</div>
+                                                <div>2.1km</div>
+                                                <div>•</div>
+                                                <div>3 left</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="bag-price">
+                                                <span class="original-price">£12</span>
+                                                <span class="sale-price">£6</span>
+                                            </div>
+                                            <div class="bag-tags">
+                                                <span class="tag">🕐 16:00-17:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-nav">
+                                <div class="nav-item active">
+                                    <div class="nav-item-icon">📋</div>
+                                    <div>List</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div class="nav-item-icon">📋</div>
+                                    <div>Orders</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div class="nav-item-icon">♡</div>
+                                    <div>Saved</div>
+                                </div>
+                                <div class="nav-item">
+                                    <div class="nav-item-icon">👤</div>
+                                    <div>Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bag Detail Screen -->
+            <div class="screen">
+                <div class="screen-title">04 • BAG DETAIL</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="detail-screen">
+                            <div class="detail-header">
+                                <div class="back-btn">←</div>
+                                <div class="header-actions">
+                                    <div class="icon-btn">♡</div>
+                                    <div class="icon-btn">↗</div>
+                                </div>
+                            </div>
+                            <div class="carousel">
+                                🥐
+                                <div class="carousel-dots">
+                                    <div class="dot active"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                            <div class="detail-content">
+                                <div class="restaurant-header">
+                                    <div class="restaurant-info">
+                                        <h2>Café Delight</h2>
+                                        <div class="restaurant-meta">⭐ 4.8 (127 reviews) • 0.8km</div>
+                                    </div>
+                                </div>
+                                <div class="bag-title-large">Breakfast Surprise Bag</div>
+                                <div class="price-box">
+                                    <div style="flex: 1;">
+                                        <div class="original-price">£16.00</div>
+                                        <div class="sale-price" style="font-size: 28px;">£8.00</div>
+                                        <div style="font-size: 12px; color: #059669; margin-top: 4px;">50% off</div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 12px; color: #6B7280;">Pickup Today</div>
+                                        <div style="font-size: 16px; font-weight: 600;">08:00-09:00</div>
+                                        <div style="font-size: 12px; color: #059669; margin-top: 4px;">📦 5 bags left</div>
+                                    </div>
+                                </div>
+
+                                <div class="info-section">
+                                    <h3>What you might get:</h3>
+                                    <p>A mix of fresh pastries, sandwiches, and hot drinks from our breakfast menu. Contents vary daily based on what's available.</p>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="info-section">
+                                    <h3>Dietary Information</h3>
+                                    <div class="bag-tags" style="margin-top: 12px;">
+                                        <span class="tag vegan">🥬 Vegetarian</span>
+                                        <span class="tag">🥛 Contains Dairy</span>
+                                    </div>
+                                    <div style="margin-top: 12px; font-size: 13px; color: #DC2626;">
+                                        ⚠️ May contain: Gluten, Eggs
+                                    </div>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="info-section">
+                                    <h3>Pickup Location</h3>
+                                    <div class="info-row">
+                                        <span>📍</span>
+                                        <span>123 High Street, Maidstone ME14 1XX</span>
+                                    </div>
+                                    <button class="btn btn-secondary" style="margin-top: 12px;">View Restaurant Profile</button>
+                                </div>
+                            </div>
+                            <div class="reserve-btn">
+                                <button class="btn btn-primary" style="background: #10B981; color: white;">Reserve for £8.00</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkout Screen -->
+            <div class="screen">
+                <div class="screen-title">05 • CHECKOUT</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="checkout-screen">
+                            <div class="detail-header">
+                                <div class="back-btn">←</div>
+                                <div style="font-weight: 600;">Checkout</div>
+                                <div style="width: 24px;"></div>
+                            </div>
+                            <div class="checkout-content">
+                                <div class="section-title">Order Summary</div>
+                                <div class="summary-box">
+                                    <div style="font-weight: 600; margin-bottom: 8px;">Breakfast Surprise Bag</div>
+                                    <div style="font-size: 14px; color: #6B7280; margin-bottom: 12px;">Café Delight</div>
+                                    <div style="font-size: 13px; color: #6B7280;">
+                                        🕐 Pickup: Today 08:00-09:00
+                                    </div>
+                                    <div class="divider" style="margin: 16px 0;"></div>
+                                    <div class="summary-row">
+                                        <span>Subtotal</span>
+                                        <span>£8.00</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Service fee</span>
+                                        <span>£0.00</span>
+                                    </div>
+                                    <div class="summary-row total">
+                                        <span>Total</span>
+                                        <span>£8.00</span>
+                                    </div>
+                                </div>
+
+                                <div class="section-title">Payment Method</div>
+                                <div class="payment-method selected">
+                                    <div class="radio"></div>
+                                    <div class="card-info">
+                                        <div style="font-weight: 600;">•••• 4242</div>
+                                        <div style="font-size: 12px; color: #6B7280;">Expires 12/25</div>
+                                    </div>
+                                    <div>💳</div>
+                                </div>
+                                <div class="payment-method">
+                                    <div class="radio"></div>
+                                    <div class="card-info">
+                                        <div style="font-weight: 600;">•••• 5555</div>
+                                        <div style="font-size: 12px; color: #6B7280;">Expires 08/26</div>
+                                    </div>
+                                    <div>💳</div>
+                                </div>
+                                <button class="btn btn-secondary" style="margin-top: 12px;">+ Add New Card</button>
+
+                                <div class="note-box">
+                                    <strong>Important Notes:</strong><br>
+                                    • Payment is charged immediately<br>
+                                    • £2 no-show fee if you don't collect<br>
+                                    • Contents may vary (surplus food)
+                                </div>
+                            </div>
+                            <div class="reserve-btn">
+                                <button class="btn btn-primary" style="background: #10B981; color: white;">Confirm & Pay £8.00</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirmation Screen -->
+            <div class="screen">
+                <div class="screen-title">06 • ORDER CONFIRMED</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="confirmation-screen">
+                            <div class="success-icon">✓</div>
+                            <h1>Order Confirmed!</h1>
+                            <div class="order-number">Order #SP-20250112-A7F3</div>
+
+                            <div class="pickup-details">
+                                <div style="font-size: 16px; font-weight: 600; margin-bottom: 16px;">Pickup Details</div>
+                                <div class="pickup-row">
+                                    <div class="pickup-icon">📍</div>
+                                    <div class="pickup-text">
+                                        <h3>Café Delight</h3>
+                                        <p>123 High Street, Maidstone</p>
+                                    </div>
+                                </div>
+                                <div class="pickup-row">
+                                    <div class="pickup-icon">🕐</div>
+                                    <div class="pickup-text">
+                                        <h3>Today, 08:00 - 09:00</h3>
+                                        <p>Arrive during this window</p>
+                                    </div>
+                                </div>
+                                <div class="pickup-code">
+                                    <div class="pickup-code-label">PICKUP CODE</div>
+                                    <div class="code">4729</div>
+                                    <div style="font-size: 12px; color: #6B7280; margin-top: 8px; text-align: center;">Show this to staff</div>
+                                </div>
+                            </div>
+
+                            <div style="font-size: 13px; color: #6B7280; margin-bottom: 24px;">
+                                You'll receive a notification when your order is ready
+                            </div>
+
+                            <button class="btn btn-primary" style="background: #10B981; color: white; margin-bottom: 12px;">Get Directions</button>
+                            <button class="btn btn-secondary">View Order Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

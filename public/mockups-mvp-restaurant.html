@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavePlate MVP - Restaurant Dashboard Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f3f4f6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            color: #1F2937;
+            margin-bottom: 10px;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: #10B981;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #6B7280;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mockup-section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1F2937;
+        }
+
+        .mvp-badge {
+            background: #10B981;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .future-badge {
+            background: #F59E0B;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .mockup-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+
+        .mockup {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .mockup-title {
+            background: #F9FAFB;
+            padding: 20px;
+            border-bottom: 2px solid #E5E7EB;
+            font-weight: 600;
+            color: #1F2937;
+            font-size: 16px;
+        }
+
+        .mockup-screen {
+            padding: 30px;
+            min-height: 500px;
+        }
+
+        /* Dashboard Components */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .restaurant-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F2937;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: #10B981;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #F3F4F6;
+            color: #4B5563;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #F9FAFB;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #E5E7EB;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #6B7280;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #10B981;
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .orders-list {
+            margin-top: 20px;
+        }
+
+        .order-item {
+            background: #F9FAFB;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #E5E7EB;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .order-id {
+            font-weight: 700;
+            color: #1F2937;
+        }
+
+        .order-status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .status-ready {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .order-details {
+            font-size: 14px;
+            color: #6B7280;
+        }
+
+        .coming-soon {
+            background: #FEF9C3;
+            border: 2px dashed #F59E0B;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .coming-soon-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .coming-soon-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #92400E;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon-text {
+            font-size: 14px;
+            color: #78350F;
+        }
+
+        .info-box {
+            background: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .info-box-text {
+            font-size: 13px;
+            color: #1E40AF;
+        }
+
+        .feature-preview {
+            background: #F0FDF4;
+            border: 2px solid #10B981;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-preview-title {
+            font-weight: 700;
+            color: #065F46;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-preview-list {
+            list-style: none;
+            font-size: 14px;
+            color: #047857;
+        }
+
+        .feature-preview-list li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-preview-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="badge">MVP Version (Build First)</div>
+            <h1>🍽️ SavePlate Restaurant Dashboard</h1>
+            <p>These mockups show what we'll build first (MVP) and what comes later (Platform Features). Use these to validate with restaurants.</p>
+        </div>
+
+        <!-- MVP Screens -->
+        <div class="mockup-section">
+            <div class="section-header">
+                <div class="section-title">Phase 1: MVP (Months 1-3)</div>
+                <div class="mvp-badge">✓ BUILD FIRST</div>
+            </div>
+
+            <div class="mockup-container">
+                <!-- Screen 1: Dashboard Home -->
+                <div class="mockup">
+                    <div class="mockup-title">1. Dashboard Home (Simple Stats)</div>
+                    <div class="mockup-screen">
+                        <div class="dashboard-header">
+                            <div class="restaurant-name">The Green Café</div>
+                            <button class="btn btn-primary">+ Create Promotion</button>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-label">Today's Orders</div>
+                                <div class="stat-value">12</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Today's Revenue</div>
+                                <div class="stat-value">£96</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Active Promotions</div>
+                                <div class="stat-value">3</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Total Revenue (This Week)</div>
+                                <div class="stat-value">£472</div>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-text">
+                                <strong>MVP Focus:</strong> Simple, clean stats. No fancy charts or analytics yet. Just the numbers restaurants need to see.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 2: Create Promotion -->
+                <div class="mockup">
+                    <div class="mockup-title">2. Create Promotion (Simple Form)</div>
+                    <div class="mockup-screen">
+                        <h3 style="margin-bottom: 25px; color: #1F2937;">Create New Promotion</h3>
+
+                        <div class="form-group">
+                            <label class="form-label">Item Name*</label>
+                            <input type="text" class="form-input" placeholder="e.g., Breakfast Box, Mystery Bag, Lunch Special">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Description*</label>
+                            <textarea class="form-input" placeholder="What's included? (e.g., Pastries, coffee, sandwich)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Price*</label>
+                            <input type="text" class="form-input" placeholder="£8.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Original Value (Optional)</label>
+                            <input type="text" class="form-input" placeholder="£16.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Quantity Available*</label>
+                            <input type="text" class="form-input" placeholder="10">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Pickup Time*</label>
+                            <input type="text" class="form-input" placeholder="Today 8:00-9:00am">
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;">Publish Promotion</button>
+
+                        <div class="info-box">
+                            <div class="info-box-text">
+                                <strong>MVP Simplicity:</strong> Just 6 fields. No photo upload yet (we'll add that in Phase 2). Quick to create = more promotions.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 3: Orders List -->
+                <div class="mockup">
+                    <div class="mockup-title">3. Orders List (Basic View)</div>
+                    <div class="mockup-screen">
+                        <div class="dashboard-header">
+                            <h3 style="color: #1F2937;">Today's Orders</h3>
+                            <button class="btn btn-secondary">View All Orders</button>
+                        </div>
+
+                        <div class="orders-list">
+                            <div class="order-item">
+                                <div class="order-header">
+                                    <div class="order-id">Order #1247</div>
+                                    <div class="order-status status-ready">READY FOR PICKUP</div>
+                                </div>
+                                <div class="order-details">
+                                    <div><strong>Customer:</strong> Sarah M.</div>
+                                    <div><strong>Item:</strong> Breakfast Box</div>
+                                    <div><strong>Pickup Code:</strong> 4829</div>
+                                    <div><strong>Pickup Time:</strong> Today 8:30-9:00am</div>
+                                    <div><strong>Amount:</strong> £8.00</div>
+                                </div>
+                            </div>
+
+                            <div class="order-item">
+                                <div class="order-header">
+                                    <div class="order-id">Order #1246</div>
+                                    <div class="order-status status-pending">PENDING PICKUP</div>
+                                </div>
+                                <div class="order-details">
+                                    <div><strong>Customer:</strong> John D.</div>
+                                    <div><strong>Item:</strong> Lunch Special</div>
+                                    <div><strong>Pickup Code:</strong> 7392</div>
+                                    <div><strong>Pickup Time:</strong> Today 12:00-1:00pm</div>
+                                    <div><strong>Amount:</strong> £7.50</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-text">
+                                <strong>MVP Core:</strong> Simple list of orders with pickup codes. No complex status management or customer messaging yet.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Platform Features (Coming Soon) -->
+        <div class="mockup-section">
+            <div class="section-header">
+                <div class="section-title">Phase 2: Platform Features (Months 4-6)</div>
+                <div class="future-badge">🔮 COMING SOON</div>
+            </div>
+
+            <div class="mockup-container">
+                <!-- Screen 4: Inventory Management -->
+                <div class="mockup">
+                    <div class="mockup-title">4. Inventory Management (Platform Feature)</div>
+                    <div class="mockup-screen">
+                        <div class="coming-soon">
+                            <div class="coming-soon-icon">📦</div>
+                            <div class="coming-soon-title">Smart Inventory Tracking</div>
+                            <div class="coming-soon-text">Coming in Months 4-6</div>
+                        </div>
+
+                        <div class="feature-preview">
+                            <div class="feature-preview-title">
+                                ✨ What This Will Do:
+                            </div>
+                            <ul class="feature-preview-list">
+                                <li>Track all inventory items (bread, pastries, meals)</li>
+                                <li>Set expiry dates, get alerts 24-48h before</li>
+                                <li>Auto-suggest promotions for expiring items</li>
+                                <li>See which items sell vs waste</li>
+                                <li>Predict demand based on history</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-text">
+                                <strong>Why Later?</strong> MVP focuses on getting promotions working first. Once restaurants are using it, we add inventory to make it even more valuable.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 5: Analytics Dashboard -->
+                <div class="mockup">
+                    <div class="mockup-title">5. Advanced Analytics (Platform Feature)</div>
+                    <div class="mockup-screen">
+                        <div class="coming-soon">
+                            <div class="coming-soon-icon">📊</div>
+                            <div class="coming-soon-title">Advanced Analytics & ROI Tracking</div>
+                            <div class="coming-soon-text">Coming in Months 4-6</div>
+                        </div>
+
+                        <div class="feature-preview">
+                            <div class="feature-preview-title">
+                                ✨ What This Will Do:
+                            </div>
+                            <ul class="feature-preview-list">
+                                <li>Revenue charts (by day, week, month)</li>
+                                <li>Customer Acquisition Cost (CAC) tracking</li>
+                                <li>Repeat customer rate percentage</li>
+                                <li>Top-selling items and best times</li>
+                                <li>Compare your performance vs platform average</li>
+                                <li>ROI per promotion (which campaigns work best)</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-text">
+                                <strong>Why Later?</strong> Need data first! After 2-3 months of orders, we can show meaningful analytics. MVP gives simple stats only.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 6: Marketing Automation -->
+                <div class="mockup">
+                    <div class="mockup-title">6. Marketing Automation (Platform Feature)</div>
+                    <div class="mockup-screen">
+                        <div class="coming-soon">
+                            <div class="coming-soon-icon">📧</div>
+                            <div class="coming-soon-title">Marketing Automation Suite</div>
+                            <div class="coming-soon-text">Coming in Months 7-9</div>
+                        </div>
+
+                        <div class="feature-preview">
+                            <div class="feature-preview-title">
+                                ✨ What This Will Do:
+                            </div>
+                            <ul class="feature-preview-list">
+                                <li>Send push notifications to nearby customers</li>
+                                <li>Email campaigns to your customer list</li>
+                                <li>SMS campaigns for flash sales (premium)</li>
+                                <li>Segment customers (VIPs, regulars, at-risk)</li>
+                                <li>A/B test different promotions</li>
+                                <li>Schedule campaigns in advance</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-text">
+                                <strong>Why Later?</strong> Marketing automation is complex. We build it after proving the marketplace works. MVP has manual notifications only.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What Restaurants Get -->
+        <div class="mockup-section">
+            <div class="section-header">
+                <div class="section-title">Validation Strategy: Pitch Platform, Build MVP</div>
+            </div>
+
+            <div style="background: white; padding: 40px; border-radius: 12px; max-width: 1000px; margin: 0 auto;">
+                <h3 style="color: #10B981; margin-bottom: 20px; font-size: 24px;">📋 What to Tell Restaurants</h3>
+
+                <div style="background: #F0FDF4; border-left: 4px solid #10B981; padding: 20px; margin-bottom: 30px; border-radius: 4px;">
+                    <p style="font-size: 16px; color: #065F46; line-height: 1.8;">
+                        <strong>"SavePlate is building the operating system for local food businesses."</strong><br><br>
+
+                        We're launching in <strong>3 phases</strong>:<br><br>
+
+                        <strong>Phase 1 (Months 1-3):</strong> Marketplace MVP<br>
+                        → Create promotions, consumers buy, you get orders<br>
+                        → Simple dashboard, basic stats<br>
+                        → THIS IS WHAT YOU'LL USE FIRST<br><br>
+
+                        <strong>Phase 2 (Months 4-6):</strong> Platform features<br>
+                        → Inventory tracking, advanced analytics<br>
+                        → Push notifications, email campaigns<br>
+                        → Paid plans (Growth £50/month, lower commission)<br><br>
+
+                        <strong>Phase 3 (Months 7-12):</strong> Full platform<br>
+                        → Marketing automation, CRM features<br>
+                        → Multi-location support, API access<br>
+                        → Pro/Enterprise plans<br><br>
+
+                        <strong>You commit to the vision, we build incrementally.</strong>
+                    </p>
+                </div>
+
+                <h3 style="color: #10B981; margin-bottom: 15px; margin-top: 30px; font-size: 20px;">✅ What Restaurants Get in MVP (Free)</h3>
+                <ul style="font-size: 16px; color: #374151; line-height: 2; margin-left: 20px;">
+                    <li>Create unlimited promotions (4 types)</li>
+                    <li>List on marketplace (5,000+ potential customers)</li>
+                    <li>Receive orders with pickup codes</li>
+                    <li>Basic stats (revenue, orders, customers)</li>
+                    <li>Weekly payouts (keep 80%)</li>
+                    <li>Email support</li>
+                </ul>
+
+                <h3 style="color: #F59E0B; margin-bottom: 15px; margin-top: 30px; font-size: 20px;">🔮 What's Coming Later (Paid Plans)</h3>
+                <ul style="font-size: 16px; color: #374151; line-height: 2; margin-left: 20px;">
+                    <li>Inventory management (track expiry, auto-suggestions)</li>
+                    <li>Advanced analytics (CAC, LTV, benchmarking)</li>
+                    <li>Marketing automation (push, email, SMS)</li>
+                    <li>CRM features (customer database, loyalty programs)</li>
+                    <li>Lower commission (18% Growth, 15% Pro)</li>
+                    <li>Priority support, faster payouts</li>
+                </ul>
+
+                <div style="background: #EFF6FF; border-left: 4px solid #3B82F6; padding: 20px; margin-top: 30px; border-radius: 4px;">
+                    <p style="font-size: 15px; color: #1E40AF; line-height: 1.7;">
+                        <strong>💡 Pro Tip for Validation:</strong><br>
+                        Show restaurants these mockups and say: "This is the full vision. We're building Phase 1 first (marketplace), then adding features based on what you tell us you need most. Would you use Phase 1 if it launches in 2 months?"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

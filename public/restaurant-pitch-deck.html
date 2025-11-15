@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munch Club - Restaurant Partnership Deck</title>
+    <style>
+        @media print {
+            .page-break { page-break-before: always; }
+            body { margin: 0; }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: white;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            padding: 20mm;
+            position: relative;
+        }
+
+        /* Cover Page */
+        .cover {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 28px;
+            opacity: 0.95;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .tagline {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        /* Standard Page */
+        h1 {
+            font-size: 42px;
+            color: #111827;
+            margin-bottom: 32px;
+            border-bottom: 4px solid #10B981;
+            padding-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #111827;
+            margin: 32px 0 20px 0;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #111827;
+            margin: 24px 0 12px 0;
+        }
+
+        p {
+            font-size: 16px;
+            color: #374151;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .highlight-box {
+            background: #F0FDF4;
+            border-left: 4px solid #10B981;
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .stat-card {
+            background: white;
+            border: 2px solid #10B981;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #6B7280;
+            font-weight: 600;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+        }
+
+        .comparison-table th {
+            background: #F9FAFB;
+            padding: 16px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 700;
+            color: #111827;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .comparison-table td {
+            padding: 16px;
+            border-bottom: 1px solid #E5E7EB;
+            font-size: 15px;
+        }
+
+        .comparison-table tr:hover {
+            background: #F9FAFB;
+        }
+
+        .munchclub-col {
+            background: #F0FDF4;
+            font-weight: 600;
+            color: #047857;
+        }
+
+        .checkmark {
+            color: #10B981;
+            font-size: 20px;
+        }
+
+        .crossmark {
+            color: #EF4444;
+            font-size: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0 12px 40px;
+            position: relative;
+            font-size: 16px;
+            color: #374151;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        .calculator-section {
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            padding: 32px;
+            border-radius: 12px;
+            margin: 32px 0;
+        }
+
+        .calculator-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #D1D5DB;
+            align-items: center;
+        }
+
+        .calculator-row:last-child {
+            border-bottom: none;
+        }
+
+        .calculator-label {
+            font-size: 16px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .calculator-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            text-align: right;
+        }
+
+        .total-row {
+            background: #10B981;
+            color: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .total-row .calculator-label {
+            color: white;
+            font-size: 20px;
+        }
+
+        .total-row .calculator-value {
+            color: white;
+            font-size: 36px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .pricing-card {
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: #10B981;
+            background: #F0FDF4;
+        }
+
+        .pricing-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #10B981;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 8px;
+        }
+
+        .plan-period {
+            font-size: 16px;
+            color: #6B7280;
+            margin-bottom: 24px;
+        }
+
+        .plan-features {
+            list-style: none;
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .plan-features li::before {
+            content: "✓ ";
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 48px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 32px 0;
+        }
+
+        .cta-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-text {
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 32px;
+        }
+
+        .contact-info {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 20mm;
+            right: 20mm;
+            text-align: center;
+            font-size: 12px;
+            color: #9CA3AF;
+            padding-top: 16px;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1: COVER -->
+    <div class="page cover">
+        <div class="logo">🍽️</div>
+        <div class="title">Munch Club</div>
+        <div class="subtitle">Restaurant Partnership Deck</div>
+        <div class="tagline">
+            Fill your slow periods. Acquire new customers. All at zero upfront cost.
+        </div>
+        <div style="margin-top: 60px; font-size: 16px; opacity: 0.8;">
+            Maidstone & Tunbridge Wells Launch • 2025
+        </div>
+    </div>
+
+    <!-- PAGE 2: THE PROBLEM -->
+    <div class="page page-break">
+        <h1>The Problem You Face Every Day</h1>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">£500</div>
+                <div class="stat-label">Wasted on slow periods</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">£25-50</div>
+                <div class="stat-label">Cost per new customer (ads)</div>
+            </div>
+        </div>
+
+        <h2><span class="emoji">📉</span> Empty Tables During Off-Peak Hours</h2>
+        <p>Every restaurant has them: Monday lunch, Tuesday dinner, that dead hour between breakfast and lunch. Fixed costs keep running, but revenue doesn't.</p>
+
+        <h2><span class="emoji">💸</span> Marketing That Doesn't Work</h2>
+        <p>You've tried Facebook ads, Google ads, maybe even leaflet drops. The cost? £25-50 per customer. The results? Often disappointing. And you're competing against chains with million-pound marketing budgets.</p>
+
+        <h2><span class="emoji">🗑️</span> Food Waste Eating Your Profits</h2>
+        <p>Prepared too much for lunch? Those croissants from yesterday morning? They go in the bin, taking your profit margins with them.</p>
+
+        <div class="warning-box">
+            <h3 style="margin-top: 0; color: #92400E;"><span class="emoji">⚠️</span> The Real Cost</h3>
+            <p style="color: #92400E; margin-bottom: 0;">Most independent restaurants waste £2,000-3,000 per month on ineffective marketing and lost revenue from empty tables. That's £24,000-36,000 per year straight out of your pocket.</p>
+        </div>
+
+        <div class="footer">
+            Munch Club Restaurant Partnership Deck • Page 2 of 8
+        </div>
+    </div>
+
+    <!-- PAGE 3: THE SOLUTION -->
+    <div class="page page-break">
+        <h1>The Munch Club Solution</h1>
+
+        <div class="highlight-box">
+            <h2 style="margin-top: 0; color: #047857;">Think of us as your personal marketing team + customer database for £0 upfront</h2>
+            <p style="color: #047857; font-size: 18px; margin-bottom: 0;">We bring customers to your restaurant during your slow periods. You keep 80% of every sale. No monthly fees. No contracts. No risk.</p>
+        </div>
+
+        <h2><span class="emoji">🎯</span> How It Works (Simple 3-Step Process)</h2>
+
+        <div style="background: white; border: 2px solid #E5E7EB; border-radius: 12px; padding: 32px; margin: 24px 0;">
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; margin-bottom: 32px;">
+                <div style="width: 60px; height: 60px; background: #10B981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700;">1</div>
+                <div>
+                    <h3 style="margin-top: 0;">You Create a Promotion</h3>
+                    <p style="margin-bottom: 0;">Monday lunch slow? Create a "Lunch Special" for £8.50 (pickup 12pm-2pm). Takes 2 minutes in our dashboard. Add a photo, set quantity, done.</p>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; margin-bottom: 32px;">
+                <div style="width: 60px; height: 60px; background: #10B981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700;">2</div>
+                <div>
+                    <h3 style="margin-top: 0;">We Bring the Customers</h3>
+                    <p style="margin-bottom: 0;">5,000+ local app users in Maidstone see your deal. We notify nearby customers instantly. They book and pay through the app (guaranteed payment, zero no-shows).</p>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start;">
+                <div style="width: 60px; height: 60px; background: #10B981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700;">3</div>
+                <div>
+                    <h3 style="margin-top: 0;">They Pick Up, You Keep 80%</h3>
+                    <p style="margin-bottom: 0;">Customer shows pickup code. You hand over the food. Money hits your bank in 2 days. You keep 80%, we take 20% as our commission. That's it.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2><span class="emoji">🎁</span> What You Get</h2>
+
+        <ul class="feature-list">
+            <li><strong>5,000+ local customers</strong> ready to buy (we build the audience, not you)</li>
+            <li><strong>Zero upfront cost</strong> — only pay 20% commission on completed sales</li>
+            <li><strong>Fill slow periods</strong> — Monday lunch, Tuesday evening, breakfast 8-9am</li>
+            <li><strong>Customer acquisition at £1.60</strong> vs £25-50 via Facebook/Google ads</li>
+            <li><strong>34% become regular customers</strong> who return at full price</li>
+            <li><strong>Reduce food waste</strong> — rescue expiring items instead of binning them</li>
+        </ul>
+
+        <div class="footer">
+            Munch Club Restaurant Partnership Deck • Page 3 of 9
+        </div>
+    </div>
+
+    <!-- PAGE 4: CUSTOMER ACQUISITION -->
+    <div class="page page-break">
+        <h1>"Where Are These 5,000+ Customers?"</h1>
+
+        <p style="font-size: 20px; margin-bottom: 32px; color: #111827; font-weight: 600;">This is THE question. Here's the honest answer:</p>
+
+        <div class="warning-box">
+            <h3 style="margin-top: 0; color: #92400E;"><span class="emoji">🎯</span> The Truth</h3>
+            <p style="color: #92400E; font-size: 18px; margin-bottom: 0;">We're launching in 4 weeks. We don't have 5,000 customers TODAY. But here's our detailed plan to get them — and why you only pay if it works.</p>
+        </div>
+
+        <h2><span class="emoji">📊</span> Target Market: Maidstone & Tunbridge Wells</h2>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">293k</div>
+                <div class="stat-label">Combined population</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">40k</div>
+                <div class="stat-label">Eat out 2+ times/week</div>
+            </div>
+        </div>
+
+        <h3><span class="emoji">👥</span> Who We're Targeting</h3>
+        <ul class="feature-list" style="margin: 20px 0;">
+            <li><strong>Age 25-45:</strong> Young professionals, families, working parents</li>
+            <li><strong>Income £25k-50k:</strong> Middle income, value-conscious but not cheap</li>
+            <li><strong>Behaviors:</strong> Already use Deliveroo, Too Good To Go, follow local food groups</li>
+            <li><strong>Locations:</strong> Town centers + 3-mile radius (high restaurant density)</li>
+        </ul>
+
+        <h2><span class="emoji">🚀</span> Customer Acquisition Plan (Pre-Launch: 4 Weeks)</h2>
+
+        <div style="background: white; border: 2px solid #E5E7EB; border-radius: 12px; padding: 32px; margin: 24px 0;">
+            <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid #E5E7EB;">
+                <div style="font-weight: 700; color: #111827; min-width: 200px;">Facebook Groups (FREE)</div>
+                <div style="font-size: 14px; color: #6B7280;">Post in 12 local groups (50k+ members total)</div>
+                <div style="font-weight: 700; color: #10B981; text-align: right;">300 signups</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid #E5E7EB;">
+                <div style="font-weight: 700; color: #111827; min-width: 200px;">Restaurant Partners (FREE)</div>
+                <div style="font-size: 14px; color: #6B7280;">YOU promote to your customers (table tents, social media)</div>
+                <div style="font-weight: 700; color: #10B981; text-align: right;">1,500 signups</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid #E5E7EB;">
+                <div style="font-weight: 700; color: #111827; min-width: 200px;">Local Influencers (£150)</div>
+                <div style="font-size: 14px; color: #6B7280;">Micro-influencers with 2k-3k local followers</div>
+                <div style="font-weight: 700; color: #10B981; text-align: right;">300 signups</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid #E5E7EB;">
+                <div style="font-weight: 700; color: #111827; min-width: 200px;">University Flyering (£100)</div>
+                <div style="font-size: 14px; color: #6B7280;">Target students (broke, app-savvy, viral)</div>
+                <div style="font-weight: 700; color: #10B981; text-align: right;">150 signups</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 16px 0; background: #F0FDF4; margin: 16px -16px -16px; padding: 20px 16px; border-radius: 0 0 12px 12px;">
+                <div style="font-weight: 700; color: #047857; min-width: 200px; font-size: 18px;">TOTAL PRE-LAUNCH</div>
+                <div style="font-size: 14px; color: #047857;">4 weeks, £250 budget</div>
+                <div style="font-weight: 700; color: #047857; text-align: right; font-size: 24px;">2,250 waitlist</div>
+            </div>
+        </div>
+
+        <h2><span class="emoji">📱</span> Launch Week Strategy</h2>
+
+        <div style="background: white; border: 2px solid #10B981; border-radius: 12px; padding: 32px; margin: 24px 0;">
+            <div style="margin-bottom: 24px;">
+                <div style="font-size: 14px; color: #6B7280; margin-bottom: 8px;">Waitlist email blast (30-40% convert)</div>
+                <div style="font-size: 36px; font-weight: 700; color: #10B981;">500-900 downloads</div>
+            </div>
+
+            <div style="border-top: 2px solid #E5E7EB; padding-top: 24px; margin-bottom: 24px;">
+                <div style="font-size: 14px; color: #6B7280; margin-bottom: 8px;">+ Facebook ads (£150, 7 days)</div>
+                <div style="font-size: 36px; font-weight: 700; color: #10B981;">+120 downloads</div>
+            </div>
+
+            <div style="border-top: 2px solid #E5E7EB; padding-top: 24px; margin-bottom: 24px;">
+                <div style="font-size: 14px; color: #6B7280; margin-bottom: 8px;">+ Restaurant social media posts</div>
+                <div style="font-size: 36px; font-weight: 700; color: #10B981;">+300 downloads</div>
+            </div>
+
+            <div style="border-top: 2px solid #047857; padding-top: 24px;">
+                <div style="font-size: 14px; color: #6B7280; margin-bottom: 8px;">Launch Week Total</div>
+                <div style="font-size: 48px; font-weight: 700; color: #047857;">920+ app downloads</div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3 style="margin-top: 0; color: #047857;"><span class="emoji">🎯</span> What This Means For You</h3>
+            <p style="color: #047857; font-size: 18px; margin-bottom: 16px;">By the time you create your first promotion:</p>
+            <ul style="color: #047857; font-size: 16px; margin-left: 20px; line-height: 1.8;">
+                <li><strong>1,000+ people</strong> have the app downloaded</li>
+                <li><strong>300+ are actively browsing</strong> for deals (33% activation rate)</li>
+                <li><strong>Your promotion gets pushed</strong> to all nearby users instantly</li>
+                <li><strong>You only pay 20%</strong> IF someone books (zero risk)</li>
+            </ul>
+            <p style="color: #047857; font-size: 16px; margin-top: 16px; margin-bottom: 0;"><strong>The proof will come within 48 hours of launch.</strong> If we don't bring customers, you don't pay. Simple.</p>
+        </div>
+
+        <div class="footer">
+            Munch Club Restaurant Partnership Deck • Page 4 of 9
+        </div>
+    </div>
+
+    <!-- PAGE 5: COST COMPARISON -->
+    <div class="page page-break">
+        <h1>Cost Comparison: Munch Club vs Everyone Else</h1>
+
+        <p style="font-size: 18px; margin-bottom: 32px;">Here's how Munch Club compares to every other marketing option you've tried (or considered trying):</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Marketing Channel</th>
+                    <th>Upfront Cost</th>
+                    <th>Cost Per Customer</th>
+                    <th>Guaranteed Sales</th>
+                    <th>Customer Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="munchclub-col"><strong>Munch Club</strong></td>
+                    <td class="munchclub-col"><strong>£0</strong></td>
+                    <td class="munchclub-col"><strong>£1.60</strong></td>
+                    <td class="munchclub-col"><span class="checkmark">✓</span> Yes</td>
+                    <td class="munchclub-col"><span class="checkmark">✓</span> Full access</td>
+                </tr>
+                <tr>
+                    <td>Facebook/Instagram Ads</td>
+                    <td>£300-500/month</td>
+                    <td>£25-50</td>
+                    <td><span class="crossmark">✗</span> No guarantee</td>
+                    <td><span class="crossmark">✗</span> Limited</td>
+                </tr>
+                <tr>
+                    <td>Google Ads</td>
+                    <td>£400-700/month</td>
+                    <td>£30-60</td>
+                    <td><span class="crossmark">✗</span> No guarantee</td>
+                    <td><span class="crossmark">✗</span> Limited</td>
+                </tr>
+                <tr>
+                    <td>Leaflet Drops (5,000)</td>
+                    <td>£250-400/month</td>
+                    <td>£25-40</td>
+                    <td><span class="crossmark">✗</span> No tracking</td>
+                    <td><span class="crossmark">✗</span> Zero data</td>
+                </tr>
+                <tr>
+                    <td>Too Good To Go</td>
+                    <td>£89/year + £1.79/bag</td>
+                    <td>£3.39</td>
+                    <td><span class="checkmark">✓</span> Yes</td>
+                    <td><span class="crossmark">✗</span> No access</td>
+                </tr>
+                <tr>
+                    <td>Uber Eats / Deliveroo</td>
+                    <td>£0</td>
+                    <td>£4.50 (30% commission)</td>
+                    <td><span class="checkmark">✓</span> Yes</td>
+                    <td><span class="crossmark">✗</span> No access</td>
+                </tr>
+                <tr>
+                    <td>Local Magazine Ad</td>
+                    <td>£150-300/month</td>
+                    <td>Unknown</td>
+                    <td><span class="crossmark">✗</span> No tracking</td>
+                    <td><span class="crossmark">✗</span> Zero data</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box" style="margin-top: 40px;">
+            <h3 style="margin-top: 0; color: #047857;"><span class="emoji">🎯</span> The Bottom Line</h3>
+            <p style="color: #047857; font-size: 18px; margin-bottom: 16px;">Munch Club gives you:</p>
+            <ul style="color: #047857; font-size: 16px; margin-left: 20px;">
+                <li><strong>16x cheaper</strong> customer acquisition than Facebook ads (£1.60 vs £25+)</li>
+                <li><strong>Zero upfront investment</strong> — only pay on completed sales</li>
+                <li><strong>Full customer data access</strong> — see who's buying, target them with offers</li>
+                <li><strong>Guaranteed sales</strong> — customers prepay, zero no-shows</li>
+            </ul>
+            <p style="color: #047857; font-size: 16px; margin-bottom: 0; margin-top: 16px;"><strong>Plus:</strong> Unlike Too Good To Go (waste only) or Uber Eats (delivery only), Munch Club is YOUR complete marketing & customer acquisition platform.</p>
+        </div>
+
+        <div class="footer">
+            Munch Club Restaurant Partnership Deck • Page 5 of 9
+        </div>
+    </div>
+
+    <!-- PAGE 6: LEAFLET SAVINGS CALCULATOR -->
+    <div class="page page-break">
+        <h1>Leaflet Savings Calculator</h1>
+
+        <p style="font-size: 18px; margin-bottom: 24px;">Do you currently use leaflet drops, flyers, or local newspaper inserts to attract customers? Let's calculate what you're really spending — and what you could save with Munch Club.</p>
+
+        <div class="calculator-section">
+            <h3 style="margin-top: 0; color: #111827;">📊 Typical Leaflet Campaign Costs</h3>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Design & printing (5,000 leaflets)</div>
+                <div class="calculator-value">£150</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Distribution (Royal Mail or hand delivery)</div>
+                <div class="calculator-value">£200</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Response rate (industry avg 0.5-1%)</div>
+                <div class="calculator-value">25-50 people</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Conversion to actual customers (~40%)</div>
+                <div class="calculator-value">10-20 customers</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label"><strong>Cost per customer acquired</strong></div>
+                <div class="calculator-value" style="color: #EF4444;">£17.50-£35</div>
+            </div>
+
+            <div class="total-row">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: center;">
+                    <div class="calculator-label">Total monthly spend (4 campaigns)</div>
+                    <div class="calculator-value">£1,400</div>
+                </div>
+            </div>
+        </div>
+
+        <h3><span class="emoji">💡</span> Munch Club Alternative</h3>
+
+        <div class="calculator-section" style="background: linear-gradient(135deg, #F0FDF4 0%, #D1FAE5 100%);">
+            <div class="calculator-row">
+                <div class="calculator-label">Monthly setup fee</div>
+                <div class="calculator-value" style="color: #10B981;">£0</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Design & printing</div>
+                <div class="calculator-value" style="color: #10B981;">£0</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Distribution to 5,000+ local users</div>
+                <div class="calculator-value" style="color: #10B981;">£0</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Expected new customers per month</div>
+                <div class="calculator-value">127 customers</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label"><strong>Cost per customer acquired</strong></div>
+                <div class="calculator-value" style="color: #10B981;">£1.60</div>
+            </div>
+
+            <div class="total-row">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: center;">
+                    <div class="calculator-label">You only pay 20% commission on sales</div>
+                    <div class="calculator-value">Pay as you go</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 32px;">
+            <h3 style="margin-top: 0; color: #047857;"><span class="emoji">💰</span> Your Annual Savings</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 20px;">
+                <div>
+                    <div style="font-size: 14px; color: #047857; margin-bottom: 4px;">Current leaflet spend</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #047857;">£16,800/year</div>
+                </div>
+                <div>
+                    <div style="font-size: 14px; color: #047857; margin-bottom: 4px;">Munch Club upfront cost</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #047857;">£0/year</div>
+                </div>
+            </div>
+            <p style="color: #047857; font-size: 18px; margin-top: 20px; margin-bottom: 0;"><strong>Cancel your leaflet contract today. Switch to Munch Club. Keep that £16,800 in your pocket.</strong></p>
+        </div>
+
+        <div class="footer">
+            Munch Club Restaurant Partnership Deck • Page 6 of 9
+        </div>
+    </div>
+
+    <!-- PAGE 7: REAL NUMBERS -->
+    <div class="page page-break">
+        <h1>Real Numbers: What to Expect</h1>
+
+        <p style="font-size: 18px; margin-bottom: 32px;">Let's be completely transparent about what Munch Club can realistically deliver for your restaurant in Month 3 of partnership:</p>
+
+        <div class="calculator-section">
+            <h3 style="margin-top: 0; color: #111827;">📈 Conservative Monthly Projections</h3>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Orders per week</div>
+                <div class="calculator-value">28</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Orders per month (4 weeks)</div>
+                <div class="calculator-value">112</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Average order value</div>
+                <div class="calculator-value">£8.00</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Gross revenue</div>
+                <div class="calculator-value">£896</div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="calculator-label">Munch Club commission (20%)</div>
+                <div class="calculator-value" style="color: #EF4444;">- £179</div>
+            </div>
+
+            <div class="total-row">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: center;">
+                    <div class="calculator-label">You keep (80%)</div>
+                    <div class="calculator-value">£717/month</div>
+                </div>
+            </div>
+        </div>
+
+        <h2><span class="emoji">🎯</span> The Hidden Value: Customer Acquisition</h2>
+
+        <p>But here's the real magic: <strong>34% of Munch Club customers become regulars</strong> who return to your restaurant at full price.</p>
+
+        <div style="background: white; border: 2px solid #10B981; border-radius: 12px; padding: 32px; margin: 24px 0;">
+            <div style="margin-bottom: 24px;">
+                <div style="font-size: 14px; color: #6B7280; margin-bottom: 8px;">New customers acquired per month</div>
+                <div style="font-size: 48px; font-weight: 700; color: #10B981;">112</div>
+            </div>
+
+            <div style="border-top: 2px solid #E5E7EB; padding-top: 24px; margin-bottom: 24px;">
+                <div style="font-size: 14px; color: #6B7280; margin-bottom: 8px;">Become regular customers (34%)</div>
+                <div style="font-size: 48px; font-weight: 700; color: #10B981;">38 customers</div>
+            </div>
+
+            <div style="border-top: 2px solid #E5E7EB; padding-top: 24px;">
+                <div style="font-size: 14px; color: #6B7280; margin-bottom: 8px;">Return at full price (avg £15/visit, 2x/month)</div>
+                <div style="font-size: 48px; font-weight: 700; color: #10B981;">+£1,140/month</div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3 style="margin-top: 0; color: #047857;"><span class="emoji">💰</span> Total Monthly Impact</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0;">
+                <div>
+                    <div style="font-size: 16px; color: #047857; margin-bottom: 8px;">Direct Munch Club revenue</div>
+                    <div style="font-size: 36px; font-weight: 700; color: #047857;">£717</div>
+                </div>
+                <div>
+                    <div style="font-size: 16px; color: #047857; margin-bottom: 8px;">Full-price return visits</div>
+                    <div style="font-size: 36px; font-weight: 700; color: #047857;">£1,140</div>
+                </div>
+            </div>
+            <div style="border-top: 2px solid #047857; padding-top: 20px; margin-top: 20px;">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: center;">
+                    <div style="font-size: 20px; color: #047857; font-weight: 700;">TOTAL MONTHLY VALUE</div>
+                    <div style="font-size: 48px; font-weight: 700; color: #047857; text-align: right;">£1,857</div>
+                </div>
+            </div>
+            <p style="color: #047857; margin-top: 20px; margin-bottom: 0; font-size: 16px;"><strong>That's £22,284 extra per year.</strong> And you paid £0 upfront to get it.</p>
+        </div>
+
+        <div class="footer">
+            Munch Club Restaurant Partnership Deck • Page 7 of 9
+        </div>
+    </div>
+
+    <!-- PAGE 8: PRICING PLANS -->
+    <div class="page page-break">
+        <h1>Simple, Transparent Pricing</h1>
+
+        <p style="font-size: 18px; margin-bottom: 32px;">Choose the plan that fits your business. All plans include access to our 5,000+ customer base, dashboard, and support. Only difference: your commission rate.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-name">Free</div>
+                <div class="plan-price">£0</div>
+                <div class="plan-period">Forever</div>
+                <div style="border-top: 2px solid #E5E7EB; padding-top: 20px; margin-bottom: 20px;">
+                    <div style="font-size: 14px; color: #6B7280; margin-bottom: 4px;">Commission per sale</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #111827;">20%</div>
+                </div>
+                <ul class="plan-features">
+                    <li>Unlimited promotions</li>
+                    <li>5,000+ customer reach</li>
+                    <li>Dashboard access</li>
+                    <li>Order management</li>
+                    <li>Basic analytics</li>
+                    <li>Email support</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="plan-name">Growth</div>
+                <div class="plan-price">£50</div>
+                <div class="plan-period">per month</div>
+                <div style="border-top: 2px solid #10B981; padding-top: 20px; margin-bottom: 20px;">
+                    <div style="font-size: 14px; color: #6B7280; margin-bottom: 4px;">Commission per sale</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #10B981;">18%</div>
+                    <div style="font-size: 12px; color: #10B981; margin-top: 4px;">Save £180/month at 450 orders</div>
+                </div>
+                <ul class="plan-features">
+                    <li><strong>Everything in Free, plus:</strong></li>
+                    <li>Lower 18% commission</li>
+                    <li>Inventory tracking</li>
+                    <li>Push notifications</li>
+                    <li>Customer analytics</li>
+                    <li>Marketing campaigns</li>
+                    <li>Priority support</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">Pro</div>
+                <div class="plan-price">£150</div>
+                <div class="plan-period">per month</div>
+                <div style="border-top: 2px solid #E5E7EB; padding-top: 20px; margin-bottom: 20px;">
+                    <div style="font-size: 14px; color: #6B7280; margin-bottom: 4px;">Commission per sale</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #111827;">15%</div>
+                    <div style="font-size: 12px; color: #10B981; margin-top: 4px;">Save £450/month at 450 orders</div>
+                </div>
+                <ul class="plan-features">
+                    <li><strong>Everything in Growth, plus:</strong></li>
+                    <li>Lowest 15% commission</li>
+                    <li>Customer CRM</li>
+                    <li>Advanced analytics</li>
+                    <li>Marketing automation</li>
+                    <li>A/B testing</li>
+                    <li>Dedicated account manager</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h3 style="margin-top: 0; color: #92400E;"><span class="emoji">💡</span> Recommendation</h3>
+            <p style="color: #92400E; margin-bottom: 0;">Start on the <strong>Free plan</strong> to test Munch Club risk-free. Once you're doing 100+ orders/month (typically Month 2-3), upgrade to <strong>Growth</strong> to save £180/month and unlock powerful marketing tools. Only move to <strong>Pro</strong> when you're ready to go all-in on customer acquisition.</p>
+        </div>
+
+        <div class="footer">
+            Munch Club Restaurant Partnership Deck • Page 8 of 9
+        </div>
+    </div>
+
+    <!-- PAGE 9: CALL TO ACTION -->
+    <div class="page page-break">
+        <h1>Ready to Fill Those Empty Tables?</h1>
+
+        <p style="font-size: 20px; margin-bottom: 32px; line-height: 1.8;">You've seen the numbers. Munch Club delivers <strong>16x cheaper customer acquisition</strong> than traditional marketing, at <strong>zero upfront cost</strong>. The question isn't "Should I try this?" — it's "Why haven't I started yet?"</p>
+
+        <div class="highlight-box">
+            <h3 style="margin-top: 0; color: #047857;"><span class="emoji">✓</span> What You Get When You Join</h3>
+            <ul style="color: #047857; font-size: 16px; margin-left: 20px; line-height: 1.8;">
+                <li>Access to 5,000+ local customers in Maidstone (growing daily)</li>
+                <li>Simple dashboard to create promotions in 2 minutes</li>
+                <li>Zero upfront fees, zero monthly minimums on Free plan</li>
+                <li>You keep 80% of every sale</li>
+                <li>Guaranteed payments (customers prepay, zero no-shows)</li>
+                <li>Full customer data access (email, order history, preferences)</li>
+                <li>Personal onboarding call to help you create your first promotion</li>
+            </ul>
+        </div>
+
+        <h2><span class="emoji">🚀</span> Next Steps</h2>
+
+        <div style="background: white; border: 2px solid #E5E7EB; border-radius: 12px; padding: 32px; margin: 24px 0;">
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; margin-bottom: 24px;">
+                <div style="width: 50px; height: 50px; background: #10B981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700;">1</div>
+                <div>
+                    <h3 style="margin-top: 0;">Say "I'm In"</h3>
+                    <p style="margin-bottom: 0;">Text, call, or email me today. We'll schedule your onboarding call (15 minutes).</p>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; margin-bottom: 24px;">
+                <div style="width: 50px; height: 50px; background: #10B981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700;">2</div>
+                <div>
+                    <h3 style="margin-top: 0;">Create Your First Promotion</h3>
+                    <p style="margin-bottom: 0;">We'll help you identify your slowest period and create a compelling offer. Takes 10 minutes, max.</p>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start;">
+                <div style="width: 50px; height: 50px; background: #10B981; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700;">3</div>
+                <div>
+                    <h3 style="margin-top: 0;">Watch the Orders Roll In</h3>
+                    <p style="margin-bottom: 0;">Your promotion goes live instantly to 5,000+ customers. First orders typically arrive within 2 hours.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div class="cta-title">Let's Fill Those Empty Tables</div>
+            <div class="cta-text">No contracts. No risk. Just new customers and extra revenue.</div>
+            <div class="contact-info"><strong>Edou Mota</strong> – Founder, Munch Club</div>
+            <div class="contact-info">📱 [Your Phone Number]</div>
+            <div class="contact-info">📧 [Your Email]</div>
+            <div class="contact-info">🌐 munchclub.co.uk</div>
+        </div>
+
+        <div style="background: #F9FAFB; border: 1px solid #E5E7EB; padding: 24px; border-radius: 12px; margin-top: 32px; text-align: center;">
+            <p style="font-size: 14px; color: #6B7280; margin-bottom: 12px;"><strong>Early Partner Bonus:</strong></p>
+            <p style="font-size: 16px; color: #111827; margin-bottom: 0;">Join in the next 7 days and lock in <strong>Free plan forever</strong> (20% commission, no monthly fees) — even if we later introduce setup fees for new partners.</p>
+        </div>
+
+        <div class="footer">
+            Munch Club Restaurant Partnership Deck • Page 9 of 9
+        </div>
+    </div>
+
+    <script>
+        // Print-friendly: open print dialog when loaded
+        // window.onload = function() {
+        //     window.print();
+        // };
+    </script>
+</body>
+</html>

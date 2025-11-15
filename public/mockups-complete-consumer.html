@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munch Club - Complete Consumer App Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #F9FAFB;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #111827;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6B7280;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .phase-header {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin: 60px 0 32px 0;
+        }
+
+        .phase-header h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .phase-header .meta {
+            font-size: 16px;
+            opacity: 0.9;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .phase-header .meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .feature-card.new {
+            border-color: #10B981;
+            background: #F0FDF4;
+        }
+
+        .feature-card h4 {
+            color: #111827;
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card.new h4::after {
+            content: "NEW";
+            background: #10B981;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #6B7280;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            margin: 32px 0;
+        }
+
+        .phone-mockup {
+            background: #1F2937;
+            border-radius: 40px;
+            padding: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        .phone-screen {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-notch {
+            background: #1F2937;
+            height: 32px;
+            border-radius: 0 0 20px 20px;
+            margin: 0 auto;
+            width: 120px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .screen-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .screen-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .screen-content {
+            padding: 20px;
+            background: #F9FAFB;
+            min-height: 600px;
+        }
+
+        .icon-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #F3F4F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-bar {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .filter-chips {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+        }
+
+        .chip {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: white;
+            border: 1px solid #E5E7EB;
+            font-size: 14px;
+            color: #374151;
+            white-space: nowrap;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .chip.active {
+            background: #10B981;
+            color: white;
+            border-color: #10B981;
+        }
+
+        .deal-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 16px;
+        }
+
+        .deal-image {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+        }
+
+        .deal-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #EF4444;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .deal-info {
+            padding: 16px;
+        }
+
+        .restaurant-name {
+            font-size: 12px;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .deal-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .deal-meta {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #6B7280;
+        }
+
+        .deal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .deal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-current {
+            font-size: 24px;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        .price-original {
+            font-size: 14px;
+            color: #9CA3AF;
+            text-decoration: line-through;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 150ms;
+        }
+
+        .btn-primary {
+            background: #10B981;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #F3F4F6;
+            color: #374151;
+        }
+
+        .bottom-nav {
+            background: white;
+            border-top: 1px solid #E5E7EB;
+            padding: 12px 20px 24px;
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: #9CA3AF;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .nav-item.active {
+            color: #10B981;
+        }
+
+        .nav-icon {
+            font-size: 24px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-vegan {
+            background: #D1FAE5;
+            color: #047857;
+        }
+
+        .badge-gluten {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .order-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 16px;
+        }
+
+        .order-number {
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 4px;
+        }
+
+        .order-restaurant {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-ready {
+            background: #D1FAE5;
+            color: #047857;
+        }
+
+        .status-confirmed {
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .pickup-code {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 16px 0;
+        }
+
+        .pickup-code-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .pickup-code-number {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            font-size: 14px;
+        }
+
+        .info-label {
+            color: #6B7280;
+        }
+
+        .info-value {
+            color: #111827;
+            font-weight: 600;
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            padding: 32px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 16px;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .profile-email {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 24px 20px;
+            background: white;
+            margin-top: -24px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #6B7280;
+        }
+
+        .settings-list {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .settings-item {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E5E7EB;
+            cursor: pointer;
+        }
+
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+
+        .settings-item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .settings-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #F3F4F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .settings-text h4 {
+            font-size: 15px;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+
+        .settings-text p {
+            font-size: 13px;
+            color: #6B7280;
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        .impact-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .impact-stat {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .impact-stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .impact-stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .mockup-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Munch Club Consumer App</h1>
+        <p class="subtitle">Complete Mobile Experience - MVP through Full Platform</p>
+
+        <!-- PHASE 1: MVP MARKETPLACE -->
+        <div class="phase-header">
+            <h2>Phase 1: MVP Marketplace (Months 1-3)</h2>
+            <div class="meta">
+                <span>📅 Timeline: Months 1-3</span>
+                <span>🎯 Goal: 500 downloads, 300+ orders</span>
+                <span>🛠️ Tech: React Native + Expo</span>
+                <span>💰 Cost: £0 (free tiers)</span>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card new">
+                <h4>Browse Nearby Deals</h4>
+                <p>Map view + list view. Filter by distance, price, dietary preferences.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>View Restaurant Profile</h4>
+                <p>See photos, description, hours, reviews, all available deals.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Reserve & Pay</h4>
+                <p>Quick checkout with Stripe. Save payment method for faster future orders.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Order Confirmation</h4>
+                <p>Pickup code, directions, add to calendar. Show code at restaurant.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Order History</h4>
+                <p>See past orders, reorder favorites, leave reviews after pickup.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Basic Profile</h4>
+                <p>Manage account, payment methods, notification preferences.</p>
+            </div>
+        </div>
+
+        <div class="mockup-grid">
+            <!-- Screen 1: Home - Browse Deals -->
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+
+                    <div class="screen-header">
+                        <div class="screen-title">Munch Club</div>
+                        <button class="icon-btn">🔔</button>
+                    </div>
+
+                    <div class="screen-content">
+                        <input type="text" class="search-bar" placeholder="Search restaurants, food..." value="">
+
+                        <div class="filter-chips">
+                            <div class="chip active">🍽️ All</div>
+                            <div class="chip">🥬 Vegetarian</div>
+                            <div class="chip">🌱 Vegan</div>
+                            <div class="chip">🌾 Gluten-Free</div>
+                        </div>
+
+                        <h3 style="font-size: 16px; color: #111827; margin-bottom: 16px; font-weight: 700;">Nearby Deals (12)</h3>
+
+                        <div class="deal-card">
+                            <div class="deal-image">
+                                🥐
+                                <div class="deal-badge">50% OFF</div>
+                            </div>
+                            <div class="deal-info">
+                                <div class="restaurant-name">The Morning Bakery</div>
+                                <div class="deal-title">Breakfast Special</div>
+                                <div class="deal-meta">
+                                    <span>📍 0.3 mi</span>
+                                    <span>🕐 8:00 AM - 9:30 AM</span>
+                                    <span>🍽️ 4 left</span>
+                                </div>
+                                <div style="display: flex; gap: 6px; margin-bottom: 12px;">
+                                    <span class="badge badge-vegan">🥬 Veg option</span>
+                                </div>
+                                <div class="deal-footer">
+                                    <div class="price">
+                                        <span class="price-current">£5.99</span>
+                                        <span class="price-original">was £12.00</span>
+                                    </div>
+                                    <button class="btn btn-primary">Reserve</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="deal-card">
+                            <div class="deal-image" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                                🥗
+                                <div class="deal-badge">40% OFF</div>
+                            </div>
+                            <div class="deal-info">
+                                <div class="restaurant-name">Green Garden Café</div>
+                                <div class="deal-title">Lunch Surprise Bag</div>
+                                <div class="deal-meta">
+                                    <span>📍 0.5 mi</span>
+                                    <span>🕐 12:00 PM - 2:00 PM</span>
+                                    <span>🍽️ 8 left</span>
+                                </div>
+                                <div style="display: flex; gap: 6px; margin-bottom: 12px;">
+                                    <span class="badge badge-vegan">🌱 100% Vegan</span>
+                                    <span class="badge badge-gluten">🌾 GF</span>
+                                </div>
+                                <div class="deal-footer">
+                                    <div class="price">
+                                        <span class="price-current">£8.50</span>
+                                        <span class="price-original">was £14.00</span>
+                                    </div>
+                                    <button class="btn btn-primary">Reserve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-nav">
+                        <div class="nav-item active">
+                            <div class="nav-icon">🏠</div>
+                            <div>Home</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">📦</div>
+                            <div>Orders</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">❤️</div>
+                            <div>Favorites</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">👤</div>
+                            <div>Profile</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 2: Deal Detail -->
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+
+                    <div class="screen-header" style="border: none;">
+                        <button class="icon-btn">←</button>
+                        <button class="icon-btn">❤️</button>
+                    </div>
+
+                    <div class="screen-content" style="padding: 0;">
+                        <div class="deal-image" style="height: 240px; border-radius: 0;">
+                            🥐
+                        </div>
+
+                        <div style="padding: 24px;">
+                            <div class="restaurant-name" style="margin-bottom: 8px;">THE MORNING BAKERY</div>
+                            <h2 style="font-size: 28px; font-weight: 700; color: #111827; margin-bottom: 16px;">Breakfast Special</h2>
+
+                            <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+                                <span class="badge badge-vegan">🥬 Veg option</span>
+                            </div>
+
+                            <div class="info-row" style="border-top: 1px solid #E5E7EB;">
+                                <span class="info-label">📍 Distance</span>
+                                <span class="info-value">0.3 miles (5 min walk)</span>
+                            </div>
+                            <div class="info-row" style="border-top: 1px solid #E5E7EB;">
+                                <span class="info-label">🕐 Pickup Window</span>
+                                <span class="info-value">8:00 AM - 9:30 AM</span>
+                            </div>
+                            <div class="info-row" style="border-top: 1px solid #E5E7EB;">
+                                <span class="info-label">🍽️ Available</span>
+                                <span class="info-value">4 of 10 left</span>
+                            </div>
+                            <div class="info-row" style="border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB;">
+                                <span class="info-label">⭐ Rating</span>
+                                <span class="info-value">4.8 (127 reviews)</span>
+                            </div>
+
+                            <div style="margin: 24px 0;">
+                                <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">What's included?</h4>
+                                <p style="color: #6B7280; line-height: 1.6; font-size: 14px;">
+                                    A delicious breakfast selection worth £12. Includes fresh coffee, choice of pastry (croissant, muffin, or Danish), and a hot breakfast item. Vegetarian options available.
+                                </p>
+                            </div>
+
+                            <div style="background: #F0FDF4; border: 1px solid #D1FAE5; border-radius: 12px; padding: 16px; margin-bottom: 80px;">
+                                <p style="color: #047857; font-size: 13px; line-height: 1.5;">
+                                    💡 <strong>Great value!</strong> This bag contains items originally sold for £12. You save £6.01 (50% off).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: white; padding: 20px; border-top: 1px solid #E5E7EB;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <div>
+                                <div style="font-size: 12px; color: #6B7280; margin-bottom: 4px;">Total</div>
+                                <div style="font-size: 28px; font-weight: 700; color: #10B981;">£5.99</div>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 16px 40px; font-size: 16px;">Reserve Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 3: Order Confirmation -->
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+
+                    <div class="screen-content" style="padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <div style="width: 80px; height: 80px; background: #D1FAE5; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin-bottom: 24px;">
+                            ✓
+                        </div>
+
+                        <h2 style="font-size: 28px; font-weight: 700; color: #111827; margin-bottom: 12px;">Order Confirmed!</h2>
+                        <p style="color: #6B7280; margin-bottom: 32px; font-size: 16px;">Your breakfast is reserved</p>
+
+                        <div class="pickup-code">
+                            <div class="pickup-code-label">SHOW THIS CODE AT PICKUP</div>
+                            <div class="pickup-code-number">4829</div>
+                        </div>
+
+                        <div style="width: 100%; margin-bottom: 24px;">
+                            <div class="order-card">
+                                <div style="font-weight: 700; font-size: 18px; margin-bottom: 12px;">The Morning Bakery</div>
+                                <div class="info-row">
+                                    <span class="info-label">📍 Location</span>
+                                    <span class="info-value">123 High St, Maidstone</span>
+                                </div>
+                                <div class="info-row" style="border-top: 1px solid #E5E7EB;">
+                                    <span class="info-label">🕐 Pickup Window</span>
+                                    <span class="info-value">8:00 AM - 9:30 AM</span>
+                                </div>
+                                <div class="info-row" style="border-top: 1px solid #E5E7EB;">
+                                    <span class="info-label">📦 Order</span>
+                                    <span class="info-value">Breakfast Special × 1</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">
+                            📍 Get Directions
+                        </button>
+                        <button class="btn btn-secondary" style="width: 100%; margin-bottom: 12px;">
+                            📅 Add to Calendar
+                        </button>
+                        <button class="btn btn-secondary" style="width: 100%;">
+                            View My Orders
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 4: My Orders -->
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+
+                    <div class="screen-header">
+                        <div class="screen-title">My Orders</div>
+                        <div></div>
+                    </div>
+
+                    <div class="screen-content">
+                        <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+                            <button class="chip active">Active (1)</button>
+                            <button class="chip">Past (24)</button>
+                        </div>
+
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div>
+                                    <div class="order-number">Order #3421</div>
+                                    <div class="order-restaurant">The Morning Bakery</div>
+                                </div>
+                                <div class="status-badge status-ready">Ready</div>
+                            </div>
+
+                            <div class="pickup-code">
+                                <div class="pickup-code-label">PICKUP CODE</div>
+                                <div class="pickup-code-number">4829</div>
+                            </div>
+
+                            <div class="info-row">
+                                <span class="info-label">📦 Item</span>
+                                <span class="info-value">Breakfast Special × 1</span>
+                            </div>
+                            <div class="info-row" style="border-top: 1px solid #E5E7EB;">
+                                <span class="info-label">🕐 Pickup</span>
+                                <span class="info-value">Today, 8:00 AM - 9:30 AM</span>
+                            </div>
+                            <div class="info-row" style="border-top: 1px solid #E5E7EB;">
+                                <span class="info-label">💰 Total</span>
+                                <span class="info-value">£5.99</span>
+                            </div>
+
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 16px;">
+                                📍 Get Directions
+                            </button>
+                        </div>
+
+                        <h4 style="font-size: 14px; color: #6B7280; margin: 24px 0 12px; text-transform: uppercase; letter-spacing: 0.5px;">Past Orders</h4>
+
+                        <div class="order-card" style="opacity: 0.8;">
+                            <div class="order-header">
+                                <div>
+                                    <div class="order-number">Order #3394</div>
+                                    <div class="order-restaurant">Green Garden Café</div>
+                                </div>
+                                <div style="font-size: 12px; color: #6B7280;">Yesterday</div>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">📦 Item</span>
+                                <span class="info-value">Lunch Surprise Bag × 1</span>
+                            </div>
+                            <div class="info-row" style="border-top: 1px solid #E5E7EB;">
+                                <span class="info-label">💰 Total</span>
+                                <span class="info-value">£8.50</span>
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 12px;">
+                                <button class="btn btn-secondary" style="flex: 1;">Reorder</button>
+                                <button class="btn btn-secondary" style="flex: 1;">⭐ Rate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-nav">
+                        <div class="nav-item">
+                            <div class="nav-icon">🏠</div>
+                            <div>Home</div>
+                        </div>
+                        <div class="nav-item active">
+                            <div class="nav-icon">📦</div>
+                            <div>Orders</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">❤️</div>
+                            <div>Favorites</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">👤</div>
+                            <div>Profile</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 2: PLATFORM LITE -->
+        <div class="phase-header" style="background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);">
+            <h2>Phase 2: Platform Lite (Months 4-6)</h2>
+            <div class="meta">
+                <span>📅 Timeline: Months 4-6</span>
+                <span>🎯 Goal: 2,000 users, better engagement</span>
+                <span>🆕 Features: Favorites + Impact Stats + Notifications</span>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>All MVP Features</h4>
+                <p>Everything from Phase 1 continues working smoothly.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Favorites List</h4>
+                <p>Save favorite restaurants and deals. Get notified when they post new offers.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Impact Dashboard</h4>
+                <p>See your personal impact: meals saved, money saved, CO2 reduced.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Smart Notifications</h4>
+                <p>Get alerted when favorites post deals, nearby restaurants have last-minute offers.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Reviews & Ratings</h4>
+                <p>Rate orders after pickup, help others discover great restaurants.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Better Search</h4>
+                <p>Search by restaurant name, cuisine type, dietary preferences.</p>
+            </div>
+        </div>
+
+        <div class="mockup-grid">
+            <!-- Screen 5: Favorites -->
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+
+                    <div class="screen-header">
+                        <div class="screen-title">Favorites</div>
+                        <div></div>
+                    </div>
+
+                    <div class="screen-content">
+                        <p style="color: #6B7280; margin-bottom: 20px; font-size: 14px;">5 restaurants • Get notified when they post new deals</p>
+
+                        <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 16px; display: flex; gap: 16px; align-items: center;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px;">
+                                🥐
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 700; font-size: 16px; margin-bottom: 4px;">The Morning Bakery</div>
+                                <div style="font-size: 13px; color: #6B7280;">📍 0.3 mi • ⭐ 4.8 (127)</div>
+                                <div style="font-size: 12px; color: #10B981; margin-top: 4px;">✓ 🔔 Notifications on</div>
+                            </div>
+                            <button style="color: #EF4444; font-size: 24px; background: none; border: none; cursor: pointer;">❤️</button>
+                        </div>
+
+                        <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 16px; display: flex; gap: 16px; align-items: center;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #10B981 0%, #059669 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px;">
+                                🥗
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 700; font-size: 16px; margin-bottom: 4px;">Green Garden Café</div>
+                                <div style="font-size: 13px; color: #6B7280;">📍 0.5 mi • ⭐ 4.9 (89)</div>
+                                <div style="font-size: 12px; color: #10B981; margin-top: 4px;">✓ 🔔 Notifications on</div>
+                            </div>
+                            <button style="color: #EF4444; font-size: 24px; background: none; border: none; cursor: pointer;">❤️</button>
+                        </div>
+
+                        <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 16px; display: flex; gap: 16px; align-items: center;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px;">
+                                🍕
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 700; font-size: 16px; margin-bottom: 4px;">Bella's Pizza Kitchen</div>
+                                <div style="font-size: 13px; color: #6B7280;">📍 0.8 mi • ⭐ 4.7 (203)</div>
+                                <div style="font-size: 12px; color: #10B981; margin-top: 4px;">✓ 🔔 Notifications on</div>
+                            </div>
+                            <button style="color: #EF4444; font-size: 24px; background: none; border: none; cursor: pointer;">❤️</button>
+                        </div>
+
+                        <div style="background: #EFF6FF; border: 1px solid #DBEAFE; border-radius: 12px; padding: 20px; margin-top: 24px;">
+                            <p style="color: #1E40AF; font-size: 14px; line-height: 1.5;">
+                                💡 <strong>Tip:</strong> We'll notify you whenever your favorite restaurants post new deals. Never miss out!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bottom-nav">
+                        <div class="nav-item">
+                            <div class="nav-icon">🏠</div>
+                            <div>Home</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">📦</div>
+                            <div>Orders</div>
+                        </div>
+                        <div class="nav-item active">
+                            <div class="nav-icon">❤️</div>
+                            <div>Favorites</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">👤</div>
+                            <div>Profile</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 6: Impact Stats -->
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+
+                    <div class="screen-header">
+                        <div class="screen-title">Your Impact</div>
+                        <button class="icon-btn">📤</button>
+                    </div>
+
+                    <div class="screen-content">
+                        <div class="impact-card">
+                            <div class="impact-title">🌍 Your Environmental Impact</div>
+                            <div class="impact-stats">
+                                <div class="impact-stat">
+                                    <div class="impact-stat-value">24</div>
+                                    <div class="impact-stat-label">Meals Saved</div>
+                                </div>
+                                <div class="impact-stat">
+                                    <div class="impact-stat-value">18kg</div>
+                                    <div class="impact-stat-label">CO2 Reduced</div>
+                                </div>
+                                <div class="impact-stat">
+                                    <div class="impact-stat-value">£142</div>
+                                    <div class="impact-stat-label">Money Saved</div>
+                                </div>
+                                <div class="impact-stat">
+                                    <div class="impact-stat-value">67%</div>
+                                    <div class="impact-stat-label">Avg Discount</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="font-size: 16px; color: #111827; margin-bottom: 12px; font-weight: 700;">Monthly Progress</h4>
+
+                        <div style="background: white; border-radius: 12px; padding: 20px; margin-bottom: 16px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+                                <span style="font-size: 14px; color: #6B7280;">February 2025</span>
+                                <span style="font-size: 14px; font-weight: 700; color: #10B981;">+5 meals</span>
+                            </div>
+                            <div style="background: #E5E7EB; height: 8px; border-radius: 4px; overflow: hidden;">
+                                <div style="background: #10B981; height: 100%; width: 70%;"></div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                                <span style="font-size: 12px; color: #9CA3AF;">Goal: 10 meals/month</span>
+                                <span style="font-size: 12px; font-weight: 600; color: #111827;">7 / 10</span>
+                            </div>
+                        </div>
+
+                        <h4 style="font-size: 16px; color: #111827; margin: 24px 0 12px; font-weight: 700;">Achievements</h4>
+
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                            <div style="background: white; border-radius: 12px; padding: 20px; text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 8px;">🏆</div>
+                                <div style="font-size: 11px; color: #6B7280;">First Rescue</div>
+                            </div>
+                            <div style="background: white; border-radius: 12px; padding: 20px; text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 8px;">⭐</div>
+                                <div style="font-size: 11px; color: #6B7280;">10 Meals Saved</div>
+                            </div>
+                            <div style="background: white; border-radius: 12px; padding: 20px; text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 8px;">💚</div>
+                                <div style="font-size: 11px; color: #6B7280;">Eco Warrior</div>
+                            </div>
+                            <div style="background: white; border-radius: 12px; padding: 20px; text-align: center; opacity: 0.4;">
+                                <div style="font-size: 32px; margin-bottom: 8px;">🔥</div>
+                                <div style="font-size: 11px; color: #6B7280;">7 Day Streak</div>
+                            </div>
+                            <div style="background: white; border-radius: 12px; padding: 20px; text-align: center; opacity: 0.4;">
+                                <div style="font-size: 32px; margin-bottom: 8px;">🌟</div>
+                                <div style="font-size: 11px; color: #6B7280;">50 Meals Saved</div>
+                            </div>
+                            <div style="background: white; border-radius: 12px; padding: 20px; text-align: center; opacity: 0.4;">
+                                <div style="font-size: 32px; margin-bottom: 8px;">👑</div>
+                                <div style="font-size: 11px; color: #6B7280;">VIP Status</div>
+                            </div>
+                        </div>
+
+                        <div style="background: #F0FDF4; border: 1px solid #D1FAE5; border-radius: 12px; padding: 20px; margin-top: 24px;">
+                            <p style="color: #047857; font-size: 14px; line-height: 1.5;">
+                                🎉 <strong>You're in the top 15%</strong> of Munch Club users making an impact. Keep it up!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bottom-nav">
+                        <div class="nav-item">
+                            <div class="nav-icon">🏠</div>
+                            <div>Home</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">📦</div>
+                            <div>Orders</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">❤️</div>
+                            <div>Favorites</div>
+                        </div>
+                        <div class="nav-item active">
+                            <div class="nav-icon">👤</div>
+                            <div>Profile</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 3: FULL PLATFORM -->
+        <div class="phase-header" style="background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);">
+            <h2>Phase 3: Full Platform (Months 7-12)</h2>
+            <div class="meta">
+                <span>📅 Timeline: Months 7-12</span>
+                <span>🎯 Goal: 10,000+ users, premium features</span>
+                <span>🆕 Features: Subscription + Social + Personalization</span>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>All Previous Features</h4>
+                <p>Everything from MVP and Platform Lite, now more polished.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Munch Club Plus Subscription</h4>
+                <p>£5/month: Priority access, exclusive deals, no booking fees, early notifications.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Personalized Feed</h4>
+                <p>AI-powered recommendations based on your preferences and order history.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Social Features</h4>
+                <p>Share deals with friends, split orders, group pickups.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Map View</h4>
+                <p>Interactive map showing all nearby deals, filter by distance and dietary needs.</p>
+            </div>
+            <div class="feature-card new">
+                <h4>Advanced Filters</h4>
+                <p>Filter by cuisine, price range, pickup time, dietary restrictions, ratings.</p>
+            </div>
+        </div>
+
+        <div class="mockup-grid">
+            <!-- Screen 7: Personalized Feed -->
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+
+                    <div class="screen-header">
+                        <div class="screen-title">For You</div>
+                        <button class="icon-btn">⚙️</button>
+                    </div>
+
+                    <div class="screen-content">
+                        <div style="background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%); color: white; padding: 20px; border-radius: 16px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <div>
+                                    <div style="font-size: 14px; opacity: 0.9; margin-bottom: 4px;">Munch Club Plus</div>
+                                    <div style="font-size: 20px; font-weight: 700;">⚡ VIP Access</div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600;">
+                                    ACTIVE
+                                </div>
+                            </div>
+                            <div style="font-size: 13px; opacity: 0.9;">Early access • No booking fees • Exclusive deals</div>
+                        </div>
+
+                        <h4 style="font-size: 16px; color: #111827; margin-bottom: 12px; font-weight: 700;">🎯 Recommended for You</h4>
+                        <p style="font-size: 13px; color: #6B7280; margin-bottom: 16px;">Based on your preferences: 🥬 Vegetarian, ⏰ Morning pickup</p>
+
+                        <div class="deal-card">
+                            <div class="deal-image">
+                                🥐
+                                <div class="deal-badge">FOR YOU</div>
+                            </div>
+                            <div class="deal-info">
+                                <div class="restaurant-name">The Morning Bakery</div>
+                                <div class="deal-title">Breakfast Special</div>
+                                <div style="background: #FEF3C7; border: 1px solid #FCD34D; padding: 8px 12px; border-radius: 8px; margin-bottom: 12px;">
+                                    <p style="font-size: 12px; color: #92400E;">⚡ <strong>Plus Member Exclusive:</strong> Get first access to this deal</p>
+                                </div>
+                                <div class="deal-meta">
+                                    <span>📍 0.3 mi</span>
+                                    <span>🕐 8:00 AM - 9:30 AM</span>
+                                    <span>🍽️ 10 left</span>
+                                </div>
+                                <div style="display: flex; gap: 6px; margin-bottom: 12px;">
+                                    <span class="badge badge-vegan">🥬 Veg option</span>
+                                </div>
+                                <div class="deal-footer">
+                                    <div class="price">
+                                        <span class="price-current">£5.99</span>
+                                        <span class="price-original">was £12.00</span>
+                                    </div>
+                                    <button class="btn btn-primary">Reserve</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="font-size: 16px; color: #111827; margin: 24px 0 12px; font-weight: 700;">🔥 Trending Near You</h4>
+
+                        <div class="deal-card">
+                            <div class="deal-image" style="background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);">
+                                🍜
+                                <div class="deal-badge" style="background: white; color: #EF4444;">HOT 🔥</div>
+                            </div>
+                            <div class="deal-info">
+                                <div class="restaurant-name">Tokyo Ramen House</div>
+                                <div class="deal-title">Lunch Combo</div>
+                                <div class="deal-meta">
+                                    <span>📍 0.7 mi</span>
+                                    <span>🕐 11:30 AM - 1:30 PM</span>
+                                    <span>🍽️ 2 left</span>
+                                </div>
+                                <div style="display: flex; gap: 6px; margin-bottom: 12px;">
+                                    <span style="font-size: 12px; color: #EF4444;">🔥 <strong>14 people</strong> viewing this deal</span>
+                                </div>
+                                <div class="deal-footer">
+                                    <div class="price">
+                                        <span class="price-current">£7.99</span>
+                                        <span class="price-original">was £15.00</span>
+                                    </div>
+                                    <button class="btn btn-primary">Reserve</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-nav">
+                        <div class="nav-item active">
+                            <div class="nav-icon">🎯</div>
+                            <div>For You</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">🗺️</div>
+                            <div>Map</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">📦</div>
+                            <div>Orders</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">👤</div>
+                            <div>Profile</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 8: Profile with Subscription -->
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+
+                    <div class="profile-header">
+                        <div class="profile-avatar">👤</div>
+                        <div class="profile-name">Emma Williams</div>
+                        <div class="profile-email">emma.w@email.com</div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">24</div>
+                            <div class="stat-label">Meals Saved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">£142</div>
+                            <div class="stat-label">Money Saved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">18kg</div>
+                            <div class="stat-label">CO2 Reduced</div>
+                        </div>
+                    </div>
+
+                    <div class="screen-content" style="padding-top: 0;">
+                        <div style="background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%); color: white; padding: 20px; border-radius: 16px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <div>
+                                    <div style="font-size: 14px; opacity: 0.9; margin-bottom: 4px;">⚡ Munch Club Plus</div>
+                                    <div style="font-size: 20px; font-weight: 700;">Premium Member</div>
+                                </div>
+                                <button style="background: white; color: #8B5CF6; padding: 8px 16px; border-radius: 8px; border: none; font-weight: 600; font-size: 13px;">Manage</button>
+                            </div>
+                            <div style="font-size: 13px; opacity: 0.9;">Member since Feb 2025 • Renews Mar 15</div>
+                            <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 13px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span>✓ Priority access to deals</span>
+                                    <span>✓ No booking fees</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>✓ Early notifications</span>
+                                    <span>✓ Exclusive offers</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-list">
+                            <div class="settings-item">
+                                <div class="settings-item-left">
+                                    <div class="settings-icon">❤️</div>
+                                    <div class="settings-text">
+                                        <h4>Favorites</h4>
+                                        <p>5 restaurants</p>
+                                    </div>
+                                </div>
+                                <div style="color: #9CA3AF;">›</div>
+                            </div>
+                            <div class="settings-item">
+                                <div class="settings-item-left">
+                                    <div class="settings-icon">🌍</div>
+                                    <div class="settings-text">
+                                        <h4>Your Impact</h4>
+                                        <p>View detailed stats</p>
+                                    </div>
+                                </div>
+                                <div style="color: #9CA3AF;">›</div>
+                            </div>
+                            <div class="settings-item">
+                                <div class="settings-item-left">
+                                    <div class="settings-icon">💳</div>
+                                    <div class="settings-text">
+                                        <h4>Payment Methods</h4>
+                                        <p>Visa •••• 4242</p>
+                                    </div>
+                                </div>
+                                <div style="color: #9CA3AF;">›</div>
+                            </div>
+                            <div class="settings-item">
+                                <div class="settings-item-left">
+                                    <div class="settings-icon">🔔</div>
+                                    <div class="settings-text">
+                                        <h4>Notifications</h4>
+                                        <p>Manage preferences</p>
+                                    </div>
+                                </div>
+                                <div style="color: #9CA3AF;">›</div>
+                            </div>
+                        </div>
+
+                        <div class="settings-list" style="margin-top: 20px;">
+                            <div class="settings-item">
+                                <div class="settings-item-left">
+                                    <div class="settings-icon">⚙️</div>
+                                    <div class="settings-text">
+                                        <h4>Settings</h4>
+                                    </div>
+                                </div>
+                                <div style="color: #9CA3AF;">›</div>
+                            </div>
+                            <div class="settings-item">
+                                <div class="settings-item-left">
+                                    <div class="settings-icon">❓</div>
+                                    <div class="settings-text">
+                                        <h4>Help & Support</h4>
+                                    </div>
+                                </div>
+                                <div style="color: #9CA3AF;">›</div>
+                            </div>
+                            <div class="settings-item">
+                                <div class="settings-item-left">
+                                    <div class="settings-icon">📤</div>
+                                    <div class="settings-text">
+                                        <h4>Log Out</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-nav">
+                        <div class="nav-item">
+                            <div class="nav-icon">🎯</div>
+                            <div>For You</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">🗺️</div>
+                            <div>Map</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">📦</div>
+                            <div>Orders</div>
+                        </div>
+                        <div class="nav-item active">
+                            <div class="nav-icon">👤</div>
+                            <div>Profile</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div style="background: linear-gradient(135deg, #111827 0%, #374151 100%); color: white; padding: 48px; border-radius: 20px; margin: 60px 0 40px 0;">
+            <h2 style="font-size: 32px; margin-bottom: 24px; text-align: center;">✅ Complete Consumer App Ready</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 32px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 24px; border-radius: 12px;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">🎯</div>
+                    <h4 style="margin-bottom: 8px;">MVP (Months 1-3)</h4>
+                    <p style="opacity: 0.9; font-size: 14px;">Browse, Reserve, Pickup — Core functionality to launch</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 24px; border-radius: 12px;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">💚</div>
+                    <h4 style="margin-bottom: 8px;">Platform Lite (Months 4-6)</h4>
+                    <p style="opacity: 0.9; font-size: 14px;">Favorites, Impact Stats — Drive engagement</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 24px; border-radius: 12px;">
+                    <div style="font-size: 36px; margin-bottom: 12px;">⚡</div>
+                    <h4 style="margin-bottom: 8px;">Full Platform (Months 7-12)</h4>
+                    <p style="opacity: 0.9; font-size: 14px;">Plus Subscription, Personalization — Maximize revenue</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="font-size: 18px; opacity: 0.9; margin-bottom: 12px;">Total Screens: 8 Key Screens × 3 Phases</p>
+                <p style="font-size: 16px; opacity: 0.8; margin-bottom: 24px;">Both restaurant dashboard and consumer app mockups complete!</p>
+                <button style="background: #10B981; color: white; padding: 16px 32px; border-radius: 12px; border: none; font-weight: 700; font-size: 16px; cursor: pointer;">
+                    🚀 Ready for Validation Visits
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
