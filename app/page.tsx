@@ -51,6 +51,13 @@ export default function Home() {
       href: "/restaurant-email-templates.html",
       icon: "📧",
       color: "bg-emerald-50 border-emerald-200 hover:border-emerald-400"
+    },
+    {
+      title: "Business Card Mockups",
+      description: "Professional business card designs with logo variations and print specifications",
+      href: "/BUSINESS_CARD_MOCKUPS.html",
+      icon: "💳",
+      color: "bg-indigo-50 border-indigo-200 hover:border-indigo-400"
     }
   ];
 

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munch Club Business Card Mockups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9FAFB;
+            color: #1F2937;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 16px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #6B7280;
+        }
+
+        .mockup-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: #6B7280;
+            margin-bottom: 40px;
+        }
+
+        /* Desk Mockup Scene */
+        .desk-scene {
+            position: relative;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #F5F3EF 0%, #E8E4DC 100%);
+            border-radius: 20px;
+            padding: 80px 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        /* Wood grain texture */
+        .desk-scene::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(139, 69, 19, 0.02) 2px,
+                    rgba(139, 69, 19, 0.02) 4px);
+            pointer-events: none;
+        }
+
+        .desk-items {
+            position: relative;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Business Card on Desk */
+        .card-on-desk {
+            position: relative;
+            width: 400px;
+            height: 260px;
+            background: #0F172A;
+            border-radius: 12px;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.3),
+                0 2px 8px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            transform: rotate(-3deg) translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .card-on-desk:hover {
+            transform: rotate(0deg) translateY(0);
+        }
+
+        .card-on-desk::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            right: 20px;
+            height: 20px;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Badge on card */
+        .card-badge-wrapper {
+            margin-bottom: 30px;
+        }
+
+        .card-badge-wrapper img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+        }
+
+        .card-tagline {
+            font-size: 14px;
+            font-weight: 500;
+            color: #FFF6EB;
+            text-align: center;
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+            max-width: 320px;
+        }
+
+        /* Laptop Element */
+        .laptop {
+            position: relative;
+            width: 480px;
+            height: 300px;
+            background: linear-gradient(135deg, #1F2937 0%, #0F172A 100%);
+            border-radius: 8px 8px 0 0;
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.3),
+                inset 0 2px 4px rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .laptop::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: -20px;
+            right: -20px;
+            height: 8px;
+            background: linear-gradient(to bottom, #374151, #1F2937);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .laptop-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FFF6EB 0%, #F5F3EF 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .laptop-screen img {
+            width: 120px;
+            height: auto;
+            object-fit: contain;
+            opacity: 0.9;
+        }
+
+        /* Coffee Cup */
+        .coffee-cup {
+            position: relative;
+            width: 100px;
+            height: 120px;
+            background: linear-gradient(to bottom, #FFFFFF 0%, #F5F5F5 100%);
+            border-radius: 8px;
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.15),
+                inset -2px 0 4px rgba(0,0,0,0.1);
+        }
+
+        .coffee-cup::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -25px;
+            width: 35px;
+            height: 60px;
+            border: 8px solid #FFFFFF;
+            border-left: none;
+            border-radius: 0 30px 30px 0;
+            box-shadow: inset -2px 0 4px rgba(0,0,0,0.1);
+        }
+
+        .coffee-surface {
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            right: 10px;
+            height: 80px;
+            background: linear-gradient(to bottom, #6B4423 0%, #4A2F1A 100%);
+            border-radius: 4px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* In-Hand Mockup Scene */
+        .hand-scene {
+            position: relative;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #E5E7EB 0%, #D1D5DB 100%);
+            border-radius: 20px;
+            padding: 100px 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Hand illustration */
+        .hand-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hand-svg {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card in hand (front view) */
+        .card-in-hand-front {
+            position: absolute;
+            width: 400px;
+            height: 260px;
+            background: #0F172A;
+            border-radius: 12px;
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.4),
+                0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            transform: rotate(-5deg);
+            z-index: 2;
+        }
+
+        /* Card in hand (back view) */
+        .card-in-hand-back {
+            position: absolute;
+            width: 400px;
+            height: 260px;
+            background: #FFF6EB;
+            border-radius: 12px;
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.4),
+                0 5px 15px rgba(0,0,0,0.2);
+            padding: 30px;
+            transform: rotate(5deg) translateX(20px);
+            z-index: 2;
+        }
+
+        .card-back-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-back-wordmark {
+            margin-bottom: 20px;
+        }
+
+        .card-back-wordmark img {
+            width: 160px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .card-back-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex: 1;
+        }
+
+        .card-contact {
+            flex: 1;
+        }
+
+        .contact-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0F172A;
+            margin-bottom: 3px;
+        }
+
+        .contact-title {
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(15, 23, 42, 0.8);
+            margin-bottom: 16px;
+        }
+
+        .contact-details {
+            font-size: 12px;
+            color: #0F172A;
+            line-height: 1.8;
+        }
+
+        .card-qr {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 3px solid #0F172A;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: #6B7280;
+            text-align: center;
+            padding: 8px;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .download-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 20px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: #16A34A;
+            color: white;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background: #15803D;
+        }
+
+        .download-btn.secondary {
+            background: #0F172A;
+        }
+
+        .download-btn.secondary:hover {
+            background: #1F2937;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #F0FDF4;
+            border-left: 4px solid #16A34A;
+            padding: 24px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .info-box h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0F172A;
+            margin-bottom: 12px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .desk-items {
+                flex-direction: column;
+            }
+
+            .card-on-desk,
+            .laptop {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .card-in-hand-front,
+            .card-in-hand-back {
+                width: 320px;
+                height: 208px;
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Business Card Mockups</h1>
+            <p>Realistic presentations using actual Munch Club logo assets</p>
+        </div>
+
+        <!-- Desk Scene Mockup -->
+        <div class="mockup-section">
+            <h2 class="section-title">📋 Desk Scene</h2>
+            <p class="section-desc">Business card on desk with laptop and coffee — professional networking context</p>
+
+            <div class="desk-scene">
+                <div class="desk-items">
+                    <!-- Business Card (Front) -->
+                    <div class="card-on-desk">
+                        <div class="card-badge-wrapper">
+                            <img src="club_final_green.png" alt="Munch Club Badge">
+                        </div>
+                        <div class="card-tagline">
+                            Tools + customers for local food businesses.
+                        </div>
+                    </div>
+
+                    <!-- Laptop -->
+                    <div class="laptop">
+                        <div class="laptop-screen">
+                            <img src="club_final_green.png" alt="Munch Club Wordmark">
+                        </div>
+                    </div>
+
+                    <!-- Coffee Cup -->
+                    <div class="coffee-cup">
+                        <div class="coffee-surface"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>✨ Desk Scene Context</h3>
+                <p>
+                    Perfect for LinkedIn posts, portfolio presentations, or website "About" pages. Shows the card in a
+                    professional workspace environment. The card features the primary badge logo (club (1).png) with
+                    green ring and navy background. Laptop screen displays the wordmark (club (7).png) for brand consistency.
+                </p>
+            </div>
+        </div>
+
+        <!-- In-Hand Mockup (Front) -->
+        <div class="mockup-section">
+            <h2 class="section-title">🤝 In-Hand View — Front</h2>
+            <p class="section-desc">Card front held at networking event — shows scale and impact</p>
+
+            <div class="hand-scene">
+                <div class="hand-wrapper">
+                    <div class="card-in-hand-front">
+                        <div class="card-badge-wrapper">
+                            <img src="club_final_green.png" alt="Munch Club Badge">
+                        </div>
+                        <div class="card-tagline">
+                            Tools + customers for local food businesses.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>✨ Front Card Impact</h3>
+                <p>
+                    The dark navy front with centered badge creates a strong first impression. The green ring (Leaf Green #16A34A)
+                    contrasts beautifully against the navy background. Badge is 28mm diameter, perfectly legible at arm's length.
+                    Tagline in cream (8.5pt Inter Medium) provides clear value proposition.
+                </p>
+            </div>
+        </div>
+
+        <!-- In-Hand Mockup (Back) -->
+        <div class="mockup-section">
+            <h2 class="section-title">📇 In-Hand View — Back</h2>
+            <p class="section-desc">Card back with contact details and QR code — functional and clean</p>
+
+            <div class="hand-scene">
+                <div class="hand-wrapper">
+                    <div class="card-in-hand-back">
+                        <div class="card-back-content">
+                            <div class="card-back-wordmark">
+                                <img src="club_final_green.png" alt="Munch Club Wordmark">
+                            </div>
+
+                            <div class="card-back-info">
+                                <div class="card-contact">
+                                    <div class="contact-name">Edou Mota</div>
+                                    <div class="contact-title">Founder</div>
+                                    <div class="contact-details">
+                                        hello@munchclub.co.uk<br>
+                                        +44 (0)7xxx xxx xxx<br>
+                                        munchclub.co.uk
+                                    </div>
+                                </div>
+
+                                <div class="card-qr">
+                                    <div>QR Code<br>Scan to get<br>the app</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>✨ Back Card Functionality</h3>
+                <p>
+                    Cream background (#FFF6EB) is warm and inviting. Wordmark (club (7).png) at 40mm width provides brand
+                    recognition. Contact info is left-aligned with clear hierarchy: Name (10.5pt Semibold), Title (9pt Regular),
+                    Details (8.5pt Regular). QR code positioned right side, 19mm square, easy to scan. Total layout fits within
+                    safe area (3mm inset from trim).
+                </p>
+            </div>
+        </div>
+
+        <!-- Both Sides Together -->
+        <div class="mockup-section">
+            <h2 class="section-title">🎴 Front & Back Together</h2>
+            <p class="section-desc">Complete card presentation showing both sides</p>
+
+            <div class="hand-scene">
+                <div class="hand-wrapper">
+                    <!-- Front Card -->
+                    <div class="card-in-hand-front" style="transform: rotate(-12deg) translateX(-150px);">
+                        <div class="card-badge-wrapper">
+                            <img src="club_final_green.png" alt="Munch Club Badge">
+                        </div>
+                        <div class="card-tagline">
+                            Tools + customers for local food businesses.
+                        </div>
+                    </div>
+
+                    <!-- Back Card -->
+                    <div class="card-in-hand-back" style="transform: rotate(12deg) translateX(150px);">
+                        <div class="card-back-content">
+                            <div class="card-back-wordmark">
+                                <img src="club_final_green.png" alt="Munch Club Wordmark">
+                            </div>
+
+                            <div class="card-back-info">
+                                <div class="card-contact">
+                                    <div class="contact-name">Edou Mota</div>
+                                    <div class="contact-title">Founder</div>
+                                    <div class="contact-details">
+                                        hello@munchclub.co.uk<br>
+                                        +44 (0)7xxx xxx xxx<br>
+                                        munchclub.co.uk
+                                    </div>
+                                </div>
+
+                                <div class="card-qr">
+                                    <div>QR Code<br>Scan to get<br>the app</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>✨ Complete Brand Experience</h3>
+                <p>
+                    Front and back work together to create cohesive brand experience. Navy front is bold and memorable (perfect
+                    for networking events), cream back is functional and approachable (easy to read contact details). High contrast
+                    between sides ensures card stands out in wallet or card holder. Green accent (from badge ring and wordmark dot)
+                    ties both sides together for visual consistency.
+                </p>
+            </div>
+        </div>
+
+        <!-- Download Options -->
+        <div class="download-section">
+            <h2 class="download-title">💾 Save These Mockups</h2>
+            <p style="color: #6B7280; margin-bottom: 30px; font-size: 15px;">
+                Right-click any mockup scene above and select "Save Image As..." to download<br>
+                Use for portfolio, social media, pitch decks, or website
+            </p>
+
+            <div class="info-box" style="text-align: left;">
+                <h3>📸 Mockup Usage Rights</h3>
+                <p>
+                    <strong>You can use these mockups for:</strong><br>
+                    ✅ LinkedIn posts announcing your business<br>
+                    ✅ Portfolio or personal website<br>
+                    ✅ Pitch decks for investors or partners<br>
+                    ✅ Social media (Twitter, Instagram, Facebook)<br>
+                    ✅ Email signatures or newsletters<br>
+                    <br>
+                    <strong>Recommended dimensions:</strong><br>
+                    • Social media posts: 1500px wide<br>
+                    • Website hero images: 2000px wide<br>
+                    • Email newsletters: 800px wide
+                </p>
+            </div>
+        </div>
+
+        <!-- Logo Files Reference -->
+        <div class="mockup-section">
+            <h2 class="section-title">🎨 Logo Files Used</h2>
+            <p class="section-desc">Actual logo assets from your brand folder</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
+                <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    <div style="background: #F9FAFB; border-radius: 8px; padding: 30px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+                        <img src="club_final_green.png" alt="Munch Club Logo" style="width: 150px; height: 150px; object-fit: contain;">
+                    </div>
+                    <h3 style="font-size: 16px; font-weight: 600; color: #0F172A; margin-bottom: 8px;">club_final_green.png</h3>
+                    <p style="font-size: 14px; color: #6B7280; line-height: 1.6;">
+                        <strong>Usage:</strong> Card front & back (primary logo)<br>
+                        <strong>Features:</strong> Final approved Munch Club logo<br>
+                        <strong>Size on card:</strong> Scaled appropriately
+                    </p>
+                </div>
+
+                <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    <div style="background: #F9FAFB; border-radius: 8px; padding: 30px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+                        <img src="club_final_green.png" alt="Munch Club Logo" style="width: 200px; height: auto; object-fit: contain;">
+                    </div>
+                    <h3 style="font-size: 16px; font-weight: 600; color: #0F172A; margin-bottom: 8px;">club_final_blue.png</h3>
+                    <p style="font-size: 14px; color: #6B7280; line-height: 1.6;">
+                        <strong>Usage:</strong> Alternative color variation<br>
+                        <strong>Features:</strong> Blue color variant<br>
+                        <strong>Size on card:</strong> Same as green version
+                    </p>
+                </div>
+
+                <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    <div style="background: #F9FAFB; border-radius: 8px; padding: 30px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+                        <img src="club_final_green.png" alt="Munch Club Logo" style="width: 150px; height: 150px; object-fit: contain;">
+                    </div>
+                    <h3 style="font-size: 16px; font-weight: 600; color: #0F172A; margin-bottom: 8px;">club_final_yellow.png</h3>
+                    <p style="font-size: 14px; color: #6B7280; line-height: 1.6;">
+                        <strong>Usage:</strong> Alternative color variation<br>
+                        <strong>Features:</strong> Yellow color variant<br>
+                        <strong>Use for:</strong> Special promotions
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 2px solid #E5E7EB; color: #6B7280;">
+            <p style="font-size: 14px;">Munch Club Business Card Mockups</p>
+            <p style="font-size: 12px; margin-top: 8px;">Using actual logo file: club_final_green.png</p>
+            <p style="font-size: 12px; margin-top: 4px;">Created: 2025-01-14</p>
+        </div>
+    </div>
+</body>
+</html>
