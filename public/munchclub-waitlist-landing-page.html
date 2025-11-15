@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munch Club - Waitlist Landing Page (3 Variations)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #F3F4F6;
+            line-height: 1.6;
+        }
+
+        .nav {
+            background: white;
+            border-bottom: 2px solid #E5E7EB;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: #F9FAFB;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            color: #0F172A;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover,
+        .nav-btn.active {
+            background: #16A34A;
+            color: white;
+            border-color: #16A34A;
+        }
+
+        .version {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .version.active {
+            display: block;
+        }
+
+        /* Version 1: Direct & Bold */
+        .v1 {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .v1-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .v1-logo {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .v1-logo-dot {
+            color: #16A34A;
+        }
+
+        .v1-tagline {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .v1-headline {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .v1-accent {
+            color: #16A34A;
+        }
+
+        .v1-subheadline {
+            font-size: 20px;
+            opacity: 0.85;
+            margin-bottom: 48px;
+        }
+
+        .v1-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 48px;
+            text-align: left;
+        }
+
+        .v1-benefit {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .v1-benefit-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .v1-benefit-text {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .v1-form {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .v1-form-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .v1-form-subtitle {
+            font-size: 14px;
+            color: #64748B;
+            margin-bottom: 24px;
+        }
+
+        .v1-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            transition: border 0.2s;
+        }
+
+        .v1-input:focus {
+            outline: none;
+            border-color: #16A34A;
+        }
+
+        .v1-button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .v1-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .v1-social-proof {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        .v1-social-proof strong {
+            color: #16A34A;
+        }
+
+        /* Version 2: Visual & Playful */
+        .v2 {
+            background: linear-gradient(135deg, #FFF6EB 0%, #FFFFFF 100%);
+            padding: 60px 20px;
+        }
+
+        .v2-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .v2-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .v2-emoji {
+            font-size: 80px;
+            margin-bottom: 16px;
+        }
+
+        .v2-logo {
+            font-size: 42px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .v2-logo-dot {
+            color: #16A34A;
+        }
+
+        .v2-tagline {
+            font-size: 18px;
+            color: #64748B;
+            margin-bottom: 32px;
+        }
+
+        .v2-headline {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0F172A;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        .v2-subheadline {
+            font-size: 18px;
+            color: #64748B;
+        }
+
+        .v2-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .v2-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .v2-feature {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .v2-feature-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .v2-feature-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 6px;
+        }
+
+        .v2-feature-text {
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        .v2-form {
+            background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+            padding: 32px;
+            border-radius: 16px;
+            color: white;
+            position: sticky;
+            top: 100px;
+        }
+
+        .v2-form-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .v2-form-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .v2-input {
+            width: 100%;
+            padding: 14px;
+            font-size: 15px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .v2-button {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            color: #16A34A;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .v2-button:hover {
+            transform: scale(1.02);
+        }
+
+        .v2-form-note {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 12px;
+        }
+
+        /* Version 3: Minimal & Elegant */
+        .v3 {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .v3-container {
+            max-width: 520px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .v3-logo {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .v3-logo-dot {
+            color: #16A34A;
+        }
+
+        .v3-tagline {
+            font-size: 16px;
+            color: #64748B;
+            margin-bottom: 48px;
+        }
+
+        .v3-headline {
+            font-size: 38px;
+            font-weight: 800;
+            color: #0F172A;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .v3-subheadline {
+            font-size: 18px;
+            color: #64748B;
+            margin-bottom: 48px;
+        }
+
+        .v3-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .v3-stat {
+            padding: 20px;
+            background: #F9FAFB;
+            border-radius: 12px;
+        }
+
+        .v3-stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #16A34A;
+            margin-bottom: 6px;
+        }
+
+        .v3-stat-label {
+            font-size: 13px;
+            color: #64748B;
+            font-weight: 600;
+        }
+
+        .v3-form {
+            background: #F9FAFB;
+            border: 2px solid #E5E7EB;
+            padding: 32px;
+            border-radius: 16px;
+        }
+
+        .v3-form-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 24px;
+        }
+
+        .v3-input {
+            width: 100%;
+            padding: 14px;
+            font-size: 15px;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background: white;
+            transition: border 0.2s;
+        }
+
+        .v3-input:focus {
+            outline: none;
+            border-color: #16A34A;
+        }
+
+        .v3-button {
+            width: 100%;
+            padding: 14px;
+            background: #0F172A;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .v3-button:hover {
+            background: #1E293B;
+        }
+
+        .v3-privacy {
+            font-size: 12px;
+            color: #94A3B8;
+            margin-top: 16px;
+        }
+
+        /* Copy Guide */
+        .copy-guide {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .guide-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .guide-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 24px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .guide-item {
+            background: #F9FAFB;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #16A34A;
+        }
+
+        .guide-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .guide-text {
+            font-size: 13px;
+            color: #64748B;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .v1-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .v2-content {
+                grid-template-columns: 1fr;
+            }
+
+            .v2-features {
+                grid-template-columns: 1fr;
+            }
+
+            .v3-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav">
+        <div class="nav-content">
+            <button class="nav-btn active" onclick="showVersion(1)">Version 1: Direct & Bold</button>
+            <button class="nav-btn" onclick="showVersion(2)">Version 2: Visual & Playful</button>
+            <button class="nav-btn" onclick="showVersion(3)">Version 3: Minimal & Elegant</button>
+        </div>
+    </div>
+
+    <!-- Version 1: Direct & Bold -->
+    <div class="version v1 active" id="v1">
+        <div class="v1-container">
+            <div class="v1-logo">m<span class="v1-logo-dot">u</span>nch club</div>
+            <div class="v1-tagline">Maidstone & Tunbridge Wells</div>
+
+            <h1 class="v1-headline">
+                Save up to <span class="v1-accent">50% off</span><br>
+                local food
+            </h1>
+            <p class="v1-subheadline">
+                Fresh meals from 30+ local restaurants & cafés.<br>
+                Launching February 2025.
+            </p>
+
+            <div class="v1-benefits">
+                <div class="v1-benefit">
+                    <div class="v1-benefit-icon">💰</div>
+                    <div class="v1-benefit-text">Up to 50% off quality food from local spots</div>
+                </div>
+                <div class="v1-benefit">
+                    <div class="v1-benefit-icon">📱</div>
+                    <div class="v1-benefit-text">Order via app, pick up in-store instantly</div>
+                </div>
+                <div class="v1-benefit">
+                    <div class="v1-benefit-icon">🌱</div>
+                    <div class="v1-benefit-text">Save money & help reduce food waste</div>
+                </div>
+                <div class="v1-benefit">
+                    <div class="v1-benefit-icon">📍</div>
+                    <div class="v1-benefit-text">Discover hidden gems in your neighborhood</div>
+                </div>
+            </div>
+
+            <div class="v1-form">
+                <div class="v1-form-title">Join the Waitlist</div>
+                <div class="v1-form-subtitle">Be first to access exclusive deals when we launch</div>
+
+                <form id="form1">
+                    <input type="text" class="v1-input" placeholder="Your name" required>
+                    <input type="email" class="v1-input" placeholder="Your email" required>
+                    <button type="submit" class="v1-button">🎯 Join Waitlist</button>
+                </form>
+
+                <div class="v1-social-proof">
+                    <strong>1,247 people</strong> have already joined • Launching Feb 2025
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Version 2: Visual & Playful -->
+    <div class="version v2" id="v2">
+        <div class="v2-container">
+            <div class="v2-header">
+                <div class="v2-emoji">🍽️</div>
+                <div class="v2-logo">m<span class="v2-logo-dot">u</span>nch club</div>
+                <div class="v2-tagline">Coming to Maidstone & Tunbridge Wells</div>
+                <h1 class="v2-headline">Local food deals at your fingertips</h1>
+                <p class="v2-subheadline">Save money, support local, reduce waste. It's that simple.</p>
+            </div>
+
+            <div class="v2-content">
+                <div class="v2-features">
+                    <div class="v2-feature">
+                        <div class="v2-feature-icon">💸</div>
+                        <div class="v2-feature-title">Save Big</div>
+                        <div class="v2-feature-text">Up to 50% off from 30+ local restaurants & cafés</div>
+                    </div>
+                    <div class="v2-feature">
+                        <div class="v2-feature-icon">⚡</div>
+                        <div class="v2-feature-title">Super Fast</div>
+                        <div class="v2-feature-text">Order in seconds, pick up in-store, skip the wait</div>
+                    </div>
+                    <div class="v2-feature">
+                        <div class="v2-feature-icon">🌍</div>
+                        <div class="v2-feature-title">Do Good</div>
+                        <div class="v2-feature-text">Help reduce food waste & support local businesses</div>
+                    </div>
+                    <div class="v2-feature">
+                        <div class="v2-feature-icon">🎁</div>
+                        <div class="v2-feature-title">Early Access</div>
+                        <div class="v2-feature-text">Waitlist members get £5 free credit at launch</div>
+                    </div>
+                </div>
+
+                <div class="v2-form">
+                    <div class="v2-form-title">Get £5 Free</div>
+                    <div class="v2-form-subtitle">Join 1,200+ locals on the waitlist</div>
+
+                    <form id="form2">
+                        <input type="text" class="v2-input" placeholder="Name" required>
+                        <input type="email" class="v2-input" placeholder="Email" required>
+                        <button type="submit" class="v2-button">Join Waitlist →</button>
+                    </form>
+
+                    <div class="v2-form-note">
+                        ✨ Launching February 2025<br>
+                        📧 We'll email you when it's ready
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Version 3: Minimal & Elegant -->
+    <div class="version v3" id="v3">
+        <div class="v3-container">
+            <div class="v3-logo">m<span class="v3-logo-dot">u</span>nch club</div>
+            <div class="v3-tagline">Maidstone & Tunbridge Wells</div>
+
+            <h1 class="v3-headline">
+                Discover local food at<br>
+                unbeatable prices
+            </h1>
+            <p class="v3-subheadline">
+                Support local restaurants. Save money. Reduce waste.
+            </p>
+
+            <div class="v3-stats">
+                <div class="v3-stat">
+                    <div class="v3-stat-number">30+</div>
+                    <div class="v3-stat-label">Local venues</div>
+                </div>
+                <div class="v3-stat">
+                    <div class="v3-stat-number">50%</div>
+                    <div class="v3-stat-label">Average savings</div>
+                </div>
+                <div class="v3-stat">
+                    <div class="v3-stat-number">Feb</div>
+                    <div class="v3-stat-label">Launch date</div>
+                </div>
+            </div>
+
+            <div class="v3-form">
+                <div class="v3-form-title">Join the Waitlist</div>
+
+                <form id="form3">
+                    <input type="text" class="v3-input" placeholder="Full name" required>
+                    <input type="email" class="v3-input" placeholder="Email address" required>
+                    <button type="submit" class="v3-button">Get Early Access</button>
+                </form>
+
+                <div class="v3-privacy">
+                    We respect your privacy. Unsubscribe anytime.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copy Guide -->
+    <div class="copy-guide">
+        <div class="guide-card">
+            <div class="guide-title">📝 Implementation Guide</div>
+
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <div class="guide-label">Version 1: Direct & Bold</div>
+                    <div class="guide-text">
+                        <strong>Best for:</strong> Facebook/Instagram ads, flyer QR codes<br><br>
+                        <strong>Why:</strong> Clear value prop, high-contrast design, benefit-driven<br><br>
+                        <strong>CPA target:</strong> £1-2
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <div class="guide-label">Version 2: Visual & Playful</div>
+                    <div class="guide-text">
+                        <strong>Best for:</strong> Organic social media, venue in-store displays<br><br>
+                        <strong>Why:</strong> Engaging visuals, friendly tone, incentive (£5 free)<br><br>
+                        <strong>Conversion:</strong> 12-15%
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <div class="guide-label">Version 3: Minimal & Elegant</div>
+                    <div class="guide-text">
+                        <strong>Best for:</strong> Press features, eco-conscious audiences<br><br>
+                        <strong>Why:</strong> Professional aesthetic, sustainability focus<br><br>
+                        <strong>Quality:</strong> Higher intent signups
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-card">
+            <div class="guide-title">🛠️ Technical Setup</div>
+
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <div class="guide-label">Platform: Carrd.co (Free)</div>
+                    <div class="guide-text">
+                        1. Sign up at carrd.co<br>
+                        2. Choose "One Page" template<br>
+                        3. Copy HTML from version you want<br>
+                        4. Customize colors/text<br>
+                        5. Publish to custom domain
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <div class="guide-label">Email: Mailchimp (Free)</div>
+                    <div class="guide-text">
+                        1. Create free Mailchimp account<br>
+                        2. Set up audience list<br>
+                        3. Create embedded form<br>
+                        4. Connect to Carrd landing page<br>
+                        5. Add automation (welcome email)
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <div class="guide-label">Domain: Namecheap</div>
+                    <div class="guide-text">
+                        Register: munchclub.co.uk (~£8/year)<br>
+                        Point to Carrd landing page<br>
+                        Enable SSL (free via Carrd)<br>
+                        Add to business cards & flyers
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-card">
+            <div class="guide-title">📊 Expected Performance</div>
+
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <thead>
+                        <tr style="background: #F9FAFB; text-align: left;">
+                            <th style="padding: 12px; border-bottom: 2px solid #E5E7EB; font-weight: 700;">Channel</th>
+                            <th style="padding: 12px; border-bottom: 2px solid #E5E7EB; font-weight: 700;">Traffic</th>
+                            <th style="padding: 12px; border-bottom: 2px solid #E5E7EB; font-weight: 700;">Conversion</th>
+                            <th style="padding: 12px; border-bottom: 2px solid #E5E7EB; font-weight: 700;">Signups</th>
+                            <th style="padding: 12px; border-bottom: 2px solid #E5E7EB; font-weight: 700;">Cost</th>
+                            <th style="padding: 12px; border-bottom: 2px solid #E5E7EB; font-weight: 700;">CPA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">Facebook Ads</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">10,000</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">18%</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9; font-weight: 700; color: #16A34A;">1,800</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">£3,600</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">£2.00</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">Flyer QR Scans</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">40</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">50%</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9; font-weight: 700; color: #16A34A;">20</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">£100</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">£5.00</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">Venue In-Store</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">15,000</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">7%</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9; font-weight: 700; color: #16A34A;">1,050</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">£0</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">£0.00</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">Organic Social</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">5,000</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">12%</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9; font-weight: 700; color: #16A34A;">600</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">£0</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #F1F5F9;">£0.00</td>
+                        </tr>
+                        <tr style="background: #F0FDF4; font-weight: 700;">
+                            <td style="padding: 12px;">TOTAL</td>
+                            <td style="padding: 12px;">30,040</td>
+                            <td style="padding: 12px;">11.5%</td>
+                            <td style="padding: 12px; color: #16A34A;">3,470</td>
+                            <td style="padding: 12px;">£3,700</td>
+                            <td style="padding: 12px;">£1.07</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showVersion(num) {
+            // Hide all versions
+            document.querySelectorAll('.version').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+
+            // Show selected version
+            document.getElementById('v' + num).classList.add('active');
+            document.querySelectorAll('.nav-btn')[num - 1].classList.add('active');
+        }
+
+        // Form submissions (placeholder)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Form submitted! In production, this would connect to your email collection service (Mailchimp, ConvertKit, etc.)');
+            });
+        });
+    </script>
+</body>
+</html>
